@@ -1,0 +1,17 @@
+1.1 Dependencies
+~~~~~~~~~~~~~~~~~
+   Download all dependencies before proceeding to step 1, 
+   You will need the following programs:
+    - Python (2.5 or higher, 
+    but may work on earlier versions of Python)
+  - git,
+  - wget,
+  - tar accepting "-j" option (any recent GNU tar),
+ 
+1.2 Starting the Project
+~~~~~~~~~~~~~~~~~
+  To start the project:
+  1. python ./bootstrap.py
+  2. ./bin/buildout
+  3. 
+  
