@@ -21,7 +21,7 @@ install_requires = [
     'setuptools',
     'Django',
     'saaskit-core',
-    'fabric',
+    'Fabric',
 ]
 
 extras_require = dict(
