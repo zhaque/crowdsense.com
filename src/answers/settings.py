@@ -54,6 +54,7 @@ INSTALLED_APPS = (
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.sites',
+    'django.contrib.humanize',
 
     # third-party
     'compress',
@@ -82,6 +83,8 @@ INSTALLED_APPS = (
     'subscription',
     'saaskit',
 
+    'django.contrib.admin',
+    'django.contrib.admindocs',
     #'debug_toolbar',
 
 )

@@ -6,9 +6,4 @@ from answers.settings import *
 
 SITE_ID = 1
 
-ROOT_URLCONF = 'main_site.urls'
-
-INSTALLED_APPS += (
-    'django.contrib.admin',
-    'django.contrib.admindocs',
-)
+ROOT_URLCONF = 'main_site.urls' #'answers.marketing_site.urls'
