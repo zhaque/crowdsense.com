@@ -1,13 +1,4 @@
 ### -*- coding: utf-8 -*- ####################################################
-#
-# Copyright (c) 2009 Arvid Paeglit. All Rights Reserved.
-#
-##############################################################################
-"""
-Django settings for 'answers' project.
-
-$Id: setup.py 141 2009-10-05 20:52:52Z arvi3d@gmail.com $
-"""
 
 import os
 from setuptools import setup, find_packages
@@ -19,10 +10,8 @@ version = '0.1'
 
 install_requires = [
     'setuptools',
-    'Django',
     'saaskit-core',
-    'Fabric',
-    'PIL',
+    'cnprog',
 ]
 
 extras_require = dict(
