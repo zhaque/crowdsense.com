@@ -1,35 +1,15 @@
-.block {
-  width: auto; 
-}
-
-#wrapper {
-	width: auto;
-}
-
 #CALeft {
 	width: 70%; 
 }
 #CARight {
 	width: 24%;
 }
-#CAFull {
+.block, #CAFull, #top, #navBar, #revisions, #wrapper {
 	width: auto;
-}
-
-#top {
-	width: auto;
-}
-
-#navBar {
-	width: auto;
-}
-
-#revisions{
-    width: auto;
 }
 
 .question-summary {
-    width: 64%;
+  width: 64%;
 }
 
 .user-info-table{
@@ -37,12 +17,12 @@
 }
 
 .user-stats-table .question-summary {
-    width: 82%;
+  width: 82%;
 }
 
 
 .narrow .summary {
-    width: 60%;
+  width: 60%;
 }
 
 .bookInfo {
@@ -57,4 +37,10 @@
 }
 .user {
 	width: 16%;
+}
+
+
+table {
+  margin:0 !important;
+  width:auto !important;
 }
