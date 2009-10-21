@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}Sign in{% endblock %} 
+{% block content %}
+<h2>Sign in</h2>
+{% if msg %}
+<br />
+	<p class="warning">{{ msg }}</p>
+{% endif %}
+{% if form2.errors %}
+<div class="errors"><p>{% trans "Please correct errors below:" %}<br />
+	{% if form2.username.errors %} 
+		<span class="error">{{ form2.username.errors|join:", " }}</span>
+	{% endif %}
+	{% if form2.password.errors %} 
+		<span class="error">{{ form2.password.errors|join:", " }}</span>
+	{% endif %}
+</p></div>
+<br>
+{% endif %}
+
+{% if form1.errors %}
+<div class="errors">
+    <p><span class="error">{{ form1.openid_url.errors|join:", " }}</span></p>
+</div>
+<br>
+{% endif %}
+<h2>Make a choice:</h2>
+<p> <a href="{% url registration_register %}">Register</a>
+  | <a href="{% url auth_password_reset %}">Reset password</a></p>
+<div class="login">
+
+    <form id="auth_form" name="auth_form" action="{% url user_signin %}" method="post">
+    <input type="hidden" name="next" value="{{ next }}" />
+	<fieldset>
+	    
+	    
+		<legend>{% trans "Sign In Using Your Account ID" %}</legend>
+		<div class="form-row"><label for="id_username">{% trans "Username:" %}</label><br />{{ form2.username }}</div>
+		<div class="form-row"><label for="id_password">{% trans "Password" %}</label><br />{{ form2.password }}</div>
+		
+        <div class="submit-row"><input type="submit" name="blogin" value="{% trans "Sign in" %}"> </div>
+	</fieldset>	
+</form>
+
+<form id="openid_form" name="openid_form" action="{% url user_signin %}" method="post">
+    <input type="hidden" name="action" value="verify" />
+    <input type="hidden" name="next" value="{{ next }}" />
+	<fieldset>
+		<legend>{% trans "Sign In Using Your OpenID URL" %}</legend>
+		<div id="openid_choice">
+    		<p>Please click your account provider:</p>
+    		<div id="openid_btns"></div>
+    	</div>
+    	    <div id="openid_input_area">
+                <label for="id_openid_url">{% trans "OpenId URL :" %}</label>{{ form1.openid_url }}
+                <input name="openid_submit" type="submit" value="{% trans "Sign in with OpenID" %}">
+            </div>
+	</fieldset>
+</form>	
+</div>	
+{% endblock %}
+
+{% block sidebar %}
+<div class="boxC">
+    <h3 class="subtitle">{% trans "Why use OpenID?" %}</h3>
+    <p>
+    <ul class="list-item">
+        <li>
+    {% trans "with openid it is easier" %}
+        </li>
+        <li>
+    {% trans "reuse openid" %}
+        </li>
+        <li>
+    {% trans "openid is widely adopted" %}
+        </li>
+        <li>
+    {% trans "openid is supported open standard" %}
+        </li>
+        
+    </ul>
+    <a href="http://openid.net/what/" target="_blank" style="float:right;position:relative">{% trans "Find out more" %} »</a><br>
+    <a href="http://openid.net/get/" target="_blank" style="float:right;position:relative">{% trans "Get OpenID" %} »</a>
+    </p>
+    <br>  
+</div>
+{% endblock%}
+
+{% block endjs %}
+<script type="text/javascript" src="{{ MEDIA_URL }}saaskit/auth/js/openid-jquery.js"></script>
+<script type="text/javascript">
+openid.img_path = "{{ MEDIA_URL }}saaskit/auth/images/";
+$(document).ready(function() {
+    openid.init('id_openid_url');
+});
+</script>
+<!-- /Simple OpenID Selector -->
+{% endblock %}

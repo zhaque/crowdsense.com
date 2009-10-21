@@ -3,20 +3,15 @@
 import os.path
 
 from answers.settings import *
-
-import cnprog
 from cnprog.settings import ALLOW_FILE_TYPES, ALLOW_MAX_FILE_SIZE
+import cnprog
 
-CNPROG_DIR = os.path.abspath(os.path.dirname(cnprog.__file__))
 
 SITE_ID = 2
 
-ROOT_URLCONF = 'user_site.urls'
-
-MIDDLEWARE_CLASSES += ()
-
 TEMPLATE_DIRS = (
-    #os.path.join(CNPROG_DIR, 'templates').replace('\\','/'),
+    os.path.join(os.path.dirname(__file__), 'templates').replace('\\','/'),
+    os.path.join(os.path.dirname(cnprog.__file__), 'templates').replace('\\','/'),
     os.path.join(KIT_ROOT, 'templates/user_sites').replace('\\','/'),
 ) + TEMPLATE_DIRS
 
