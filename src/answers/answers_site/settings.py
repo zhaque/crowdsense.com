@@ -46,5 +46,6 @@ TEMPLATE_CONTEXT_PROCESSORS += (
 ROOT_URLCONF = 'answers.answers_site.urls'
 
 INSTALLED_APPS += (
+    'cnprog',
     'forum',
 )
