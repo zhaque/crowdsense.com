@@ -1,0 +1,60 @@
+.block {
+  width: auto; 
+}
+
+#wrapper {
+	width: auto;
+}
+
+#CALeft {
+	width: 70%; 
+}
+#CARight {
+	width: 24%;
+}
+#CAFull {
+	width: auto;
+}
+
+#top {
+	width: auto;
+}
+
+#navBar {
+	width: auto;
+}
+
+#revisions{
+    width: auto;
+}
+
+.question-summary {
+    width: 64%;
+}
+
+.user-info-table{
+  width: 97%;
+}
+
+.user-stats-table .question-summary {
+    width: 82%;
+}
+
+
+.narrow .summary {
+    width: 60%;
+}
+
+.bookInfo {
+	width: 97%;
+}
+.bookCover {
+	width: 19%;
+}
+
+.blogRss {
+  width: 48%;
+}
+.user {
+	width: 16%;
+}
