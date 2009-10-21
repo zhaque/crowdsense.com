@@ -16,7 +16,7 @@ ROOT_URLCONF = 'user_site.urls'
 MIDDLEWARE_CLASSES += ()
 
 TEMPLATE_DIRS = (
-    os.path.join(CNPROG_DIR, 'templates').replace('\\','/'),
+    #os.path.join(CNPROG_DIR, 'templates').replace('\\','/'),
     os.path.join(KIT_ROOT, 'templates/user_sites').replace('\\','/'),
 ) + TEMPLATE_DIRS
 
