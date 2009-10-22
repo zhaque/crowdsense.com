@@ -42,7 +42,6 @@ ROOT_URLCONF = 'answers.answers_site.urls'
 
 INSTALLED_APPS += (
     'cnprog',
-    'forum',
 )
 
 EMAIL_VALIDATION = 'off'

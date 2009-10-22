@@ -88,7 +88,7 @@ INSTALLED_APPS = (
     #'debug_toolbar',
     
     'answers',
-
+    'forum',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
