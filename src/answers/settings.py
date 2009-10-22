@@ -89,6 +89,7 @@ INSTALLED_APPS = (
     
     'answers',
     'forum',
+    'muaccount_forum',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
