@@ -35,7 +35,7 @@ MIDDLEWARE_CLASSES = (
 
 TEMPLATE_CONTEXT_PROCESSORS += (
     'cnprog.context_processors.auth_processor',
-    'cnprog.context_processors.application_settings',
+    #'cnprog.context_processors.application_settings',
 )
 
 ROOT_URLCONF = 'answers.answers_site.urls'
@@ -50,10 +50,10 @@ EMAIL_UNIQUE = False
 
 #OTHER SETTINGS
 APP_TITLE = u'DUMMY TITLE'
-APP_KEYWORDS = u'DUMMY KEYWORDS'
-APP_DESCRIPTION = u'DUMMY DESCRIPTION'
+APP_KEYWORDS = u''
+APP_DESCRIPTION = u''
 APP_INTRO = u''
-APP_COPYRIGHT = 'DUMMY COPYRIGHT'
+APP_COPYRIGHT = u''
 
-GOOGLE_SITEMAP_CODE = '55uGNnQVJW8p1bbXeF/Xbh9I7nZBM/wLhRz6N/I1kkA='
+#GOOGLE_SITEMAP_CODE = '55uGNnQVJW8p1bbXeF/Xbh9I7nZBM/wLhRz6N/I1kkA='
 GOOGLE_ANALYTICS_KEY = ''
