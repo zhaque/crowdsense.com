@@ -12,6 +12,8 @@ install_requires = [
     'setuptools',
     'saaskit-core',
     'cnprog',
+    'django-tinymce',
+    'django-frontendadmin',
 ]
 
 extras_require = dict(

@@ -3,7 +3,7 @@
 import os.path
 
 from answers.settings import *
-from cnprog.settings import ALLOW_FILE_TYPES, ALLOW_MAX_FILE_SIZE
+from cnprog.settings import ALLOW_FILE_TYPES, ALLOW_MAX_FILE_SIZE, APP_TITLE, APP_DESCRIPTION, APP_COPYRIGHT
 import cnprog
 
 
@@ -29,8 +29,9 @@ MIDDLEWARE_CLASSES = (
     'muaccounts.middleware.MUAccountsMiddleware',
         
     'cnprog.middleware.pagesize.QuestionsPageSizeMiddleware',
+    
+    
 #   'debug_toolbar.middleware.DebugToolbarMiddleware',
-
 )
 
 TEMPLATE_CONTEXT_PROCESSORS += (
@@ -40,20 +41,6 @@ TEMPLATE_CONTEXT_PROCESSORS += (
 
 ROOT_URLCONF = 'answers.answers_site.urls'
 
-INSTALLED_APPS += (
-    'cnprog',
-)
-
 EMAIL_VALIDATION = 'off'
 MIN_USERNAME_LENGTH = 1
 EMAIL_UNIQUE = False
-
-#OTHER SETTINGS
-APP_TITLE = u'DUMMY TITLE'
-APP_KEYWORDS = u''
-APP_DESCRIPTION = u''
-APP_INTRO = u''
-APP_COPYRIGHT = u''
-
-#GOOGLE_SITEMAP_CODE = '55uGNnQVJW8p1bbXeF/Xbh9I7nZBM/wLhRz6N/I1kkA='
-GOOGLE_ANALYTICS_KEY = ''

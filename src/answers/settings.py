@@ -74,6 +74,7 @@ INSTALLED_APPS = (
     'oembed',
     'templatesadmin',
     'uni_form',
+    'tinymce',
     'app_media',
 
     # own
@@ -83,13 +84,17 @@ INSTALLED_APPS = (
     'subscription',
     'saaskit',
 
-    'django.contrib.admin',
-    'django.contrib.admindocs',
-    #'debug_toolbar',
-    
-    'answers',
     'forum',
     'muaccount_forum',
+    
+    'django.contrib.flatpages',
+    'muaccount_flatpages',
+    
+    'answers',
+    'cnprog',
+    
+    'django.contrib.admin',
+    #'debug_toolbar',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
@@ -100,6 +105,9 @@ TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
 TEMPLATE_DIRS = ( os.path.join(PROJECT_ROOT, 'templates').replace('\\','/'), )
 
 FIXTURE_DIRS = ( os.path.join(PROJECT_ROOT, 'fixtures').replace('\\','/'), )
+
+TINYMCE_JS_URL = '%s/answers/js/tiny_mce/tiny_mce.js' % MEDIA_URL
+TINYMCE_JS_ROOT = os.path.join(MEDIA_ROOT, 'answers/js/tiny_mce')
 
 # Local settings for development / production
 try:
