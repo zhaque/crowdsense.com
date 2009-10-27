@@ -6,8 +6,11 @@ from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.conf import settings
 from django.core.xheaders import populate_xheaders
 from django.utils.safestring import mark_safe
+from django.views.generic.list_detail import object_list
 
 from django.contrib.flatpages.views import DEFAULT_TEMPLATE
+
+from muaccount_flatpages.models import MUFlatPage
 
 def flatpage(request, url, queryset=FlatPage.objects.all()):
     """improved default view by extra parameter queryset instead hardcoded FlatPage"""
@@ -39,8 +42,16 @@ def flatpage(request, url, queryset=FlatPage.objects.all()):
     populate_xheaders(request, response, FlatPage, f.id)
     return response
 
-def mu_flatpage(request, url, queryset=FlatPage.objects.all()):
+
+def mu_flatpage(request, url, queryset=MUFlatPage.objects.all()):
     try:
         return flatpage(request, url, queryset.filter(muaccount=request.muaccount))
     except Http404:
         return flatpage(request, url, queryset.filter(muaccount__exact=None))
+
+def listing(request, queryset=MUFlatPage.objects.all(), template_name="manage/manage_content.html"):
+    
+    return object_list(request, queryset=queryset, 
+                       template_name=template_name, 
+                       template_object_name = 'flatpage')
+    

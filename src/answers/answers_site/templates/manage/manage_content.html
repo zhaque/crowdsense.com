@@ -1,0 +1,16 @@
+{% extends "muaccounts/manage/base.html" %}
+{% load i18n frontendadmin_tags %}
+{% block title %}Application settings{% endblock %} 
+
+{% block content %}
+  <h2>{% trans "Manage Content" %}</h2>
+  {% frontendadmin_add flatpage_list %}
+  <ul>
+    {% for flatpage in flatpage_list %}
+    <li>
+      <a href="{{ flatpage.url }}">{{ flatpage.title }}</a> 
+      {% frontendadmin_change flatpage 'change' %}|{% frontendadmin_delete flatpage 'delete' %}
+    </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

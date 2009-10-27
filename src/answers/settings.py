@@ -76,6 +76,7 @@ INSTALLED_APPS = (
     'uni_form',
     'tinymce',
     'app_media',
+    'frontendadmin',
 
     # own
     'muaccounts',
