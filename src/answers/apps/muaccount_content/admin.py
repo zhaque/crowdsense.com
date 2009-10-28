@@ -9,7 +9,7 @@ from tinymce import widgets as tinymce_widgets
 
 from django.contrib.flatpages.admin import FlatpageForm, FlatPageAdmin
 
-from muaccount_flatpages.models import MUFlatPage
+from muaccount_content.models import MUFlatPage, MUFooterLink
 
 class MuFlatpageForm(FlatpageForm):
     class Meta:
@@ -26,4 +26,7 @@ class MuFlatPageAdmin(FlatPageAdmin):
         models.TextField: {'widget': tinymce_widgets.AdminTinyMCE},
     }
 
+admin.site.unregister(FlatPage)
 admin.site.register(MUFlatPage, MuFlatPageAdmin)
+
+admin.site.register(MUFooterLink)

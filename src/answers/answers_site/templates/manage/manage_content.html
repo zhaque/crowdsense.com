@@ -8,8 +8,15 @@
   <ul>
     {% for flatpage in flatpage_list %}
     <li>
-      <a href="{{ flatpage.url }}">{{ flatpage.title }}</a> 
-      {% frontendadmin_change flatpage 'change' %}|{% frontendadmin_delete flatpage 'delete' %}
+      <a href="{{ flatpage.url }}">{{ flatpage.title }}</a>
+      {% if flatpage.muaccount %} 
+      | {% frontendadmin_change flatpage 'change' %}
+      {% if not flatpage.has_default %}
+        | {% frontendadmin_delete flatpage %}
+      {% endif %}
+      {% else %}
+      | {% frontendadmin_add flatpage_list 'customize' %}
+      {% endif %}
     </li>
     {% endfor %}
   </ul>

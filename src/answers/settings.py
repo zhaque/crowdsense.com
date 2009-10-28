@@ -89,7 +89,7 @@ INSTALLED_APPS = (
     'muaccount_forum',
     
     'django.contrib.flatpages',
-    'muaccount_flatpages',
+    'muaccount_content',
     
     'answers',
     'cnprog',
