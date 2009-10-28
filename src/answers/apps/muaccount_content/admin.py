@@ -9,7 +9,7 @@ from tinymce import widgets as tinymce_widgets
 
 from django.contrib.flatpages.admin import FlatpageForm, FlatPageAdmin
 
-from muaccount_content.models import MUFlatPage, MUFooterLink
+from muaccount_content.models import MUFlatPage
 
 class MuFlatpageForm(FlatpageForm):
     class Meta:
@@ -19,7 +19,7 @@ class MuFlatPageAdmin(FlatPageAdmin):
     form = MuFlatpageForm
     fieldsets = (
         (None, {'fields': ('url', 'title', 'content', 'sites', 'muaccount')}),
-        (_('Advanced options'), {'classes': ('collapse',), 'fields': ('enable_comments', 'registration_required', 'template_name')}),
+        (_('Advanced options'), {'classes': ('collapse',), 'fields': ('enable_comments', 'registration_required', 'template_name', 'show_link')}),
     )
     
     formfield_overrides = {
@@ -28,5 +28,3 @@ class MuFlatPageAdmin(FlatPageAdmin):
 
 admin.site.unregister(FlatPage)
 admin.site.register(MUFlatPage, MuFlatPageAdmin)
-
-admin.site.register(MUFooterLink)
