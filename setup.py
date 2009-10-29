@@ -13,7 +13,7 @@ install_requires = [
     'saaskit-core',
     'cnprog',
     'django-tinymce',
-    'django-frontendadmin',
+    'django-frontendadmin==0.3.1',
 ]
 
 extras_require = dict(
@@ -42,5 +42,5 @@ setup(
     entry_points="""
       # -*- Entry points: -*-
       """,
-    dependency_links = [],
+    dependency_links = ['http://pypi.saaskit.org/django-frontendadmin/',],
 )
