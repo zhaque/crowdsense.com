@@ -107,8 +107,10 @@ TEMPLATE_DIRS = ( os.path.join(PROJECT_ROOT, 'templates').replace('\\','/'), )
 
 FIXTURE_DIRS = ( os.path.join(PROJECT_ROOT, 'fixtures').replace('\\','/'), )
 
+TINYMCE_DEFAULT_CONFIG = {'theme': "advanced", 'relative_urls': True, 'height': '700px', 'width': '79%'}
 TINYMCE_JS_URL = '%s/answers/js/tiny_mce/tiny_mce.js' % MEDIA_URL
 TINYMCE_JS_ROOT = os.path.join(MEDIA_ROOT, 'answers/js/tiny_mce')
+
 
 # Local settings for development / production
 try:

@@ -1,5 +1,5 @@
 ﻿{% extends "base_content.html" %}
-{% load i18n %}
+{% load i18n frontendadmin_tags %}
 {% block title %}{{ flatpage.title }}{% endblock %}
 
 {% block content %}
@@ -9,4 +9,5 @@
 <div class="content">
   {{ flatpage.content }}
 </div>
+<p>{% frontendadmin_change flatpage 'edit' %}</p>
 {% endblock %}

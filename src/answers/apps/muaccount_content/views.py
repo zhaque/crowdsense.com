@@ -65,7 +65,7 @@ def mu_flatpage(request, url, queryset=MUFlatPage.objects.all()):
 
 def mu_listing(request, queryset=MUFlatPage.objects.all(),
             template_name="manage/manage_content.html", extra_context=None):
-    queryset = mu_queryset(request.muaccount, queryset, 'url')
+    queryset = mu_queryset(request.muaccount, queryset, 'url').order_by('order')
     
     return object_list(request, queryset=queryset, 
                        template_name=template_name, 

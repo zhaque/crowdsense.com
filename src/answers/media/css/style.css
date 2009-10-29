@@ -5,7 +5,11 @@
 	width: 24%;
 }
 .block, #CAFull, #top, #navBar, #revisions, #wrapper {
-	width: auto;
+	width: 100%;
+}
+
+#CAFull {
+  padding: 0;
 }
 
 .question-summary {
@@ -40,7 +44,39 @@
 }
 
 
-table {
+#room table {
   margin:0 !important;
   width:auto !important;
+}
+
+/* Form elements */
+
+.ctrlHolder ul.errorlist {
+  float: right;
+  width: 250px;
+}
+
+ul.errorlist {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: red;
+}
+
+.checkbox input.checkboxinput {
+  float: left;
+  margin-right: 15px;
+  margin-left: 37%;
+}
+
+.uniForm .inlineLabels label, .uniForm .inlineLabels .label {
+  width: 20%;
+}
+
+.uniForm .checkbox label {
+  width: 40%;
+}
+
+.uniForm .inlineLabels .formHint {
+  margin-left:37%;
 }

@@ -2,6 +2,7 @@
 
 from django.conf.urls.defaults import url, patterns, include, handler500
 from django.conf import settings
+import frontendadmin.views
 
 from user_site.urls import urlpatterns as saaskit_urls, handler404
 
@@ -9,9 +10,19 @@ from cnprog.urls import unanswered_info
 from muaccount_forum.forms import MuAskForm
 from muaccount_forum.feeds import MURssLastestQuestionsFeed 
 
+from muaccount_content.forms import MuFlatpageAddForm, MuFlatpageChangeForm
+
 feeds = {
     'rss': MURssLastestQuestionsFeed
 }
+
+def mu_initial(func):
+    def wrapped(request, initial=None, *args, **kwargs):
+        if initial is None: initial = {}
+        initial['muaccount'] = request.muaccount.id
+        return func(request, initial=initial, *args, **kwargs)
+    
+    return wrapped
 
 urlpatterns = patterns('',
     url(r'^$', 'muaccount_forum.views.mu_index', {'template_name': 'front_page.html'}, name="home"),
@@ -58,6 +69,26 @@ urlpatterns = patterns('',
     (r'^i18n/', include('django.conf.urls.i18n')),
     (r'^tinymce/', include('tinymce.urls')),
     url(r'^extend/apps/$', 'muaccount_content.views.mu_listing', name='flatpage_listing'),
+    
+    url(r'^frontendadmin/add/(?P<app_label>muaccount_content)/(?P<model_name>muflatpage)/$', 
+        mu_initial(frontendadmin.views.add),
+        {'form_exclude': ('enable_comments', 'template_name', 'use_default', 'active'),
+         'form_class': MuFlatpageAddForm,
+         'initial': {'sites': [settings.SITE_ID,]},
+         'template_name': 'manage/frontendadmin_form.html',
+         },
+        name='frontendadmin_add'
+    ),
+    
+    url(r'^frontendadmin/change/(?P<app_label>muaccount_content)/(?P<model_name>muflatpage)/(?P<instance_id>[\d]+)/$', 
+        mu_initial(frontendadmin.views.change),
+        {'form_exclude': ('enable_comments', 'template_name'),
+         'form_class': MuFlatpageChangeForm,
+         'template_name': 'manage/frontendadmin_form.html',
+         },
+        name='frontendadmin_change'
+    ),
+    
     (r'^frontendadmin/', include('frontendadmin.urls')),
 
 )

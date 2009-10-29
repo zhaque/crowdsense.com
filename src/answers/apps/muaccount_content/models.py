@@ -11,6 +11,7 @@ from muaccounts.models import MUAccount
 class MUFlatPage(FlatPage):
     muaccount = models.ForeignKey(MUAccount, related_name="muflatpages", blank=True, null=True)
     show_link = models.BooleanField(_("show link"), default=True)
+    order = models.IntegerField(_('order'), default=1)
     active = models.BooleanField(_("active"), default=True)
     use_default = models.BooleanField(_("use default"), default=False)
     
