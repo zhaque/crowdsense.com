@@ -21,7 +21,9 @@ class LinksNode(template.Node):
         self.var_name = var_name
 
     def render(self, context):
-        context[self.var_name] = mu_queryset(context['request'].muaccount, MUFlatPage.objects.filter(show_link__exact=True), 'url')
+        context[self.var_name] = mu_queryset(context['request'].muaccount, 
+                                             MUFlatPage.objects.all(), 'url')\
+                                .filter(show_link__exact=True, active__exact=True)
         return ''
 
 def do_get_links(parser, token):

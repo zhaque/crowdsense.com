@@ -107,7 +107,11 @@ TEMPLATE_DIRS = ( os.path.join(PROJECT_ROOT, 'templates').replace('\\','/'), )
 
 FIXTURE_DIRS = ( os.path.join(PROJECT_ROOT, 'fixtures').replace('\\','/'), )
 
-TINYMCE_DEFAULT_CONFIG = {'theme': "advanced", 'relative_urls': True, 'height': '700px', 'width': '79%'}
+TINYMCE_DEFAULT_CONFIG = {
+    'theme': "advanced", 'relative_urls': True, 
+    'height': '700px', 'width': '79%', 
+    'theme_advanced_toolbar_location' : "top",
+}
 TINYMCE_JS_ROOT = os.path.join(MEDIA_ROOT, 'answers/js/tiny_mce')
 
 

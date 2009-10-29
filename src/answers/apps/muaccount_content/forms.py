@@ -24,14 +24,14 @@ class MuFlatpageAddForm(forms.ModelForm):
         self.fields['muaccount'].widget = forms.HiddenInput()
         self.fields['sites'].widget = forms.MultipleHiddenInput()
     
-    
 
 class MuFlatpageChangeForm(MuFlatpageAddForm):
     
     def __init__(self, *args, **kwargs):
         super(MuFlatpageChangeForm, self).__init__(*args, **kwargs)
-        self.fields['title'].widget = ReadOnlyWidgetWithHidden()
-        self.fields['url'].widget = ReadOnlyWidgetWithHidden()
+        if self.instance.has_default():
+            self.fields['title'].widget = ReadOnlyWidgetWithHidden()
+            self.fields['url'].widget = ReadOnlyWidgetWithHidden()
     
     def save(self, commit=True):
         if self.instance.pk is not None and self.instance.muaccount is None:

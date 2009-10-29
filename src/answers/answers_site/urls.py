@@ -68,7 +68,7 @@ urlpatterns = patterns('',
     url(r'^search/$', 'muaccount_forum.views.mu_search', name='search'),
     (r'^i18n/', include('django.conf.urls.i18n')),
     (r'^tinymce/', include('tinymce.urls')),
-    url(r'^extend/apps/$', 'muaccount_content.views.mu_listing', name='flatpage_listing'),
+    url(r'^admin/apps/$', 'muaccount_content.views.mu_listing', name='app_settings'),
     
     url(r'^frontendadmin/add/(?P<app_label>muaccount_content)/(?P<model_name>muflatpage)/$', 
         mu_initial(frontendadmin.views.add),
