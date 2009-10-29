@@ -1,5 +1,10 @@
 {% extends "muaccounts/manage/base.html" %}
 
+{% block head %}
+{{ block.super }}
+{{ form.media }}
+{% endblock %}
+
 {% block content %}
   <div class="block">
     <div class="bd">
