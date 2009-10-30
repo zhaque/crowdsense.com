@@ -3,6 +3,7 @@
 {% load settings %}
 {% load thumbnail %}
 {% load muathemes %}
+{% load i18n %}
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
   <head>
@@ -52,7 +53,17 @@
          
        </div>
      </div>
-
+      
+      {% block messages %}
+      {% if messages %}
+        <ul id="messages">
+            {% for message in messages %}
+            <li id="message_{{ forloop.counter }}"><a href="#" onclick="$('#message_{{ forloop.counter }}').fadeOut(); return false;"><small>{% trans "clear" %}</small></a> {{ message }}</li>
+            {% endfor %}
+        </ul>
+      {% endif %}
+      {% endblock %}
+      
       <div id="bd">
         <div id="yui-main"><div class="yui-b"><div class="yui-g">
               {% block body %}{% endblock %}
