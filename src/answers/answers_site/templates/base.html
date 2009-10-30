@@ -73,8 +73,10 @@
           {% else %}
             <a href="{% url user_signin %}">{% trans "Log in or Sign up" %}</a>
           {% endif %}
+          {% comment %}
           <a href="/about">{% trans "about" %}</a>
           <a href="/faq">{% trans "faq" %}</a>
+          {% endcomment %}
         {% endblock %}
       </div>
       <table width="100%" border="0" cellspacing="0" cellpadding="0">

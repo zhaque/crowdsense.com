@@ -119,6 +119,7 @@ TINYMCE_DEFAULT_CONFIG = {
 }
 TINYMCE_JS_ROOT = os.path.join(MEDIA_ROOT, 'answers/js/tiny_mce')
 
+#_default_css_files += ('answers/css/cnprog.css',)
 
 # Local settings for development / production
 try:

@@ -29,7 +29,6 @@ urlpatterns = patterns('',
     
     (r'^favicon\.ico$', 'django.views.generic.simple.redirect_to', {'url': '%simages/favicon.ico' % settings.MEDIA_URL}),
     (r'^favicon\.gif$', 'django.views.generic.simple.redirect_to', {'url': '%simages/favicon.gif' % settings.MEDIA_URL}),
-    #(r'^accounts/', include('django_authopenid.urls')),
     url(r'^logout/$', 'forum.views.logout', name='logout'),
     
     url(r'^answers/(?P<id>\d+)/comments/$', 'forum.views.answer_comments', name='answer_comments'),
