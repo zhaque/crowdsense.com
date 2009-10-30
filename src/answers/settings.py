@@ -44,6 +44,7 @@ MIDDLEWARE_CLASSES = (
     'django_authopenid.middleware.OpenIDMiddleware',
     'django.middleware.doc.XViewMiddleware',
     'django.middleware.locale.LocaleMiddleware',
+    'pagination.middleware.PaginationMiddleware',
     'sso.middleware.SingleSignOnMiddleware',
 #   'debug_toolbar.middleware.DebugToolbarMiddleware',
 )
@@ -60,6 +61,7 @@ INSTALLED_APPS = (
     'compress',
     'contact_form',
     'registration',
+    'emailconfirmation',
     'django_authopenid',
     'django_extensions',
     'django_pipes',
@@ -77,6 +79,8 @@ INSTALLED_APPS = (
     'tinymce',
     'app_media',
     'frontendadmin',
+    'pagination',
+    'friends',
 
     # own
     'muaccounts',
@@ -84,6 +88,7 @@ INSTALLED_APPS = (
     'quotas',
     'subscription',
     'saaskit',
+    'saaskit_profile',
 
     'forum',
     'muaccount_forum',
