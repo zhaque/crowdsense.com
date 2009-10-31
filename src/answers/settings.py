@@ -47,54 +47,13 @@ MIDDLEWARE_CLASSES = (
     'pagination.middleware.PaginationMiddleware',
     'sso.middleware.SingleSignOnMiddleware',
 #   'debug_toolbar.middleware.DebugToolbarMiddleware',
+    'muaccount_content.middleware.FlatpageFallbackMiddleware',
 )
 
-INSTALLED_APPS = (
-    # builtin
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.sites',
-    'django.contrib.humanize',
-
-    # third-party
-    'compress',
-    'contact_form',
-    'registration',
-    'emailconfirmation',
-    'django_authopenid',
-    'django_extensions',
-    'django_pipes',
-    'notification',
-    'paypal.standard.ipn',
-    'perfect404',
-    'profiles',
-    'sorl.thumbnail',
-    'south',
-    'sso',
-    'tagging',
-    'oembed',
-    'templatesadmin',
-    'uni_form',
-    'tinymce',
-    'app_media',
-    'frontendadmin',
-    'pagination',
-    'friends',
-
-    # own
-    'muaccounts',
-    'prepaid',
-    'quotas',
-    'subscription',
-    'saaskit',
-    'saaskit_profile',
+INSTALLED_APPS += (
 
     'forum',
     'muaccount_forum',
-    
-    'django.contrib.flatpages',
-    'muaccount_content',
     
     'answers',
     'cnprog',
@@ -112,13 +71,6 @@ TEMPLATE_DIRS = ( os.path.join(PROJECT_ROOT, 'templates').replace('\\','/'), )
 
 FIXTURE_DIRS = ( os.path.join(PROJECT_ROOT, 'fixtures').replace('\\','/'), )
 
-TINYMCE_DEFAULT_CONFIG = {
-    'theme': "advanced", 'relative_urls': True, 
-    'height': '700px', 'width': '79%', 
-    'theme_advanced_toolbar_location' : "top",
-}
-TINYMCE_JS_ROOT = os.path.join(MEDIA_ROOT, 'answers/js/tiny_mce')
-
 #_default_css_files += ('answers/css/cnprog.css',)
 
 # Local settings for development / production
@@ -126,5 +78,3 @@ try:
      from local_settings import *
 except ImportError:
      pass
-
-TINYMCE_JS_URL = '%s/answers/js/tiny_mce/tiny_mce.js' % MEDIA_URL
