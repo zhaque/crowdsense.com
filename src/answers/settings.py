@@ -79,3 +79,5 @@ try:
      from local_settings import *
 except ImportError:
      pass
+
+TINYMCE_JS_URL = '%s/saaskit/js/tiny_mce/tiny_mce.js' % MEDIA_URL
