@@ -51,7 +51,8 @@ MIDDLEWARE_CLASSES = (
 )
 
 INSTALLED_APPS += (
-
+    'django.contrib.humanize',
+    
     'forum',
     'muaccount_forum',
     
