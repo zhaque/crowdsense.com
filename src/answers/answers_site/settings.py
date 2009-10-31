@@ -30,8 +30,7 @@ MIDDLEWARE_CLASSES = (
         
     'cnprog.middleware.pagesize.QuestionsPageSizeMiddleware',
     
-    
-#   'debug_toolbar.middleware.DebugToolbarMiddleware',
+    'muaccount_content.middleware.FlatpageFallbackMiddleware',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS += (
