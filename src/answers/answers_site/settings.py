@@ -24,12 +24,11 @@ MIDDLEWARE_CLASSES = (
     'django_authopenid.middleware.OpenIDMiddleware',
     'django.middleware.doc.XViewMiddleware',
     'django.middleware.locale.LocaleMiddleware',
-
+    'pagination.middleware.PaginationMiddleware',
+    
     'sso.middleware.SingleSignOnMiddleware',
     'muaccounts.middleware.MUAccountsMiddleware',
-        
     'cnprog.middleware.pagesize.QuestionsPageSizeMiddleware',
-    
     'muaccount_content.middleware.FlatpageFallbackMiddleware',
 )
 
