@@ -11,7 +11,13 @@
  {"pk": 1, "model": "sites.site", "fields": {"domain": "www.example.com", "name": "example.com main site"}},
  {"pk": 2, "model": "sites.site", "fields": {"domain": "example.com", "name": "example.com user sites"}},
  {"pk": 1, "model": "muaccounts.muaccount", "fields": {"owner": 2, "is_public": true, "subdomain": "free", "members": [5]}},
- {"pk": 2, "model": "muaccounts.muaccount", "fields": {"owner": 3, "is_public": false, "subdomain": "silver", "members": [5, 6]}},
+ {"pk": 2, "model": "muaccounts.muaccount", 
+	 "fields": {
+	 	"owner": 3, "is_public": false, "subdomain": "silver", "members": [5, 6],
+	 	"yahoo_app_id": "ZkTQSOvIkY8PdQ7uAiCGgmbZZjQ6hBOl43ffECw-",
+	 	"yahoo_secret": "775b70d5e4a8d122fcae39069e5f1ea6"
+	 }
+ },
  {"pk": 3, "model": "muaccounts.muaccount", "fields": {"owner": 4, "is_public": false, "domain": "www.gold-account.com", "subdomain": "gold", "members": [6, 7]}},
  {"pk": 1, "model": "subscription.subscription", "fields": {"group": 1, "name": "Silver Membership", "price": "17", "description": "", "recurrence_unit": "M", "recurrence_period": 1}},
  {"pk": 2, "model": "subscription.subscription", "fields": {"group": 2, "name": "Gold Membership", "price": "23", "description": "", "recurrence_unit": "M", "recurrence_period": 1}},

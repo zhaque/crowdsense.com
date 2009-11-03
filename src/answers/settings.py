@@ -72,9 +72,6 @@ TEMPLATE_DIRS = ( os.path.join(PROJECT_ROOT, 'templates').replace('\\','/'), )
 
 FIXTURE_DIRS = ( os.path.join(PROJECT_ROOT, 'fixtures').replace('\\','/'), )
 
-BBAUTH_APP_ID = 'ZkTQSOvIkY8PdQ7uAiCGgmbZZjQ6hBOl43ffECw-'
-BBAUTH_SHARED_SECRET = '775b70d5e4a8d122fcae39069e5f1ea6'
-
 #_default_css_files += ('answers/css/cnprog.css',)
 
 # Local settings for development / production
