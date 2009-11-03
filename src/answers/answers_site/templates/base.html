@@ -84,12 +84,14 @@
         <td width="23%">
           <div id="logo">
             {% block logo %}
-            <a href="/">
-              <img {% if request.muaccount.logo %}src="{{ MEDIA_URL }}{{request.muaccount.logo}}"
-                   {% else %}src="{{ MEDIA_URL }}cnprog/images/logo.png"
-                   {% endif %}
-               title="{% trans 'back to home page' %}" />
+            <a href="/" title="{% trans 'back to home page' %}">
+            {% if request.muaccount.logo %}
+              <img src="{% thumbnail request.muaccount.logo 256x128 %}" id="site-logo">
+            {% else %}
+              <div>{{ request.muaccount.name }}</div>
+            {% endif %}
             </a>
+            <div>{{ request.muaccount.tag_line }}</div>
             {% endblock %}
           </div>
               </td>
