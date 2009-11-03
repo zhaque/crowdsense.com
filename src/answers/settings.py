@@ -72,8 +72,8 @@ TEMPLATE_DIRS = ( os.path.join(PROJECT_ROOT, 'templates').replace('\\','/'), )
 
 FIXTURE_DIRS = ( os.path.join(PROJECT_ROOT, 'fixtures').replace('\\','/'), )
 
-BBAUTH_APP_ID = 'Rzjz90XIkY2Cc6b8Qfh1LfiLLVWFKjNCvScGP1s-'
-BBAUTH_SHARED_SECRET = '1d4093789256310ff9a3af9d0513b92f'
+BBAUTH_APP_ID = 'tNZ7LkjIkY5Bmd.Ic7lvB8olDrEYaTvZsQE6tdU-'
+BBAUTH_SHARED_SECRET = 'e769354f17e66245c346071dc4e260e3'
 
 #_default_css_files += ('answers/css/cnprog.css',)
 
