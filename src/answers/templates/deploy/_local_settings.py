@@ -35,4 +35,6 @@ DEBUG_PROPAGATE_EXCEPTIONS = False
 SERVE_MEDIA = False
 EMAIL_DEBUG = False
 
+#SESSION_COOKIE_DOMAIN = '.{{ host_string }}'
+
 CACHE_BACKEND = 'memcached://127.0.0.1:11211/'
