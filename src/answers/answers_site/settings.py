@@ -12,7 +12,6 @@ SITE_ID = 2
 TEMPLATE_DIRS = (
     os.path.join(os.path.dirname(__file__), 'templates').replace('\\','/'),
     os.path.join(os.path.dirname(cnprog.__file__), 'templates').replace('\\','/'),
-    os.path.join(KIT_ROOT, 'templates/user_sites').replace('\\','/'),
 ) + TEMPLATE_DIRS
 
 MIDDLEWARE_CLASSES = (
@@ -36,6 +35,10 @@ TEMPLATE_CONTEXT_PROCESSORS += (
     'cnprog.context_processors.auth_processor',
     #'cnprog.context_processors.application_settings',
 )
+
+INSTALLED_APPS = (
+    'user_site',
+) + INSTALLED_APPS
 
 ROOT_URLCONF = 'answers.answers_site.urls'
 
