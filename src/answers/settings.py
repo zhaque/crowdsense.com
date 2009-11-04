@@ -72,6 +72,8 @@ TEMPLATE_DIRS = ( os.path.join(PROJECT_ROOT, 'templates').replace('\\','/'), )
 
 FIXTURE_DIRS = ( os.path.join(PROJECT_ROOT, 'fixtures').replace('\\','/'), )
 
+THUMBNAIL_EXTENSION = 'png'
+
 #_default_css_files += ('answers/css/cnprog.css',)
 
 # Local settings for development / production
