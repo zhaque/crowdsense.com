@@ -84,8 +84,17 @@
               {% endif %}
           </div></div>
           {% endif %} 
-        {{ request.muaccount.adsense_code|safe }}
-              {% block sidebar %} {% endblock %}
+          
+          {% if request.muaccount.adsense_code %}
+            {{ request.muaccount.adsense_code|safe }}
+          {% else %}
+            {% load adsense %}{% get_site_adsenses as adsenses %}
+            {% for adsense in adsenses %}
+              {{ adsense.code|safe }}
+            {% endfor %}
+          {% endif %}
+          
+          {% block sidebar %} {% endblock %}
          </div>
       </div>
       <div id="ft"><div id="yui-main">

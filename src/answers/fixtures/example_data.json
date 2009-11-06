@@ -14,5 +14,7 @@
  },
  {"pk": 3, "model": "muaccounts.muaccount", "fields": {"owner": 4, "is_public": false, "domain": "www.gold-account.com", "subdomain": "gold", "members": [6, 7]}},
  {"pk": 1, "model": "subscription.usersubscription", "fields": {"active": true, "cancelled": true, "expires": "2012-12-21", "user": 3, "subscription": 1}},
- {"pk": 2, "model": "subscription.usersubscription", "fields": {"active": true, "cancelled": true, "expires": "2012-12-21", "user": 4, "subscription": 2}}
+ {"pk": 2, "model": "subscription.usersubscription", "fields": {"active": true, "cancelled": true, "expires": "2012-12-21", "user": 4, "subscription": 2}},
+ 
+ {"pk": 1, "model": "simple_adsense.siteadsense", "fields": {"code": "<a href=\"http://dummythings.com\"><strong>Buy me dummy thing! Please! I want to eat.</strong></a>\r\n","sites": [2, 1]}}
 ]

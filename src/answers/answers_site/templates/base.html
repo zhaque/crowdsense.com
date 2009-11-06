@@ -151,6 +151,14 @@
                   </div>
   
                   <div id="CARight">
+                      {% if request.muaccount.adsense_code %}
+                        {{ request.muaccount.adsense_code|safe }}
+                      {% else %}
+                        {% load adsense %}{% get_site_adsenses as adsenses %}
+                        {% for adsense in adsenses %}
+                          {{ adsense.code|safe }}
+                        {% endfor %}
+                      {% endif %}
                       {% block sidebar%}
                       {% endblock%}
                   </div>
