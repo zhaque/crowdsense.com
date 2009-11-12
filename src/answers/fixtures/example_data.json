@@ -1,10 +1,9 @@
 [{"pk": 1, "model": "auth.group", "fields": {"name": "Registered Member", "permissions": [164, 165, 166, 167, 168, 169, 98, 99, 100]}},
- {"pk": 2, "model": "auth.user", "fields": {"username": "free_user", "first_name": "", "last_name": "", "is_active": true, "is_superuser": false, "is_staff": false, "last_login": "2009-06-17 08:40:30", "groups": [1], "user_permissions": [], "password": "sha1$dc664$fcc10c70d70b91bed1d98a53956237829769bf86", "email": "", "date_joined": "2009-06-17 08:27:35"}},
- {"pk": 3, "model": "auth.user", "fields": {"username": "silver_user", "first_name": "", "last_name": "", "is_active": true, "is_superuser": false, "is_staff": false, "last_login": "2009-06-17 08:40:47", "groups": [1], "user_permissions": [], "password": "sha1$d58b2$1193767b6b4217715264bfda4f6e58427ba9529f", "email": "", "date_joined": "2009-06-17 08:27:54"}},
- {"pk": 4, "model": "auth.user", "fields": {"username": "gold_user", "first_name": "", "last_name": "", "is_active": true, "is_superuser": false, "is_staff": false, "last_login": "2009-06-17 08:28:12", "groups": [1], "user_permissions": [], "password": "sha1$374dd$0e8d4f9b10331588f2cb9cb955afee355d448ef5", "email": "", "date_joined": "2009-06-17 08:28:12"}},
- {"pk": 5, "model": "auth.user", "fields": {"username": "test1", "first_name": "", "last_name": "", "is_active": true, "is_superuser": false, "is_staff": false, "last_login": "2009-06-17 08:40:15", "groups": [1], "user_permissions": [], "password": "sha1$467e2$54c83b9bd8a57a98ff75a727a4d2d00179546898", "email": "", "date_joined": "2009-06-17 08:29:12"}},
- {"pk": 6, "model": "auth.user", "fields": {"username": "test2", "first_name": "", "last_name": "", "is_active": true, "is_superuser": false, "is_staff": false, "last_login": "2009-06-17 08:29:18", "groups": [1], "user_permissions": [], "password": "sha1$da8fc$b5a200dea895a578689bf0afd1c3feb1f712807f", "email": "", "date_joined": "2009-06-17 08:29:18"}},
- {"pk": 7, "model": "auth.user", "fields": {"username": "test3", "first_name": "", "last_name": "", "is_active": true, "is_superuser": false, "is_staff": false, "last_login": "2009-06-17 08:41:19", "groups": [1], "user_permissions": [], "password": "sha1$3f10b$32d372cd805d3488266a6a08e81a640280c546d3", "email": "", "date_joined": "2009-06-17 08:29:24"}},
+ {"pk": 2, "model": "auth.user", "fields": {"username": "free_user", "first_name": "", "last_name": "", "is_active": true, "is_superuser": false, "is_staff": false, "last_login": "2009-06-17 08:40:30", "password": "sha1$dc664$fcc10c70d70b91bed1d98a53956237829769bf86", "email": ""}},
+ {"pk": 3, "model": "auth.user", "fields": {"username": "silver_user", "first_name": "", "last_name": "", "is_active": true, "is_superuser": false, "is_staff": false, "last_login": "2009-06-17 08:40:47", "password": "sha1$d58b2$1193767b6b4217715264bfda4f6e58427ba9529f", "email": ""}},
+ {"pk": 5, "model": "auth.user", "fields": {"username": "test1", "first_name": "", "last_name": "", "is_active": true, "is_superuser": false, "is_staff": false, "last_login": "2009-06-17 08:40:15", "password": "sha1$467e2$54c83b9bd8a57a98ff75a727a4d2d00179546898", "email": ""}},
+ {"pk": 6, "model": "auth.user", "fields": {"username": "test2", "first_name": "", "last_name": "", "is_active": true, "is_superuser": false, "is_staff": false, "last_login": "2009-06-17 08:29:18", "password": "sha1$da8fc$b5a200dea895a578689bf0afd1c3feb1f712807f", "email": ""}},
+ {"pk": 7, "model": "auth.user", "fields": {"username": "test3", "first_name": "", "last_name": "", "is_active": true, "is_superuser": false, "is_staff": false, "last_login": "2009-06-17 08:41:19", "password": "sha1$3f10b$32d372cd805d3488266a6a08e81a640280c546d3", "email": ""}},
  {"pk": 1, "model": "muaccounts.muaccount", "fields": {"owner": 2, "is_public": true, "subdomain": "free", "members": [5]}},
  {"pk": 2, "model": "muaccounts.muaccount", 
 	 "fields": {
@@ -13,9 +12,8 @@
 	 	"yahoo_secret": "775b70d5e4a8d122fcae39069e5f1ea6"
 	 }
  },
- {"pk": 3, "model": "muaccounts.muaccount", "fields": {"owner": 4, "is_public": false, "domain": "www.gold-account.com", "subdomain": "gold", "members": [6, 7]}},
- {"pk": 1, "model": "subscription.usersubscription", "fields": {"user": 3, "subscription": 1}},
- {"pk": 2, "model": "subscription.usersubscription", "fields": {"user": 4, "subscription": 2}},
+ {"pk": 1, "model": "subscription.usersubscription", "fields": {"user": 2, "subscription": 1}},
+ {"pk": 2, "model": "subscription.usersubscription", "fields": {"user": 3, "subscription": 2}},
  
  {"pk": 1, "model": "simple_adsense.siteadsense", "fields": {"code": "<a href=\"http://dummythings.com\"><strong>Buy me dummy thing! Please! I want to eat.</strong></a>\r\n","sites": [2, 1]}}
 ]

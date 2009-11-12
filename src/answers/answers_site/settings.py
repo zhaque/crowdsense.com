@@ -19,6 +19,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'subscription.middleware.SubscriptionMiddleware',
     'django.middleware.transaction.TransactionMiddleware',
     'django_authopenid.middleware.OpenIDMiddleware',
     'django.middleware.doc.XViewMiddleware',
