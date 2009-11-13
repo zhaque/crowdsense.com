@@ -5,13 +5,25 @@
  {"pk": 1, "model": "subscription.subscription", 
 	 "fields": {
 	 	"name": "Silver Membership", 
-	 	"price": "17", 
+	 	"price": "5", 
 	 	"description": "", 
 	 	"trial_unit": "D",
 	 	"trial_period": 21,
 	 	"recurrence_unit": "M", 
 	 	"recurrence_period": 1, 
-	 	"permissions": [86, 89]
+	 	"permissions": [89]
+	 }
+ },
+ {"pk": 2, "model": "subscription.subscription", 
+	 "fields": {
+	 	"name": "Gold Membership", 
+	 	"price": "6", 
+	 	"description": "", 
+	 	"trial_unit": "D",
+	 	"trial_period": 21,
+	 	"recurrence_unit": "M", 
+	 	"recurrence_period": 1, 
+	 	"permissions": [90]
 	 }
  },
   

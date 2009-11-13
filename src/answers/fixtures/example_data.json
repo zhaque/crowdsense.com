@@ -1,4 +1,4 @@
-[{"pk": 1, "model": "auth.group", "fields": {"name": "Registered Member", "permissions": [164, 165, 166, 167, 168, 169, 98, 99, 100]}},
+[{"pk": 1, "model": "auth.group", "fields": {"name": "Registered Member", "permissions": [88, 94, 107, 108, 109, 176, 177, 178, 179, 180, 181]}},
  {"pk": 2, "model": "auth.user", "fields": {"username": "free_user", "is_active": true, "is_superuser": false, "is_staff": false, "password": "sha1$dc664$fcc10c70d70b91bed1d98a53956237829769bf86", "email": ""}},
  {"pk": 3, "model": "auth.user", "fields": {"username": "silver_user", "is_active": true, "is_superuser": false, "is_staff": false, "password": "sha1$d58b2$1193767b6b4217715264bfda4f6e58427ba9529f", "email": ""}},
  {"pk": 5, "model": "auth.user", "fields": {"username": "test1", "is_active": true, "is_superuser": false, "is_staff": false, "password": "sha1$467e2$54c83b9bd8a57a98ff75a727a4d2d00179546898", "email": ""}},
