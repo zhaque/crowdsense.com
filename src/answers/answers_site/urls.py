@@ -2,13 +2,20 @@
 
 from django.conf.urls.defaults import url, patterns, include, handler500
 from django.conf import settings
+from django.contrib.auth.models import User
+
 import frontendadmin.views
 
 from user_site.urls import urlpatterns as saaskit_urls, handler404
 
+from saaskit.urls import wrapped_queryset
+
+import forum.views
+from forum.models import Question, Tag, User
 from cnprog.urls import unanswered_info
 from muaccount_forum.forms import MuAskForm
-from muaccount_forum.feeds import MURssLastestQuestionsFeed 
+from muaccount_forum.feeds import MURssLastestQuestionsFeed
+import muaccount_forum.views 
 
 feeds = {
     'rss': MURssLastestQuestionsFeed
@@ -25,8 +32,15 @@ urlpatterns = patterns('',
     url(r'^answers/(?P<id>\d+)/edit/$', 'forum.views.edit_answer', name='edit_answer'),
     url(r'^answers/(?P<id>\d+)/revisions/$', 'forum.views.answer_revisions', name='answer_revisions'),
 
-    url(r'^questions/$', 'muaccount_forum.views.mu_questions', name='questions'),
-    url(r'^questions/unanswered/$', 'muaccount_forum.views.mu_questions', unanswered_info, name='unanswered'),
+    url(r'^questions/$', 
+        wrapped_queryset(forum.views.questions, 
+                         lambda request, queryset: queryset.filter(muaccount=request.muaccount)), 
+        {'queryset': Question.objects.all()},
+        name='questions'),
+    url(r'^questions/unanswered/$', 
+        wrapped_queryset(forum.views.questions, 
+                         lambda request, queryset: queryset.filter(muaccount=request.muaccount)),
+        unanswered_info, name='unanswered'),
     url(r'^questions/ask/$', 'forum.views.ask', {'form_class': MuAskForm}, name='ask'),
     
     url(r'^questions/(?P<id>\d+)/edit/$', 'forum.views.edit_question', name='edit_question'),
@@ -34,16 +48,36 @@ urlpatterns = patterns('',
     url(r'^questions/(?P<id>\d+)/reopen/$', 'forum.views.reopen', name='reopen'),
     url(r'^questions/(?P<id>\d+)/answer/$', 'forum.views.answer', name='answer'),
     url(r'^questions/(?P<id>\d+)/vote/$', 'forum.views.vote', name='vote'),
-    url(r'^questions/(?P<id>\d+)/revisions/$', 'forum.views.question_revisions', name='question_revisions'),
-    url(r'^questions/(?P<id>\d+)/comments/$', 'forum.views.question_comments', name='question_comments'),
-    url(r'^questions/(?P<question_id>\d+)/comments/(?P<comment_id>\d+)/delete/$', 'forum.views.delete_question_comment', name='delete_question_comment'),
-    url(r'^questions/(?P<id>\d+)/$', 'muaccount_forum.views.mu_question', name='question'),
-    url(r'^answers/(?P<answer_id>\d+)/comments/(?P<comment_id>\d+)/delete/$', 'forum.views.delete_answer_comment', name='delete_answer_comment'),
+    url(r'^questions/(?P<id>\d+)/revisions/$', 'forum.views.question_revisions', 
+        name='question_revisions'),
+    url(r'^questions/(?P<id>\d+)/comments/$', 'forum.views.question_comments', 
+        name='question_comments'),
+    url(r'^questions/(?P<question_id>\d+)/comments/(?P<comment_id>\d+)/delete/$', 
+        'forum.views.delete_question_comment', name='delete_question_comment'),
+    url(r'^questions/(?P<object_id>\d+)/$', 
+        wrapped_queryset(forum.views.question, 
+                         lambda request, queryset: queryset.filter(muaccount=request.muaccount)),
+        {'queryset': Question.objects.all()},
+        name='question'),
+    url(r'^answers/(?P<answer_id>\d+)/comments/(?P<comment_id>\d+)/delete/$', 
+        'forum.views.delete_answer_comment', name='delete_answer_comment'),
     
-    url(r'^tags/$', 'muaccount_forum.views.mu_tags', name="tags"),
-    url(r'^tags/(?P<tag>[^/]+)/$', 'muaccount_forum.views.mu_tagged_search', name='tag_search'),
+    url(r'^tags/$', 
+        wrapped_queryset(forum.views.tags, 
+                         lambda request, queryset: queryset.filter(questions__muaccount=request.muaccount)),
+        {'queryset': Tag.objects.filter(deleted=False).exclude(used_count=0)},
+        name="tags"),
+    url(r'^tags/(?P<tag>[^/]+)/$',
+        wrapped_queryset(forum.views.tagged_search, 
+                         lambda request, queryset: queryset.filter(muaccount=request.muaccount)),
+        {'queryset': Question.objects.all()},
+        name='tag_search'),
     
-    url(r'^users/$','muaccount_forum.views.mu_users', name="users"),
+    url(r'^users/$',
+        wrapped_queryset(forum.views.users, 
+                         lambda request, queryset: queryset.filter(muaccount_member__id=request.muaccount.pk)),
+        {'queryset': User.objects.all()},
+        name="users"),
     url(r'^users/(?P<id>\d+)/edit/$', 'forum.views.edit_user', name='edit_user'),
     url(r'^users/(?P<id>\d+)//*', 'forum.views.user', name='user'),
     url(r'^badges/$', 'forum.views.badges', name='badges'),
@@ -54,7 +88,11 @@ urlpatterns = patterns('',
     url(r'^books/$', 'forum.views.books', name='books'),
     url(r'^books/ask/(?P<short_name>[^/]+)/$', 'forum.views.ask_book', name='ask_book'),
     url(r'^books/(?P<short_name>[^/]+)/$', 'forum.views.book', name='book'),
-    url(r'^search/$', 'muaccount_forum.views.mu_search', name='search'),
+    url(r'^search/$',
+        wrapped_queryset(forum.views.search, 
+                         lambda request, queryset: queryset.filter(muaccount=request.muaccount)),
+        {'queryset': Question.objects.all()},
+        name='search'),
     (r'^i18n/', include('django.conf.urls.i18n')),
 )
 
