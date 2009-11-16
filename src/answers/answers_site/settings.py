@@ -28,6 +28,7 @@ MIDDLEWARE_CLASSES = (
     
     'sso.middleware.SingleSignOnMiddleware',
     'muaccounts.middleware.MUAccountsMiddleware',
+    'page_view_quotas.middleware.PageViewQuotasMiddleware',
     'cnprog.middleware.pagesize.QuestionsPageSizeMiddleware',
     'muaccount_content.middleware.FlatpageFallbackMiddleware',
 )

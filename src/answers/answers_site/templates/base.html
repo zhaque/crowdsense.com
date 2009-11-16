@@ -219,5 +219,7 @@
       {% compressed_js 'all' %}
       {% block extra_scripts %}{% endblock %}
       {{ request.muaccount.analytics_code|safe }}
+      
+      {% load counter_tags %} {% counter request.muaccount %}
     </body>
 </html>
