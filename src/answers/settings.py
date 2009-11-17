@@ -23,7 +23,7 @@ MANAGERS = ADMINS
 DATABASE_ENGINE = 'sqlite3'  
 DATABASE_NAME = os.path.join(PROJECT_ROOT, 'answers.db') 
 
-MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'wide_media')
+MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'site_media')
 APP_MEDIA_ROOT = MEDIA_ROOT
 
 # Make this unique, and don't share it with anybody.
@@ -75,6 +75,14 @@ FIXTURE_DIRS = ( os.path.join(PROJECT_ROOT, 'fixtures').replace('\\','/'), )
 COVERAGE_REPORT_PATH = os.path.join(PROJECT_ROOT, 'coverage_report')
 
 THUMBNAIL_EXTENSION = 'png'
+
+# Settings for templates editing via django admin
+
+TEMPLATESADMIN_GROUP = 'Editors'
+
+
+TEMPLATESADMIN_TEMPLATE_DIRS = ( os.path.join(PROJECT_ROOT, 'answers_site', 'templates').replace('\\','/'), ) \
+                                + TEMPLATE_DIRS + TEMPLATESADMIN_TEMPLATE_DIRS
 
 #_default_css_files += ('answers/css/cnprog.css',)
 

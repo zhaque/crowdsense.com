@@ -30,7 +30,7 @@ setup(
     long_description = read('README'),
     author = 'Arvid Paeglit',
     author_email = 'arvi3d@gmail.com',
-    url = 'http://yotweets.com',
+    url = 'http://answerlog.net',
     packages = find_packages('src'),
     package_dir = {'': 'src'},
     include_package_data = True,
