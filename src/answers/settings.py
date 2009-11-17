@@ -82,7 +82,7 @@ TEMPLATESADMIN_GROUP = 'Editors'
 
 
 TEMPLATESADMIN_TEMPLATE_DIRS = ( os.path.join(PROJECT_ROOT, 'answers_site', 'templates').replace('\\','/'), ) \
-                                + TEMPLATE_DIRS + TEMPLATESADMIN_TEMPLATE_DIRS
+                                + TEMPLATE_DIRS
 
 #_default_css_files += ('answers/css/cnprog.css',)
 
