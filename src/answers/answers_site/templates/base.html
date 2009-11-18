@@ -13,6 +13,7 @@
         <link rel="stylesheet" href="http://yui.yahooapis.com/2.7.0/build/reset-fonts-grids/reset-fonts-grids.css" type="text/css">
         <!-- <link rel="stylesheet" href="{{ MEDIA_URL }}saaskit/css/user_sites.css" type="text/css">  -->
         <link rel="stylesheet" href="{{ MEDIA_URL }}answers/css/style.css" type="text/css" />
+        <link rel="stylesheet" href="{{ MEDIA_URL }}saaskit/css/main.css" type="text/css">
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
         <script type="text/javascript">
           var i18nLang = '{{settings.LANGUAGE_CODE}}';
@@ -55,48 +56,48 @@
             {% endautoescape %}
             <a id="close-notify" onclick="notify.close(true)">&times;</a>
         </div>
-        <div id="hd">
+        
           <!-- template header.html -->
 {% load extra_tags %}
 {% load i18n %}
-  <div id="roof">
-    <div id="navBar">
-      <div id="top">
+     <div id="hd">
+      <div class="navigation">
         {% block top_header %}
+           <div id="user-nav">
+             <ul>
           {% if request.user.is_authenticated %}
-            <a href="/users/{{ request.user.id }}/{{ request.user.username }}/">{{ request.user.username }}</a> {% get_score_badge request.user %}
+            <li><a href="/users/{{ request.user.id }}/{{ request.user.username }}/">{{ request.user.username }}</a> {% get_score_badge request.user %}</li>
             {% ifequal user request.muaccount.owner %}
-            <a href="{% url muaccounts_manage_general %}">{% trans "Manage" %}</a> 
+            <li><a href="{% url muaccounts_manage_general %}">{% trans "Manage" %}</a></li> 
             {% endifequal %}
-            <a href="{% url account_dashboard %}">{% trans "Account" %}</a> 
-            <a href="{% url logout %}?next=/">{% trans "Log out" %}</a></li> 
+            <li><a href="{% url account_dashboard %}">{% trans "Account" %}</a></li> 
+            <li><a href="{% url logout %}?next=/">{% trans "Log out" %}</a></li> 
           {% else %}
-            <a href="{% url user_signin %}">{% trans "Log in or Sign up" %}</a>
+            <li><a href="{% url user_signin %}">{% trans "Log in or Sign up" %}</a></li>
           {% endif %}
           {% comment %}
-          <a href="/about">{% trans "about" %}</a>
-          <a href="/faq">{% trans "faq" %}</a>
+          <li><a href="/about">{% trans "about" %}</a></li>
+          <li><a href="/faq">{% trans "faq" %}</a></li>
           {% endcomment %}
+            </ul>
+           </div>
         {% endblock %}
-      </div>
-      <table width="100%" border="0" cellspacing="0" cellpadding="0">
-        <tr>
-        <td width="23%">
+        <div class="clear"></div>
           <div id="logo">
             {% block logo %}
             <a href="/" title="{% trans 'back to home page' %}">
             {% if request.muaccount.logo %}
               <img src="{% thumbnail request.muaccount.logo 256x128 %}" id="site-logo">
             {% else %}
-              <div>{{ request.muaccount.name }}</div>
+              <h2>{{ request.muaccount.name }}</h2>
             {% endif %}
             </a>
-            <div>{{ request.muaccount.tag_line }}</div>
+            <p>{{ request.muaccount.tag_line }}</p>
             {% endblock %}
           </div>
-              </td>
-        <td width="77%" valign="bottom">
-                <div class="nav">
+          <div class="clear"></div>
+             
+                <div id="primary-navigation">
                     <a id="nav_questions" href="/questions/" >{% trans "questions" %}</a>
                     <a id="nav_tags" href="/tags/">{% trans "tags" %}</a>
                     <a id="nav_users" href="/users/">{% trans "users" %}</a>
@@ -109,19 +110,15 @@
                     <a id="nav_profile" href="/users/{{ request.user.id }}/{{ request.user.username }}/">{% trans "my profile" %}</a>
                     {% endif %}
           {% endcomment %}
-                    <div class="focus">
+                    <div id="primary-navigation" style="float:right; margin-right:10px;">
                     <a id="nav_ask" href="/questions/ask/" class="special">{% trans "ask a question" %}</a>
                     </div>
                 </div>
-
-              </td>
-        </tr>
-      </table>
+            
     </div>
+    <div class="clear"></div>
     <div id="searchBar">
-      <table width="100%" height="60" border="0" cellpadding="0" cellspacing="0" class="content">
-            <tr>
-                <td align="center" valign="middle">
+      
                     <form action="/search/" method="GET">
                         <div>
                             <input type="text" class="searchInput" value="{{ keywords }}" name="q" id="keywords" >
@@ -133,24 +130,22 @@
                             <input id="type-user" type="radio" class="" value="user" name="t" >{% trans "users" %}
                         </div>
                     </form>
-                </td>
-            </tr>
-      </table>
+                
     </div>
   </div>
 <!-- end template header.html -->
 
-        </div>
         <div id="bd">
-          <div id="wrapper">
-              <div id="room">
-                {% block CA %}
-                  <div id="CALeft">
+          
+                {% block main-content %}
+                   <div id="yui-main">
+                     <div class="yui-b"> 
                       {% block content%}
                       {% endblock%}
-                  </div>
+                     </div>
+                   </div>
   
-                  <div id="CARight">
+                  <div id="sidebar" class="yui-b">
                       {% if request.muaccount.adsense_code %}
                         {{ request.muaccount.adsense_code|safe }}
                       {% else %}
@@ -162,7 +157,9 @@
                       {% block sidebar%}
                       {% endblock%}
                   </div>
+                </div>
                 {% endblock %}
+
                   <div id="tail" style="clear:both;">
                       {% block tail %}
                       {% endblock %}
@@ -223,3 +220,22 @@
       {% load counter_tags %} {% counter request.muaccount %}
     </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
