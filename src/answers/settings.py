@@ -56,8 +56,8 @@ INSTALLED_APPS += (
     'forum',
     'muaccount_forum',
     
-    'answers',
     'cnprog',
+    'answers',
     
     'django.contrib.admin',
     #'debug_toolbar',
@@ -83,6 +83,12 @@ TEMPLATESADMIN_GROUP = 'Editors'
 
 TEMPLATESADMIN_TEMPLATE_DIRS = ( os.path.join(PROJECT_ROOT, 'answers_site', 'templates').replace('\\','/'), ) \
                                 + TEMPLATE_DIRS
+
+QUOTAS = {
+    'muaccount_members' : (10,),
+    'muaccounts': (1,),
+    'page_views': (1000000, 2000000, 10000000),
+    }
 
 #_default_css_files += ('answers/css/cnprog.css',)
 
