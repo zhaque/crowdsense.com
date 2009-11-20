@@ -11,7 +11,8 @@
 	 	"yahoo_secret": "775b70d5e4a8d122fcae39069e5f1ea6"
 	 }
  },
- {"pk": 1, "model": "subscription.usersubscription", "fields": {"user": 3, "subscription": 1}},
+ {"pk": 1, "model": "subscription.usersubscription", "fields": {"user": 2, "subscription": 1}},
+ {"pk": 2, "model": "subscription.usersubscription", "fields": {"user": 3, "subscription": 2}},
  
  {"pk": 1, "model": "simple_adsense.siteadsense", "fields": {"code": "<a href=\"http://dummythings.com\"><strong>Buy me dummy thing! Please! I want to eat.</strong></a>\r\n","sites": [2, 1]}}
 ]
