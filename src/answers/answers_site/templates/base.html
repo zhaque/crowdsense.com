@@ -146,6 +146,18 @@
                    </div>
   
                   <div id="sidebar" class="yui-b">
+          {% if not request.muaccount.owner %}
+          <div class="block">
+            <div class="hd">
+              <h2>This account has no owner</h2>
+            </div>
+            <div class="bd">
+              If you feel you should manage this account, you may
+              <a href="{% url muaccounts_claim_account %}">claim</a> this account.
+            </div>
+          </div>
+          {% endif %} 
+                  
                       {% if request.muaccount.adsense_code %}
                         {{ request.muaccount.adsense_code|safe }}
                       {% else %}
