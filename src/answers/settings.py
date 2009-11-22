@@ -39,13 +39,13 @@ TEMPLATE_LOADERS = (
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'sso.middleware.SingleSignOnMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'subscription.middleware.SubscriptionMiddleware',
     'django_authopenid.middleware.OpenIDMiddleware',
     'django.middleware.doc.XViewMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'pagination.middleware.PaginationMiddleware',
-    'sso.middleware.SingleSignOnMiddleware',
 #   'debug_toolbar.middleware.DebugToolbarMiddleware',
     'muaccount_content.middleware.FlatpageFallbackMiddleware',
 )
@@ -89,6 +89,8 @@ QUOTAS = {
     'muaccounts': (1,),
     'page_views': (1000000, 2000000, 10000000),
     }
+
+#SESSION_COOKIE_DOMAIN = ".example.com" # A string like ".lawrence.com", or None for standard domain cookie.
 
 #_default_css_files += ('answers/css/cnprog.css',)
 
