@@ -9,17 +9,17 @@
         <meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
         <link rel="shortcut icon" href="{{ MEDIA_URL }}cnprog/images/favicon.ico" >
         
-        <link href="{{ MEDIA_URL }}cnprog/style/style.css" rel="stylesheet" type="text/css" />
+        <!-- <link href="{{ MEDIA_URL }}cnprog/style/style.css" rel="stylesheet" type="text/css" /> -->
         <link rel="stylesheet" href="http://yui.yahooapis.com/2.7.0/build/reset-fonts-grids/reset-fonts-grids.css" type="text/css">
         <!-- <link rel="stylesheet" href="{{ MEDIA_URL }}saaskit/css/user_sites.css" type="text/css">  -->
-        <link rel="stylesheet" href="{{ MEDIA_URL }}answers/css/style.css" type="text/css" />
-        <link rel="stylesheet" href="{{ MEDIA_URL }}saaskit/css/main.css" type="text/css">
+        <!-- <link rel="stylesheet" href="{{ MEDIA_URL }}answers/css/style.css" type="text/css" /> -->
+        <link rel="stylesheet" href="{{ MEDIA_URL }}saaskit/css/user_sites.css" type="text/css">
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
         <script type="text/javascript">
           var i18nLang = '{{settings.LANGUAGE_CODE}}';
         </script>
         
-        {% compressed_css request.muaccount.theme.color_scheme %}
+         {% compressed_css request.muaccount.theme.color_scheme %}
         {{ request.muaccount.webmaster_tools_code|safe }}
         {% block forestyle %}{% endblock %}
         
@@ -73,7 +73,7 @@
             {# <li><a href="{% url account_dashboard %}">{% trans "Account" %}</a></li> #}
             <li><a href="{% url logout %}?next=/">{% trans "Log out" %}</a></li> 
           {% else %}
-            <li><a href="{% url user_signin %}">{% trans "Log in or Sign up" %}</a></li>
+            <li><a href="{% url user_signin %}">{% trans "log in or sign up" %}</a></li>
           {% endif %}
           {% comment %}
           <li><a href="/about">{% trans "about" %}</a></li>
@@ -89,15 +89,32 @@
             {% if request.muaccount.logo %}
               <img src="{% thumbnail request.muaccount.logo 256x128 %}" id="site-logo">
             {% else %}
-              <h2>{{ request.muaccount.name }}</h2>
+              <!-- <h2>{{ request.muaccount.name }}</h2> -->
+              <img src="{{ MEDIA_URL }}cnprog/images/dummy.png" />
             {% endif %}
             </a>
+           
             <p>{{ request.muaccount.tag_line }}</p>
             {% endblock %}
           </div>
           <div class="clear"></div>
+          <div id="searchBar">
+      
+                    <form action="/search/" method="GET">
+                        <div class="options">
+                            <input type="text" class="searchInput" value="{{ keywords }}" name="q" id="keywords" >
+                            <input type="submit" name="Submit" value="{% trans "search" %}" class="searchBtn" >
+                        
+                            <input id="type-question" type="radio" class="" value="question" name="t" checked >{% trans "questions" %}
+                            <input id="type-tag" type="radio" class="" value="tag" name="t" >{% trans "tags" %}
+                            <input id="type-user" type="radio" class="" value="user" name="t" >{% trans "users" %}
+                        </div>
+                    </form>
+                
+    </div>
              
-                <div id="primary-navigation">
+               
+               <div id="primary-navigation">
                     <a id="nav_questions" href="/questions/" >{% trans "questions" %}</a>
                     <a id="nav_tags" href="/tags/">{% trans "tags" %}</a>
                     <a id="nav_users" href="/users/">{% trans "users" %}</a>
@@ -110,28 +127,15 @@
                     <a id="nav_profile" href="/users/{{ request.user.id }}/{{ request.user.username }}/">{% trans "my profile" %}</a>
                     {% endif %}
           {% endcomment %}
-                    <div id="primary-navigation" style="float:right; margin-right:10px;">
+                    
                     <a id="nav_ask" href="/questions/ask/" class="special">{% trans "ask a question" %}</a>
-                    </div>
+                    
                 </div>
+                
             
     </div>
     <div class="clear"></div>
-    <div id="searchBar">
-      
-                    <form action="/search/" method="GET">
-                        <div>
-                            <input type="text" class="searchInput" value="{{ keywords }}" name="q" id="keywords" >
-                            <input type="submit" name="Submit" value="{% trans "search" %}" class="searchBtn" >
-                        </div>
-                        <div class="options">
-                            <input id="type-question" type="radio" class="" value="question" name="t" checked >{% trans "questions" %}
-                            <input id="type-tag" type="radio" class="" value="tag" name="t" >{% trans "tags" %}
-                            <input id="type-user" type="radio" class="" value="user" name="t" >{% trans "users" %}
-                        </div>
-                    </form>
-                
-    </div>
+    
   </div>
 <!-- end template header.html -->
 
@@ -146,18 +150,6 @@
                    </div>
   
                   <div id="sidebar" class="yui-b">
-          {% if not request.muaccount.owner %}
-          <div class="block">
-            <div class="hd">
-              <h2>This account has no owner</h2>
-            </div>
-            <div class="bd">
-              If you feel you should manage this account, you may
-              <a href="{% url muaccounts_claim_account %}">claim</a> this account.
-            </div>
-          </div>
-          {% endif %} 
-                  
                       {% if request.muaccount.adsense_code %}
                         {{ request.muaccount.adsense_code|safe }}
                       {% else %}
@@ -167,24 +159,25 @@
                         {% endfor %}
                       {% endif %}
                       {% block sidebar%}
+                      <img src="{{ MEDIA_URL }}cnprog/images/180x150.png" />
                       {% endblock%}
                   </div>
-                </div>
+                
                 {% endblock %}
 
-                  <div id="tail" style="clear:both;">
+                  <div id="tail" style="clear:both">
                       {% block tail %}
                       {% endblock %}
                   </div>
               </div>
-              <div class="spacer3"></div>
-          </div>
-        </div>
+             
+          
+        
         <div id="ft">
           <!-- template footer.html -->
           {% load extra_tags %}
           {% load i18n %}
-            <div id="ground">
+            
               <div class="footerLinks" >
                 {% load mu_links %}{% get_links as footer_links %}
                 {% for link in footer_links %}
@@ -198,14 +191,12 @@
                   <a href="/privacy">{% trans "privacy policy" %}</a><span class="link-separator"> |</span>
                   <a href="/faq">{% trans "faq" %}</a><span class="link-separator"> |</span>
                   {% endcomment %}
+                 <div class="right-menu">
+                    <a href="#">Copyright Sitename</a>
+                 </div>
+                 <div class="clear"></div>
               </div>
-              <p style="margin-top:10px;">
-                   <a href="http://code.google.com/p/cnprog/" target="_blank">
-                      <img src="{{ MEDIA_URL }}cnprog/images/djangomade124x25_grey.gif" border="0" alt="Made with Django." title="Made with Django." >
-                   </a>
-                   <!--<div style="font-size:90%;color:#333">{% trans "current revision" %}: R-0120-20090406</div>-->
-                </p>
-              <p id="licenseLogo"><img src="{{ MEDIA_URL }}cnprog/images/cc-wiki.png" title="Creative Commons: Attribution - Share Alike" alt="cc-wiki" width="50" height="68" /></p>
+              
             </div>
             {% comment %}
             <script type="text/javascript">
@@ -220,7 +211,7 @@
             </script>
             {% endcomment %}
         </div>
-      </div>
+   
       
       <script type='text/javascript' src='{{ MEDIA_URL }}cnprog/js/com.cnprog.utils.js'></script>
       {% block endjs %}
@@ -232,6 +223,37 @@
       {% load counter_tags %} {% counter request.muaccount %}
     </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
