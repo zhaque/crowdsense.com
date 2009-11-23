@@ -47,5 +47,3 @@ ROOT_URLCONF = 'answers.answers_site.urls'
 EMAIL_VALIDATION = 'off'
 MIN_USERNAME_LENGTH = 1
 EMAIL_UNIQUE = False
-
-#LOGIN_URL = 'http://example.com:8001/sso/'
