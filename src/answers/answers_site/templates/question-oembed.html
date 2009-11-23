@@ -1,0 +1,15 @@
+{% extends "question.html" %}
+{% load i18n %}
+{% load oembed_tags %}
+        
+{% block question_body %}
+{% oembed %}
+  {{ block.super }}
+{% endoembed %}
+{% endblock %}        
+        
+{% block answers %}
+{% oembed %}
+  {{ block.super }}
+{% endoembed %}
+{% endblock %}

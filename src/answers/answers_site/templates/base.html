@@ -70,7 +70,7 @@
             {% ifequal user request.muaccount.owner %}
             <li><a href="{% url muaccounts_manage_general %}">{% trans "Manage" %}</a></li> 
             {% endifequal %}
-            <li><a href="{% url account_dashboard %}">{% trans "Account" %}</a></li> 
+            {# <li><a href="{% url account_dashboard %}">{% trans "Account" %}</a></li> #}
             <li><a href="{% url logout %}?next=/">{% trans "Log out" %}</a></li> 
           {% else %}
             <li><a href="{% url user_signin %}">{% trans "Log in or Sign up" %}</a></li>

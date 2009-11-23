@@ -31,7 +31,7 @@
             {% ifequal user request.muaccount.owner %}
             <li><a href="{% url muaccounts_manage_general %}">Manage</a></li> | 
             {% endifequal %}
-            <li><a href="{% url account_dashboard %}">Account</a></li> | 
+            {#<li><a href="{% url account_dashboard %}">Account</a></li> |#} 
             <li><a href="{% url user_signout %}?next=/">Sign-out</a></li>
             </ul>
         </div>  
