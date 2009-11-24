@@ -108,7 +108,9 @@
                     <td>
                         <div id="item-right">
                             <div class="question-body">
+                            {% block question_body %}
                                 {{ question.html|safe }}
+                            {% endblock %}
                             </div>
                             <div id="question-tags" class="tags" >
                                 {% for tag in question.tagname_list %}
@@ -253,7 +255,7 @@
 			{% blocktrans %}close date {{question.closed_at}}{% endblocktrans %}</h3>
             </div>
             {% endif %}
-            
+            {% block answers %}
             {% ifnotequal answers.length 0 %}
                 <div class="tabBar">
                     <a name="sort-top"></a>
@@ -432,6 +434,7 @@
             {% else %}
                 <div class="line"></div>
             {% endifnotequal %}
+            {% endblock %}
             <div style="clear:both">
             </div>
             

@@ -87,7 +87,7 @@
             {% block logo %}
             <a href="/" title="{% trans 'back to home page' %}">
             {% if request.muaccount.logo %}
-              <img src="{% thumbnail request.muaccount.logo 256x128 %}" id="site-logo">
+              <img src="{% thumbnail request.muaccount.logo 143x59 %}" id="site-logo">
             {% else %}
               <!-- <h2>{{ request.muaccount.name }}</h2> -->
               <img src="{{ MEDIA_URL }}cnprog/images/dummy.png" />
