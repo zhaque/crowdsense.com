@@ -1,4 +1,4 @@
-{% load compressed class_if_reverse settings thumbnail muathemes extra_filters i18n %}
+{% load compressed class_if_reverse settings thumbnail muathemes muaccounts_tags extra_filters i18n %}
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
@@ -70,8 +70,8 @@
             {% ifequal user request.muaccount.owner %}
             <li><a href="{% url muaccounts_manage_general %}">{% trans "Manage" %}</a></li> 
             {% endifequal %}
-            {# <li><a href="{% url account_dashboard %}">{% trans "Account" %}</a></li> #}
-            <li><a href="{% url logout %}?next=/">{% trans "Log out" %}</a></li> 
+            <li><a href="{% main_site_url account_dashboard %}">{% trans "Account" %}</a></li>
+            <li><a href="{% url user_signout %}?next=/">{% trans "Log out" %}</a></li> 
           {% else %}
             <li><a href="{% url user_signin %}">{% trans "log in or sign up" %}</a></li>
           {% endif %}

@@ -1,9 +1,4 @@
-{% load compressed %}
-{% load class_if_reverse %}
-{% load settings %}
-{% load thumbnail %}
-{% load muathemes %}
-{% load i18n %}
+{% load compressed class_if_reverse settings thumbnail muathemes i18n muaccounts_tags%}
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
   <head>
@@ -29,9 +24,9 @@
           <li>Hi, <b>{{user}}<b></li> | 
             
             {% ifequal user request.muaccount.owner %}
-            <li><a href="{% url muaccounts_manage_general %}">Manage</a></li> | 
+            <li><a href="{% url muaccounts_manage_general %}">Manage</a></li> 
             {% endifequal %}
-            {#<li><a href="{% url account_dashboard %}">Account</a></li> |#} 
+            <li><a href="{% main_site_url account_dashboard %}">Account</a></li>
             <li><a href="{% url user_signout %}?next=/">Sign-out</a></li>
             </ul>
         </div>  

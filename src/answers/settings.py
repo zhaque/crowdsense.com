@@ -7,6 +7,7 @@ from django.conf import global_settings
 
 #inherit settings from saaskit common settings
 from saaskit.settings import *
+from cnprog.settings import ALLOW_FILE_TYPES, ALLOW_MAX_FILE_SIZE, APP_TITLE, APP_DESCRIPTION, APP_COPYRIGHT
 
 PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 
@@ -81,14 +82,18 @@ THUMBNAIL_EXTENSION = 'png'
 TEMPLATESADMIN_GROUP = 'Editors'
 
 
-TEMPLATESADMIN_TEMPLATE_DIRS = ( os.path.join(PROJECT_ROOT, 'answers_site', 'templates').replace('\\','/'), ) \
-                                + TEMPLATE_DIRS
+TEMPLATESADMIN_TEMPLATE_DIRS = ( os.path.join(PROJECT_ROOT, 'answers_site', 'templates').replace('\\','/'),
+                                 os.path.join(PROJECT_ROOT, 'marketing_site', 'templates').replace('\\','/'),
+                                ) + TEMPLATE_DIRS
 
 QUOTAS = {
     'muaccount_members' : (10,),
     'muaccounts': (1,),
     'page_views': (1000000, 2000000, 10000000),
     }
+
+MUACCOUNTS_MAIN_URLCONF = 'answers.marketing_site.urls'
+MUACCOUNTS_USERSITE_URLCONF = 'answers.answers_site.urls'
 
 #SESSION_COOKIE_DOMAIN = ".example.com" # A string like ".lawrence.com", or None for standard domain cookie.
 

@@ -3,7 +3,6 @@
 import os.path
 
 from answers.settings import *
-from cnprog.settings import ALLOW_FILE_TYPES, ALLOW_MAX_FILE_SIZE, APP_TITLE, APP_DESCRIPTION, APP_COPYRIGHT
 import cnprog
 
 
