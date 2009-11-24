@@ -56,25 +56,25 @@
         {% ifequal tab_id 'active'%}
         {% if question.wiki %}
         <span class="from wiki">{% trans "community wiki" %}</span>
-        <span class="date" title="{{ question.added_at }}">{% diff_date question.added_at %}</span>
+        <span class="date" title="{{ question.added_at }}">{{ question.added_at|timesince }} {% trans 'ago' %}</span>
         {% else %}
         <div class="from">
             {% comment %}{% gravatar question.last_activity_by 24 %}{% endcomment %}
             <span class="author"><a href="{{ question.last_activity_by.get_profile_url }}">{{ question.last_activity_by }}</a></span>
             <span class="score">{% get_score_badge question.last_activity_by %} </span>
-            <span class="date" title="{{ question.last_activity_at }}">{% diff_date question.last_activity_at %}</span>
+            <span class="date" title="{{ question.last_activity_at }}">{{ question.last_activity_at|timesince }} {% trans 'ago' %}</span>
         </div>
         {% endif %}
         {% else %}
         {% if question.wiki %}
         <span class="from wiki">{% trans "community wiki" %}</span>
-        <span class="date" title="{{ question.added_at }}">{% diff_date question.added_at %}</span>
+        <span class="date" title="{{ question.added_at }}">{{ question.added_at|timesince }} {% trans 'ago' %}</span>
         {% else %}
         <div class="from">
             {% comment %}{% gravatar question.author 24 %}{% endcomment %}
             <span class="author"><a href="{{ question.author.get_profile_url }}">{{ question.author }}</a></span>
             <span class="score">{% get_score_badge question.author %} </span>
-            <span class="date" title="{{ question.added_at }}">{% diff_date question.added_at %}</span>
+            <span class="date" title="{{ question.added_at }}">{{ question.added_at|timesince }} {% trans 'ago' %}</span>
         </div>
         {% endif %}
         {% endifequal %}

@@ -157,7 +157,7 @@
                                                 <table width="200px" >
                                                     <tr>
                                                         <td colspan="2"> 
-                                                         {% trans "updated" %} <a href="{% url question_revisions question.id %}"><strong title="{{question.last_edited_at }}">{% diff_date question.last_edited_at  %}</strong></a>
+                                                         {% trans "updated" %} <a href="{% url question_revisions question.id %}"><strong title="{{question.last_edited_at }}">{{ question.last_edited_at|timesince }} {% trans 'ago' %}</strong></a>
                                                         </td>
                                                         
                                                     </tr>
@@ -206,7 +206,7 @@
                                                 <table width="200px">
                                                     <tr>
                                                         <td colspan="2"> 
-                                                        {% trans "asked" %} <strong title="{{ question.added_at }}">{% diff_date question.added_at %}</strong>
+                                                        {% trans "asked" %} <strong title="{{ question.added_at }}">{{ question.added_at|timesince }} {% trans 'ago' %}</strong>
                                                         </td>
                                                         
                                                     </tr>
@@ -341,7 +341,7 @@
                                                         <table width="200px" >
                                                             <tr>
                                                                 <td colspan="2"> 
-                                                                 {% trans "updated" %}<a href="{% url answer_revisions answer.id %}"><strong title="{{answer.last_edited_at }}">{% diff_date answer.last_edited_at  %}</strong></a>
+                                                                 {% trans "updated" %}<a href="{% url answer_revisions answer.id %}"><strong title="{{answer.last_edited_at }}">{{ answer.last_edited_at|timesince }} {% trans 'ago' %}</strong></a>
                                                                 </td>
                                                             </tr>
                                                             {% if answer.wiki %}
@@ -388,7 +388,7 @@
                                                         <table width="200px">
                             	                            <tr>
                                 	                           	<td colspan="2"> 
-                                                                {% trans "asked" %} <strong title="{{answer.added_at}}">{% diff_date answer.added_at %}</strong>
+                                                                {% trans "answered" %} <strong title="{{answer.added_at}}">{{ answer.added_at|timesince }} {% trans 'ago' %}</strong>
                                                                 </td>
                             	                            </tr>
                             	                            <tr>

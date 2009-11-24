@@ -128,7 +128,7 @@
                     <div class="started">
                         <span class="author"><a href="{{ question.last_activity_by.get_profile_url }}">{{ question.last_activity_by }}</a></span>
                         <span class="score">{% get_score_badge question.last_activity_by %} </span>
-                        <span class="date" title="{{ question.last_activity_at }}">{% diff_date question.last_activity_at %}</span>
+                        <span class="date" title="{{ question.last_activity_at }}">{{ question.last_activity_at|timesince }} {% trans 'ago' %}</span>
                     </div>
                 </div>
             </div>

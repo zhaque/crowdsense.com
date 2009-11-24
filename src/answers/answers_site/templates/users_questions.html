@@ -53,7 +53,7 @@
                 {% endfor %}
             </div>
             <div class="started">
-                <span class="relativetime" title="{{question.last_activity_at}}">{% diff_date question.last_activity_at %}</span>
+                <span class="relativetime" title="{{question.last_activity_at}}">{{ question.last_activity_at|timesince }} {% trans 'ago' %}</span>
                 {% if question.la_username %}
                     <a href="/users/{{question.la_user_id}}/{{question.la_username}}">{{question.la_username}}</a> {% get_score_badge_by_details question.la_user_reputation question.la_user_gold question.la_user_silver question.la_user_bronze%}
                 {% endif %}
