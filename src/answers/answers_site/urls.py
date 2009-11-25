@@ -15,7 +15,8 @@ from forum.models import Question, Tag, User
 from cnprog.urls import unanswered_info
 from muaccount_forum.forms import MuAskForm
 from muaccount_forum.feeds import MURssLastestQuestionsFeed
-import muaccount_forum.views 
+import muaccount_forum.views
+from cnprog_profile.forms import UserProfileForm 
 
 feeds = {
     'rss': MURssLastestQuestionsFeed
@@ -79,8 +80,15 @@ urlpatterns = patterns('',
                          lambda request, queryset: queryset.filter(muaccount_member__id=request.muaccount.pk)),
         {'queryset': User.objects.all()},
         name="users"),
-    url(r'^users/(?P<id>\d+)/edit/$', 'forum.views.edit_user', name='edit_user'),
-    url(r'^users/(?P<id>\d+)//*', 'forum.views.user', name='user'),
+    url(r'^users/(?P<id>\d+)//*', 'forum.views.user', name='user'),    
+    url(r'^users/edit/$', 'profiles.views.edit_profile', 
+        {'success_url': lambda profile: '/users/%s/' % profile.user.pk,
+         'form_class': UserProfileForm,
+         'template_name': 'user_edit.html'}, 
+        name='edit_user'),
+        
+    #url(r'^users/(?P<id>\d+)/edit/$', 'forum.views.edit_user', name='edit_user'),
+    
     url(r'^badges/$', 'forum.views.badges', name='badges'),
     url(r'^badges/(?P<id>\d+)//*', 'forum.views.badge', name='badge'),
     url(r'^messages/markread/$', 'forum.views.read_message', name='read_message'),
