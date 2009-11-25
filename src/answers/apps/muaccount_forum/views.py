@@ -4,9 +4,11 @@ import datetime
 
 from django.views.generic.create_update import apply_extra_context
 from django.db.models import Q
+from django.shortcuts import get_object_or_404
+from django.http import HttpResponsePermanentRedirect
 
-from forum.views import index
-from forum.models import Question, Tag
+from forum.views import index, badge, question
+from forum.models import Question, Tag, Award
 
 from notification.views import notices
 from forum.models import EmailFeed, Activity, Question
@@ -30,3 +32,7 @@ def dashboard(request, template="account/dashboard.html", extra_context=None):
     apply_extra_context(extra_context or {}, context)
     
     return notices(request, template, context)
+
+def mu_badge(request, award_queryset=Award.objects.all(), *args, **kwargs):
+    award_queryset = award_queryset.filter(user__muaccount_member=request.muaccount)
+    return badge(request, award_queryset=award_queryset, *args, **kwargs)

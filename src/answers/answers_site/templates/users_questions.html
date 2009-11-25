@@ -1,0 +1,68 @@
+<!-- users_questions.html -->
+{% load extra_tags %}
+{% load extra_filters %}
+{% load humanize %}
+{% load i18n %}
+{% load muaccounts_tags %}
+<div class="user-stats-table">
+    {% for question in questions %}
+        {% if question.favourite_count %}
+            {% if question.favorited_myself %}
+                <div class="favorites-count">
+                    <img title="{% trans "this questions was selected as favorite" %} {{question.favourite_count}} {% trans "number of times" %}" 
+						src="{{ MEDIA_URL }}cnprog/images/vote-favorite-on.png">
+                    <div><b>{{question.favourite_count|intcomma}}</b></div>
+                </div>
+            {% else %}
+                <div class="favorites-count-off">
+                    <img title="{% trans "this question was selected as favorite" %}{{question.favourite_count}} {% trans "number of times" %}" 
+						src="{{ MEDIA_URL }}cnprog/images/vote-favorite-off.png">
+                    <div><b>{{question.favourite_count|intcomma}}</b></div>
+                </div>
+            {% endif %}
+        {% else %}
+            <div class="favorites-empty"> </div>
+        {% endif %}
+    <div id="question-summary-{{question.id}}" class="question-summary narrow">
+    <h1>{{ question.items }}</h1>
+        <a style="text-decoration: none;" href="{% user_site_url question question.muaccount question.slug %}">
+            <div class="stats">
+                <div class="votes">
+                    <div class="vote-count-post">{{question.score|intcomma}}</div> 
+                    {% trans "votes" %}
+                  
+                </div>
+                <div title="{% if question.answer_accepted %}{% trans "this answer has been accepted to be correct" %}{% endif %}" class="status {% if question.answer_accepted %}answered-accepted{% endif %} {% ifequal question.answer_count 0 %}unanswered{% endifequal %}{% ifnotequal question.answer_count 0 %}answered{% endifnotequal %}">
+                    <div class="answer-count-post">{{question.answer_count|intcomma}}</div>
+                    {% trans "answers" %}
+             
+                </div>
+                <div class="views">
+                     <div class="views-count-post">{{question.view_count|cnprog_intword|safe}}</div>
+					 {% trans "views" %}
+                </div>
+            </div>
+        </a>
+        <div class="summary">
+            <h3>
+                <a title="{{question.summary}}" href="{% user_site_url question question.muaccount question.slug %}">{{question.title}}</a>
+            </h3>
+            <div class="tags">
+                {% convert2tagname_list question %}
+                {% for tag in question.tagname_list %}
+					<!--todo - move trans below to blocktrans -->
+                    <a href="{% url tag_search tag|urlencode %}" title="{% trans "see questions tagged" %} '{{ tag }}' {% trans "using tags" %}" rel="tag">{{ tag }}</a>
+                {% endfor %}
+            </div>
+            <div class="started">
+                <span class="relativetime" title="{{question.last_activity_at}}">{{ question.last_activity_at|timesince }} {% trans 'ago' %}</span>
+                {% if question.last_activity_by %}
+                    <a href="{% user_site_url user question.muaccount question.last_activity_by.id %}">{{question.last_activity_by}}</a> {% get_score_badge_by_details question.last_activity_by.reputation question.last_activity_by.gold question.last_activity_by.silver question.last_activity_by.bronze%}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <br clear="both"/>
+    {% endfor %}
+</div>
+<!-- end users_questions.html -->

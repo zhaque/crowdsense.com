@@ -22,6 +22,13 @@ feeds = {
     'rss': MURssLastestQuestionsFeed
 }
 
+def wrapped_queryset(func, queryset_edit=lambda request, queryset: queryset):
+    def wrapped(request, queryset, *args, **kwargs):
+        return func(request, queryset=queryset_edit(request, queryset), *args, **kwargs)
+    wrapped.__name__ = func.__name__
+    return wrapped
+
+
 urlpatterns = patterns('',
     url(r'^$', 'muaccount_forum.views.mu_index', {'template_name': 'front_page.html'}, name="home"),
     
@@ -90,7 +97,7 @@ urlpatterns = patterns('',
     #url(r'^users/(?P<id>\d+)/edit/$', 'forum.views.edit_user', name='edit_user'),
     
     url(r'^badges/$', 'forum.views.badges', name='badges'),
-    url(r'^badges/(?P<id>\d+)//*', 'forum.views.badge', name='badge'),
+    url(r'^badges/(?P<id>\d+)//*', muaccount_forum.views.mu_badge, name='badge'),
     url(r'^messages/markread/$', 'forum.views.read_message', name='read_message'),
     (r'^feeds/(?P<url>.*)/$', 'django.contrib.syndication.views.feed', {'feed_dict': feeds}),
     (r'^upload/$', 'forum.views.upload'),
