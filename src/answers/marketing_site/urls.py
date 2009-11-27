@@ -16,6 +16,8 @@ urlpatterns = patterns('',
         {'success_url': 'profiles_edit_profile',
         'form_class': UserProfileForm}, 
         name='profiles_edit_profile'),
+    
+    url(r'^admin/upload_qa/$', 'muaccount_forum.views.upload_qa', name='upload_qa'),
 )
 
 urlpatterns += saaskit_urls
