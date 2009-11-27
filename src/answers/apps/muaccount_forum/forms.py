@@ -54,12 +54,16 @@ class ImportCSVQAForm(forms.Form):
                     
                     user = random.choice(muaccount.members.all())
                     
-                    Question(author=user,
-                             last_activity_by=user,  
-                             html=question,
-                             title=truncate_letters(question, 40),
-                             tagnames=tag.lower(),
-                             muaccount=muaccount,
-                             ).save()
+                    question = Question.objects.create(author=user,
+                                 last_activity_by=user,  
+                                 html=question,
+                                 title=truncate_letters(question, 40),
+                                 tagnames=tag.lower(),
+                                 muaccount=muaccount,
+                                 )
+                    Answer(question=question,
+                           author=random.choice(muaccount.members.exclude(id=user.id) or muaccount.members.all()),
+                           html=answer,
+                           ).save()
                     imported += 1
         return imported, total
