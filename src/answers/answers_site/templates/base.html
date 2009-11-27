@@ -1,4 +1,4 @@
-{% load compressed class_if_reverse settings thumbnail muathemes muaccounts_tags extra_filters i18n %}
+{% load compressed class_if_reverse settings thumbnail muathemes muaccounts_tags extra_filters i18n adsense %}
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
@@ -89,7 +89,6 @@
             {% if request.muaccount.logo %}
               <img src="{% thumbnail request.muaccount.logo 143x59 %}" id="site-logo">
             {% else %}
-              <!-- <h2>{{ request.muaccount.name }}</h2> -->
               <img src="{{ MEDIA_URL }}cnprog/images/dummy.png" />
             {% endif %}
             </a>
@@ -150,17 +149,11 @@
                    </div>
   
                   <div id="sidebar" class="yui-b">
-                      {% if request.muaccount.adsense_code %}
-                        {{ request.muaccount.adsense_code|safe }}
-                      {% else %}
-                        {% load adsense %}{% get_site_adsenses as adsenses %}
-                        {% for adsense in adsenses %}
-                          {{ adsense.code|safe }}
-                        {% endfor %}
-                      {% endif %}
+                      {% adsense request.muaccount 'side-banner-top' %}
+                      {#<img src="{{ MEDIA_URL }}cnprog/images/180x150.png" />#}                      
                       {% block sidebar%}
-                      <img src="{{ MEDIA_URL }}cnprog/images/180x150.png" />
                       {% endblock%}
+                      {% adsense request.muaccount 'side-banner-bottom' %}
                   </div>
                 
                 {% endblock %}

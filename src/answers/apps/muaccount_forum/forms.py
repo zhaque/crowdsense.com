@@ -21,6 +21,8 @@ class MuAskForm(AskForm):
 
 class ImportCSVQAForm(forms.Form):
     
+    muaccount = forms.models.ModelChoiceField(queryset=MUAccount.objects.all())
+    
     csv_file = forms.FileField(label=_("CSV file"),
         help_text = _("Format of each row: \"tag\",\"question\",\"answer\". Rows with wrong format will be skiped."))
     
@@ -35,8 +37,8 @@ class ImportCSVQAForm(forms.Form):
         return self.cleaned_data['csv_file']
     
     def save(self):
+        muaccount = self.cleaned_data['muaccount']
         total, imported = 0, 0
-        max_mua_id = MUAccount.objects.all().count()
         for row in csv.reader(self.cleaned_data['csv_file']):
             if row:
                 try:
@@ -47,10 +49,10 @@ class ImportCSVQAForm(forms.Form):
                 
                 total +=1
                 try:
-                    Question.objects.get(html=question)
+                    Question.objects.get(html=question, muaccount=muaccount)
                 except Question.DoesNotExist:
-                    muaccount = random.choice(MUAccount.objects.annotate(member_count=Count('members'))\
-                                                                   .filter(member_count__gt=0))
+                    if not muaccount.members.all().count():
+                        continue
                     
                     user = random.choice(muaccount.members.all())
                     

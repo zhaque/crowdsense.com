@@ -56,6 +56,12 @@
   
   {"pk": 1, "model": "forum.badge", "fields": {"multiple": true, "description": "", "type": 1, "slug": "bronze", "name": "Bronze badge"}},
   {"pk": 2, "model": "forum.badge", "fields": {"multiple": true, "description": "", "type": 2, "slug": "silver", "name": "Silver badge"}},
-  {"pk": 3, "model": "forum.badge", "fields": {"multiple": true, "description": "", "type": 3, "slug": "golden", "name": "Golden badge"}}
+  {"pk": 3, "model": "forum.badge", "fields": {"multiple": true, "description": "", "type": 3, "slug": "golden", "name": "Golden badge"}},
+  
+  {"pk": 5, "model": "muaccount_adsense.adsenseblock", "fields": {"muaccount": null, "code": "<a href=\"http://dummythings.com\">\r\n<strong>Buy me dummy thing! Please! I wantto eat.</strong>\r\n</a>", "name": "page-banner"}}, 
+  {"pk": 4, "model": "muaccount_adsense.adsenseblock", "fields": {"muaccount": null, "code": "<a href=\"http://dummythings.com\">\r\n<strong>Buy me dummy thing! Please! I want to eat.</strong>\r\n</a>", "name": "side-banner-bottom"}}, 
+  {"pk": 3, "model": "muaccount_adsense.adsenseblock", "fields": {"muaccount": null, "code": "<a href=\"http://dummythings.com\">\r\n<strong>Buy me dummy thing! Please! I want to eat.</strong>\r\n</a>", "name": "side-banner-middle"}}, 
+  {"pk": 2, "model": "muaccount_adsense.adsenseblock", "fields": {"muaccount": null, "code": "<a href=\"http://dummythings.com\">\r\n<strong>Buy me dummy thing! Please! I want to eat.</strong>\r\n</a>", "name": "side-banner-top"}}, 
+  {"pk": 1, "model": "muaccount_adsense.adsenseblock", "fields": {"muaccount": null, "code": "<a href=\"http://dummythings.com\">\r\n<strong>Buy me dummy thing! Please! I want to eat.</strong>\r\n</a>", "name": "top-banner"}}
   
 ]
