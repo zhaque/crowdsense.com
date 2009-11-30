@@ -3,6 +3,7 @@
 from django.conf.urls.defaults import url, patterns, include, handler500
 from django.conf import settings
 from django.contrib.auth.models import User
+from django.db.models import aggregates
 
 import frontendadmin.views
 
@@ -62,11 +63,8 @@ urlpatterns = patterns('',
         name='question_comments'),
     url(r'^questions/(?P<question_id>\d+)/comments/(?P<comment_id>\d+)/delete/$', 
         'forum.views.delete_question_comment', name='delete_question_comment'),
-    url(r'^questions/(?P<slug>[\w-]+)/$', 
-        wrapped_queryset(forum.views.question, 
-                         lambda request, queryset: queryset.filter(muaccount=request.muaccount)),
-        {'queryset': Question.objects.all(),
-         'template_name': 'question-oembed.html'},
+    url(r'^questions/(?P<slug>[\w-]+)/$', 'muaccount_forum.views.mu_question', 
+        {'template_name': 'question-oembed.html'},
         name='question'),
     url(r'^answers/(?P<answer_id>\d+)/comments/(?P<comment_id>\d+)/delete/$', 
         'forum.views.delete_answer_comment', name='delete_answer_comment'),
@@ -74,7 +72,7 @@ urlpatterns = patterns('',
     url(r'^tags/$', 
         wrapped_queryset(forum.views.tags, 
                          lambda request, queryset: queryset.filter(questions__muaccount=request.muaccount)),
-        {'queryset': Tag.objects.filter(deleted=False).exclude(used_count=0)},
+        {'queryset': Tag.objects.filter(deleted=False)},
         name="tags"),
     url(r'^tags/(?P<tag>[^/]+)/$',
         wrapped_queryset(forum.views.tagged_search, 
