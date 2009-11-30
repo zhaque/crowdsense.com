@@ -50,8 +50,9 @@
             <div class="tags">
                 {% convert2tagname_list question %}
                 {% for tag in question.tagname_list %}
-					<!--todo - move trans below to blocktrans -->
+					       {% if tag %}
                     <a href="{% url tag_search tag|urlencode %}" title="{% trans "see questions tagged" %} '{{ tag }}' {% trans "using tags" %}" rel="tag">{{ tag }}</a>
+                 {% endif %}
                 {% endfor %}
             </div>
             <div class="started">
