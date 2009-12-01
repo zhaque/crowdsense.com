@@ -3,7 +3,7 @@
  {"pk": 5, "model": "auth.user", "fields": {"username": "test1", "is_active": true, "is_superuser": false, "is_staff": false, "password": "sha1$467e2$54c83b9bd8a57a98ff75a727a4d2d00179546898", "groups": [1], "email": ""}},
  {"pk": 6, "model": "auth.user", "fields": {"username": "test2", "is_active": true, "is_superuser": false, "is_staff": false, "password": "sha1$da8fc$b5a200dea895a578689bf0afd1c3feb1f712807f", "groups": [1], "email": ""}},
  {"pk": 7, "model": "auth.user", "fields": {"username": "test3", "is_active": true, "is_superuser": false, "is_staff": false, "password": "sha1$3f10b$32d372cd805d3488266a6a08e81a640280c546d3", "groups": [1], "email": ""}},
- {"pk": 1, "model": "muaccounts.muaccount", "fields": {"owner": 2, "is_public": true, "subdomain": "free", "members": [5]}},
+ {"pk": 1, "model": "muaccounts.muaccount", "fields": {"owner": 2, "is_public": true, "subdomain": "free", "members": [5], "name": "Q&A", "tag_line": "Demo Q&A site"}},
  {"pk": 2, "model": "muaccounts.muaccount", 
 	 "fields": {
 	 	"owner": 3, "is_public": false, "subdomain": "silver", "members": [5, 6],

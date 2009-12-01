@@ -73,7 +73,7 @@
             <li><a href="{% main_site_url account_dashboard %}">{% trans "Account" %}</a></li>
             <li><a href="{% url user_signout %}?next=/">{% trans "Log out" %}</a></li> 
           {% else %}
-            <li><a href="{% url user_signin %}">{% trans "log in or sign up" %}</a></li>
+            <li><a id="user_signin" href="{% url user_signin %}">{% trans "log in or sign up" %}</a></li>
           {% endif %}
           {% comment %}
           <li><a href="/about">{% trans "about" %}</a></li>
