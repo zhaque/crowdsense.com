@@ -3,20 +3,15 @@
 import datetime
 
 from django.views.generic.create_update import apply_extra_context
-from django.db.models import Q
-from django.shortcuts import get_object_or_404
-from django.http import HttpResponsePermanentRedirect
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.admin.views.decorators import staff_member_required
-from django.db.models import aggregates
 
 from forum.views import index, badge, question
-from forum.models import Question, Tag, Award
+from forum.models import Question, Tag, Award, EmailFeed
 
 from notification.views import notices
-from forum.models import EmailFeed, Activity, Question
 
 from muaccount_forum.forms import ImportCSVQAForm
 

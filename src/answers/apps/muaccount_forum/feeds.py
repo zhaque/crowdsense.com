@@ -1,7 +1,6 @@
 ### -*- coding: utf-8 -*- ####################################################
 
 from django.utils.translation import ugettext as _
-from django.conf import settings
 
 from forum.feed import RssLastestQuestionsFeed
 from forum.models import Question

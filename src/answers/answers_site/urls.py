@@ -3,9 +3,6 @@
 from django.conf.urls.defaults import url, patterns, include, handler500
 from django.conf import settings
 from django.contrib.auth.models import User
-from django.db.models import aggregates
-
-import frontendadmin.views
 
 from user_site.urls import urlpatterns as saaskit_urls, handler404
 
@@ -23,23 +20,21 @@ feeds = {
     'rss': MURssLastestQuestionsFeed
 }
 
-def wrapped_queryset(func, queryset_edit=lambda request, queryset: queryset):
-    def wrapped(request, queryset, *args, **kwargs):
-        return func(request, queryset=queryset_edit(request, queryset), *args, **kwargs)
-    wrapped.__name__ = func.__name__
-    return wrapped
-
 
 urlpatterns = patterns('',
     url(r'^$', 'muaccount_forum.views.mu_index', {'template_name': 'front_page.html'}, name="home"),
     
-    (r'^favicon\.ico$', 'django.views.generic.simple.redirect_to', {'url': '%simages/favicon.ico' % settings.MEDIA_URL}),
-    (r'^favicon\.gif$', 'django.views.generic.simple.redirect_to', {'url': '%simages/favicon.gif' % settings.MEDIA_URL}),
+    (r'^favicon\.ico$', 'django.views.generic.simple.redirect_to', 
+        {'url': '%simages/favicon.ico' % settings.MEDIA_URL}),
+    (r'^favicon\.gif$', 'django.views.generic.simple.redirect_to', 
+        {'url': '%simages/favicon.gif' % settings.MEDIA_URL}),
     url(r'^logout/$', 'forum.views.logout', name='logout'),
     
-    url(r'^answers/(?P<id>\d+)/comments/$', 'forum.views.answer_comments', name='answer_comments'),
+    url(r'^answers/(?P<id>\d+)/comments/$', 'forum.views.answer_comments', 
+        name='answer_comments'),
     url(r'^answers/(?P<id>\d+)/edit/$', 'forum.views.edit_answer', name='edit_answer'),
-    url(r'^answers/(?P<id>\d+)/revisions/$', 'forum.views.answer_revisions', name='answer_revisions'),
+    url(r'^answers/(?P<id>\d+)/revisions/$', 'forum.views.answer_revisions', 
+        name='answer_revisions'),
 
     url(r'^questions/$', 
         wrapped_queryset(forum.views.questions, 

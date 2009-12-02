@@ -3,13 +3,11 @@
 import csv, random
 from django import forms
 from django.utils.translation import ugettext_lazy as _
-from django.contrib.auth.models import User
-from django.db.models.aggregates import Count
 
 from django_extensions.utils.text import truncate_letters
 
 from muaccounts.models import MUAccount
-from forum.models import Question, Answer, Tag
+from forum.models import Question, Answer
 from forum.forms import AskForm
 
 class MuAskForm(AskForm):

@@ -2,7 +2,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
   <head>
-    <title>{% block title %}Title{% endblock %}</title>
+    <title>{% block title %}{% trans "Title" %}{% endblock %}</title>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
     <link rel="shortcut icon" href="{{ MEDIA_URL }}cnprog/images/favicon.gif" >
     <link rel="stylesheet" href="http://yui.yahooapis.com/2.7.0/build/reset-fonts-grids/reset-fonts-grids.css" type="text/css">
@@ -25,16 +25,16 @@
           <li>Hi, <b>{{user}}<b></li> | 
             
             {% ifequal user request.muaccount.owner %}
-            <li><a href="{% url muaccounts_manage_general %}">Manage</a></li> 
+            <li><a href="{% url muaccounts_manage_general %}">{% trans "Manage" %}</a></li> 
             {% endifequal %}
-            <li><a href="{% main_site_url account_dashboard %}">Account</a></li>
-            <li><a href="{% url user_signout %}?next=/">Sign-out</a></li>
+            <li><a href="{% main_site_url account_dashboard %}">{% trans "Account" %}</a></li>
+            <li><a href="{% url user_signout %}?next=/">{% trans "Sign-out" %}</a></li>
             </ul>
         </div>  
           {% else %}
          <div id="user-nav">
           <ul id="user-nav">
-            <li><a href="{% url user_signin %}">Log in or Sign up</a></li>
+            <li><a href="{% url user_signin %}">{% trans "Log in or Sign up" %}</a></li>
           </ul>
         </div>
          
@@ -43,7 +43,7 @@
         <h2><a href="/">{{request.muaccount}}</a></h2>
         <div id="navigation" style="clear:both;">
           <ul id="primary-navigation">            
-            <li{% class_if_reverse / active %}><a href="/">Main</a></li>
+            <li{% class_if_reverse / active %}><a href="/">{% trans "Main" %}</a></li>
           </ul>
          
        </div>
@@ -53,7 +53,10 @@
       {% if messages %}
         <ul id="messages">
             {% for message in messages %}
-            <li id="message_{{ forloop.counter }}"><a href="#" onclick="$('#message_{{ forloop.counter }}').fadeOut(); return false;"><small>{% trans "clear" %}</small></a> {{ message }}</li>
+            <li id="message_{{ forloop.counter }}">
+              <a href="#" onclick="$('#message_{{ forloop.counter }}').fadeOut(); return false;">
+                <small>{% trans "clear" %}</small>
+              </a> {{ message }}</li>
             {% endfor %}
         </ul>
       {% endif %}
@@ -65,20 +68,15 @@
         </div></div></div>
          <div id="sidebar" class="yui-b">
                      {% if not request.muaccount.owner %}
-           <div class="block"><div class="hd">
-              <h2>This account has no owner</h2>
-            </div><div class="bd">
-              {% if user.is_authenticated %}
-              <form action="{% url muaccounts_claim_account %}"
-                    method="POST" class="inline-form">
-                <p><input type="submit" value="claim this account"></p></form>
-              {% else %}
-              If you feel you should manage this account, please
-              register at <a href="{% setting MUACCOUNTS_DEFAULT_URL %}">
-                main page</a> and <a href="{% url user_signin %}">log
-              in here</a> to claim this account.
-              {% endif %}
-          </div></div>
+          <div class="block">
+            <div class="hd">
+              <h2>{% trans "This account has no owner" %}</h2>
+            </div>
+            <div class="bd">
+              {% trans  "If you feel you should manage this account, please" %}
+              <a href="{% url muaccounts_claim_account %}">{% trans "claim it" %}</a>.
+            </div>
+          </div>
           {% endif %} 
           
           {% adsense request.muaccount 'side-banner-top' %}
@@ -88,14 +86,14 @@
       </div>
       <div id="ft"><div id="yui-main">
 	    <div class="footer-navigation">
-                <ul>
-                    <li><a href="{% setting MUACCOUNTS_DEFAULT_URL %}about">About CrowdSense</a></li> | 
-                    <li><a href="{% setting MUACCOUNTS_DEFAULT_URL %}support">Support</a></li> | 
-                    <li><a href="{% setting MUACCOUNTS_DEFAULT_URL %}contact">Contact us</a></li>
-                </ul>
+            <ul>
+                <li><a href="{% setting MUACCOUNTS_DEFAULT_URL %}about">{% trans "About CrowdSense" %}</a></li> | 
+                <li><a href="{% setting MUACCOUNTS_DEFAULT_URL %}support">{% trans "Support" %}</a></li> | 
+                <li><a href="{% setting MUACCOUNTS_DEFAULT_URL %}contact">{% trans "Contact us" %}</a></li>
+            </ul>
             </div>
             <div class="pseudo-footer">
-                    <li><a href="{% setting MUACCOUNTS_DEFAULT_URL %}privacy" style="font-weight: 600;">Privacy & Copyright</a></li>
+                    <li><a href="{% setting MUACCOUNTS_DEFAULT_URL %}privacy" style="font-weight: 600;">{% trans "Privacy & Copyright" %}</a></li>
             </div>
       </div>
   </div>
@@ -105,6 +103,3 @@
     {{ request.muaccount.analytics_code|safe }}
   </body>
 </html>
-
-
-
