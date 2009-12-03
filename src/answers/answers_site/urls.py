@@ -103,6 +103,7 @@ urlpatterns = patterns('',
         {'queryset': Question.objects.all()},
         name='search'),
     (r'^i18n/', include('django.conf.urls.i18n')),
+    (r'^jsi18n/(?P<packages>\S+)/$', 'django.views.i18n.javascript_catalog'),
 )
 
 urlpatterns += saaskit_urls
