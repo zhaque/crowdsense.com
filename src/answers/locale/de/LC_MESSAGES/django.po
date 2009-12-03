@@ -1,0 +1,562 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-12-03 10:12+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: answers_site/templates/base.html:63 answers_site/templates/main.html:28
+msgid "Manage"
+msgstr ""
+
+#: answers_site/templates/base.html:65 answers_site/templates/main.html:30
+msgid "Account"
+msgstr ""
+
+#: answers_site/templates/base.html:66
+msgid "Log out"
+msgstr ""
+
+#: answers_site/templates/base.html:68
+msgid "log in or sign up"
+msgstr ""
+
+#: answers_site/templates/base.html:71 answers_site/templates/base.html:175
+#: answers_site/templates/index.html:88
+msgid "about"
+msgstr ""
+
+#: answers_site/templates/base.html:72 answers_site/templates/base.html:177
+#: answers_site/templates/index.html:89
+msgid "faq"
+msgstr ""
+
+#: answers_site/templates/base.html:80
+msgid "back to home page"
+msgstr ""
+
+#: answers_site/templates/base.html:97
+msgid "search"
+msgstr ""
+
+#: answers_site/templates/base.html:99 answers_site/templates/base.html:109
+msgid "questions"
+msgstr ""
+
+#: answers_site/templates/base.html:100 answers_site/templates/base.html:110
+msgid "tags"
+msgstr ""
+
+#: answers_site/templates/base.html:101 answers_site/templates/base.html:111
+msgid "users"
+msgstr ""
+
+#: answers_site/templates/base.html:112
+msgid "books"
+msgstr ""
+
+#: answers_site/templates/base.html:113
+msgid "badges"
+msgstr ""
+
+#: answers_site/templates/base.html:114
+msgid "unanswered questions"
+msgstr ""
+
+#: answers_site/templates/base.html:118
+msgid "my profile"
+msgstr ""
+
+#: answers_site/templates/base.html:122
+msgid "ask a question"
+msgstr ""
+
+#: answers_site/templates/base.html:176
+msgid "privacy policy"
+msgstr ""
+
+#: answers_site/templates/front_page.html:6
+msgid "Hello World!"
+msgstr ""
+
+#: answers_site/templates/index.html:7
+#: marketing_site/templates/admin/upload_qa.html:25
+msgid "Home"
+msgstr ""
+
+#: answers_site/templates/index.html:22
+msgid "Questions"
+msgstr ""
+
+#: answers_site/templates/index.html:24
+msgid "last updated questions"
+msgstr ""
+
+#: answers_site/templates/index.html:24
+msgid "newest"
+msgstr ""
+
+#: answers_site/templates/index.html:25
+msgid "hottest questions"
+msgstr ""
+
+#: answers_site/templates/index.html:25
+msgid "hottest"
+msgstr ""
+
+#: answers_site/templates/index.html:26
+msgid "most voted questions"
+msgstr ""
+
+#: answers_site/templates/index.html:26
+msgid "most voted"
+msgstr ""
+
+#: answers_site/templates/index.html:27
+msgid "all questions"
+msgstr ""
+
+#: answers_site/templates/index.html:47
+#: answers_site/templates/users_questions.html:37
+msgid "answers"
+msgstr ""
+
+#: answers_site/templates/index.html:48
+#: answers_site/templates/users_questions.html:32
+msgid "votes"
+msgstr ""
+
+#: answers_site/templates/index.html:49
+#: answers_site/templates/users_questions.html:42
+msgid "views"
+msgstr ""
+
+#: answers_site/templates/index.html:57
+msgid "community wiki"
+msgstr ""
+
+#: answers_site/templates/index.html:58 answers_site/templates/index.html:64
+#: answers_site/templates/users_questions.html:59
+msgid "ago"
+msgstr ""
+
+#: answers_site/templates/index.html:71
+#: answers_site/templates/users_questions.html:54
+msgid "see questions tagged"
+msgstr ""
+
+#: answers_site/templates/index.html:71
+#: answers_site/templates/users_questions.html:54
+msgid "using tags"
+msgstr ""
+
+#: answers_site/templates/index.html:85
+msgid "welcome to website"
+msgstr ""
+
+#: answers_site/templates/index.html:101
+msgid "Recent tags"
+msgstr ""
+
+#: answers_site/templates/index.html:106
+#, python-format
+msgid "see questions tagged '%(tagname)s'"
+msgstr ""
+
+#: answers_site/templates/index.html:109 answers_site/templates/index.html:134
+msgid "popular tags"
+msgstr ""
+
+#: answers_site/templates/index.html:114
+msgid "Recent awards"
+msgstr ""
+
+#: answers_site/templates/index.html:120
+msgid "given to"
+msgstr ""
+
+#: answers_site/templates/index.html:125
+msgid "all awards"
+msgstr ""
+
+#: answers_site/templates/index.html:129
+msgid "subscribe to last 30 questions by RSS"
+msgstr ""
+
+#: answers_site/templates/index.html:129
+msgid "subscribe to the questions feed"
+msgstr ""
+
+#: answers_site/templates/index.html:134
+msgid "Still looking for more? See"
+msgstr ""
+
+#: answers_site/templates/index.html:134
+msgid "complete list of questions"
+msgstr ""
+
+#: answers_site/templates/index.html:134
+msgid "or"
+msgstr ""
+
+#: answers_site/templates/index.html:134
+msgid "."
+msgstr ""
+
+#: answers_site/templates/index.html:134
+msgid "Please help us answer"
+msgstr ""
+
+#: answers_site/templates/index.html:134
+msgid "list of unanswered questions"
+msgstr ""
+
+#: answers_site/templates/main.html:5
+msgid "Title"
+msgstr ""
+
+#: answers_site/templates/main.html:31
+msgid "Sign-out"
+msgstr ""
+
+#: answers_site/templates/main.html:37
+msgid "Log in or Sign up"
+msgstr ""
+
+#: answers_site/templates/main.html:46
+msgid "Main"
+msgstr ""
+
+#: answers_site/templates/main.html:58
+msgid "clear"
+msgstr ""
+
+#: answers_site/templates/main.html:73
+msgid "This account has no owner"
+msgstr ""
+
+#: answers_site/templates/main.html:76
+msgid "If you feel you should manage this account, please"
+msgstr ""
+
+#: answers_site/templates/main.html:77
+msgid "claim it"
+msgstr ""
+
+#: answers_site/templates/main.html:90
+msgid "About CrowdSense"
+msgstr ""
+
+#: answers_site/templates/main.html:91
+msgid "Support"
+msgstr ""
+
+#: answers_site/templates/main.html:92
+msgid "Contact us"
+msgstr ""
+
+#: answers_site/templates/main.html:96
+msgid "Privacy & Copyright"
+msgstr ""
+
+#: answers_site/templates/suspended.html:3
+msgid "Account Suspended"
+msgstr ""
+
+#: answers_site/templates/suspended.html:6
+msgid "Account was suspended. Try again later."
+msgstr ""
+
+#: answers_site/templates/user_stats.html:16
+msgid "User questions"
+msgstr ""
+
+#: answers_site/templates/user_stats.html:29
+msgid "Answers"
+msgstr ""
+
+#: answers_site/templates/user_stats.html:38
+#, python-format
+msgid "the answer has been voted for %(vote_count)s times"
+msgstr ""
+
+#: answers_site/templates/user_stats.html:38
+msgid "this answer has been selected as correct"
+msgstr ""
+
+#: answers_site/templates/user_stats.html:44
+#, python-format
+msgid "the answer has been commented %(count)s times"
+msgstr ""
+
+#: answers_site/templates/user_stats.html:57
+msgid "votes total"
+msgstr ""
+
+#: answers_site/templates/user_stats.html:66
+msgid "user has voted up this many times"
+msgstr ""
+
+#: answers_site/templates/user_stats.html:71
+msgid "user voted down this many times"
+msgstr ""
+
+#: answers_site/templates/user_stats.html:85
+msgid "Tags"
+msgstr ""
+
+#: answers_site/templates/user_stats.html:95
+#, python-format
+msgid "see other questions tagged '%(tag)s' "
+msgstr ""
+
+#: answers_site/templates/user_stats.html:114
+msgid "Badges"
+msgstr ""
+
+#: answers_site/templates/users_questions.html:12
+msgid "this questions was selected as favorite"
+msgstr ""
+
+#: answers_site/templates/users_questions.html:12
+#: answers_site/templates/users_questions.html:18
+msgid "number of times"
+msgstr ""
+
+#: answers_site/templates/users_questions.html:18
+msgid "this question was selected as favorite"
+msgstr ""
+
+#: answers_site/templates/users_questions.html:35
+msgid "this answer has been accepted to be correct"
+msgstr ""
+
+#: answers_site/templates/flatpages/default.html:12
+msgid "edit"
+msgstr ""
+
+#: apps/muaccount_forum/feeds.py:16
+msgid " - "
+msgstr ""
+
+#: apps/muaccount_forum/feeds.py:16
+msgid "latest questions"
+msgstr ""
+
+#: apps/muaccount_forum/forms.py:24
+msgid "CSV file"
+msgstr ""
+
+#: apps/muaccount_forum/forms.py:25
+msgid ""
+"Format of each row: \"tag\",\"question\",\"answer\". Rows with wrong format "
+"will be skiped."
+msgstr ""
+
+#: apps/muaccount_forum/forms.py:33
+msgid "Error while reading. Check your file."
+msgstr ""
+
+#: apps/muaccount_forum/views.py:55
+#, python-format
+msgid "%(total)s items found, %(imported)s items imported."
+msgstr ""
+
+#: marketing_site/templates/account/dashboard.html:4
+#: marketing_site/templates/account/dashboard.html:6
+msgid "Dashboard"
+msgstr ""
+
+#: marketing_site/templates/account/dashboard.html:9
+msgid "RSS"
+msgstr ""
+
+#: marketing_site/templates/account/dashboard.html:19
+msgid "Updates from website"
+msgstr ""
+
+#: marketing_site/templates/account/dashboard.html:33
+msgid "No updates at the moment."
+msgstr ""
+
+#: marketing_site/templates/account/dashboard.html:39
+msgid "Sites you own"
+msgstr ""
+
+#: marketing_site/templates/account/dashboard.html:49
+msgid "Sites you are member of"
+msgstr ""
+
+#: marketing_site/templates/account/dashboard.html:59
+msgid "Profile"
+msgstr ""
+
+#: marketing_site/templates/admin/extra_index.html:5
+msgid "Rosetta"
+msgstr ""
+
+#: marketing_site/templates/admin/extra_index.html:6
+msgid "Upload Q&A"
+msgstr ""
+
+#: marketing_site/templates/admin/extra_index.html:7
+msgid "Templates admin"
+msgstr ""
+
+#: marketing_site/templates/admin/upload_qa.html:26
+#: marketing_site/templates/admin/upload_qa.html:31
+msgid "Upload Questions & Answers"
+msgstr ""
+
+#: marketing_site/templates/admin/upload_qa.html:36
+msgid "Edit Template:"
+msgstr ""
+
+#: marketing_site/templates/admin/upload_qa.html:51
+msgid "Upload"
+msgstr ""
+
+#: marketing_site/templates/subscription/subscription_list.html:14
+msgid "Questions & Answers"
+msgstr ""
+
+#: marketing_site/templates/subscription/subscription_list.html:17
+msgid ""
+"No. QA.com is a pay-as-you-use service and is not offered on contract terms "
+"or long term committments. All you do is pay the monthly charges. If you "
+"chose to cancel, you're only billed for the current month alone."
+msgstr ""
+
+#: marketing_site/templates/subscription/subscription_list.html:18
+msgid "Can I upgrade plans at will?"
+msgstr ""
+
+#: marketing_site/templates/subscription/subscription_list.html:19
+msgid "Yes. All you have to do is navigate to the "
+msgstr ""
+
+#: marketing_site/templates/subscription/subscription_list.html:20
+msgid "Are there per-page view charges?"
+msgstr ""
+
+#: marketing_site/templates/subscription/subscription_list.html:21
+msgid ""
+"We don't charge on per-page view basis as all the prices above are inclusive "
+"i.e. Plus plan is $900/Month for upto 10,000,000 page views. This means you "
+"only pay $900/month regardless of the page views you get as long as it's "
+"10,000,000 or less."
+msgstr ""
+
+#: marketing_site/templates/subscription/subscription_list.html:22
+msgid "Do you offer free trial?"
+msgstr ""
+
+#: marketing_site/templates/subscription/subscription_list.html:24
+msgid "What type of payments do you accept?"
+msgstr ""
+
+#: marketing_site/templates/subscription/subscription_list.html:25
+msgid ""
+"Payments are processed safely and securely by PayPal, major credit cards "
+"accepted. PayPal account not required for payment."
+msgstr ""
+
+#: marketing_site/templates/subscription/subscription_list.html:26
+msgid "Your Data Safety Guaranteed"
+msgstr ""
+
+#: marketing_site/templates/subscription/subscription_list.html:27
+msgid ""
+"Our state-of-the-art computer servers are protected by biometric locks and "
+"24-hour surveillance. Our product software and infrastructure is updated "
+"regularly with the latest security patches. Our network is protected by an "
+"enterprise-class firewall to keep your data safe."
+msgstr ""
+
+#: marketing_site/templates/subscription/subscription_list.html:35
+msgid "More Info"
+msgstr ""
+
+#: marketing_site/templates/subscription/subscription_list.html:37
+msgid "Payments are processed"
+msgstr ""
+
+#: marketing_site/templates/subscription/subscription_list.html:37
+msgid "safely and securely"
+msgstr ""
+
+#: marketing_site/templates/subscription/subscription_list.html:37
+msgid "by"
+msgstr ""
+
+#: marketing_site/templates/subscription/subscription_list.html:38
+msgid ""
+"PayPal major credit cards accepted. PayPal account not required for payment."
+msgstr ""
+
+#: marketing_site/templates/subscription/subscription_list.html:40
+msgid "Project is proud to be hosted with"
+msgstr ""
+
+#: marketing_site/templates/subscription/subscription_list.html:41
+msgid "Rackspace experts in enterprise-level web hosting"
+msgstr ""
+
+#: marketing_site/templates/subscription/subscription_list.html:42
+msgid "Project data is backed-up daily and you can export data at any time."
+msgstr ""
+
+#: marketing_site/templates/subscription/subscription_list.html:43
+msgid "Encrypted with"
+msgstr ""
+
+#: marketing_site/templates/subscription/subscription_list.html:43
+msgid "128-bit SSL"
+msgstr ""
+
+#: marketing_site/templates/subscription/subscription_list.html:45
+msgid "Project is optimised for IE7, Firefox and Safari web browsers."
+msgstr ""
+
+#: marketing_site/templates/subscription/subscription_list_fragment.html:5
+msgid "Current Plan"
+msgstr ""
+
+#: marketing_site/templates/subscription/subscription_list_fragment.html:6
+msgid "Expires"
+msgstr ""
+
+#: marketing_site/templates/subscription/subscription_list_fragment.html:6
+msgid "DATE_FORMAT"
+msgstr ""
+
+#: marketing_site/templates/subscription/subscription_list_fragment.html:7
+msgid ""
+"Paypal will get money from your account itself. Or you may do it manually in "
+"your paypal account."
+msgstr ""
+
+#: marketing_site/templates/subscription/subscription_list_fragment.html:9
+msgid ""
+"Each month of service for less than the cost of a pizza :) Upgrade or "
+"downgrade whenever you like."
+msgstr ""
+
+#: marketing_site/templates/subscription/subscription_list_fragment.html:26
+msgid "Choose"
+msgstr ""
+
+#: marketing_site/templates/subscription/subscription_list_fragment.html:35
+msgid "View history"
+msgstr ""

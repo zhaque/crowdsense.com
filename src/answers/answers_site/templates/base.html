@@ -1,6 +1,6 @@
 {% load compressed class_if_reverse settings thumbnail muathemes muaccounts_tags extra_tags extra_filters i18n adsense %}
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="{{ LANGUAGE_CODE }}" xml:lang="{{ LANGUAGE_CODE }}" {% if LANGUAGE_BIDI %}dir="rtl"{% endif %}>
     <head>
         <title>{% if request.muaccount.name %}{{ request.muaccount.name }} - {% endif %}{% block title %}{% endblock %}</title>
         {% block meta %}{% endblock %}
