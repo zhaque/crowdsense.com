@@ -1,12 +1,10 @@
-{% extends "main.html" %}
+{% extends "account/base.html" %}
 {% load i18n %}
 {% block title %}{% trans "Pricing and Plans" %} {% endblock %}
 {% block teaser %}
-{% include "subscription/subscription_list_fragment.html" %}
+  {% include "subscription/subscription_list_fragment.html" %}
 {% endblock %} 
-{% block body %}
-<div id="yui-main"><div class="yui-b"><div class="yui-g">
-
+{% block content %}
  <!--Start of info block -->
                     <div class="block">
                         <div class="bd">
@@ -27,7 +25,7 @@
 <p>{% trans "Our state-of-the-art computer servers are protected by biometric locks and 24-hour surveillance. Our product software and infrastructure is updated regularly with the latest security patches. Our network is protected by an enterprise-class firewall to keep your data safe." %}</p>
                     </div></div>
                     <!--End of info block -->
-</div></div></div> 
+ 
 <div id="sidebar" class="yui-b">
   <!--Start of more info-->
             <div class="block">
