@@ -1,0 +1,14 @@
+{% extends "questions.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Bounty Questions" %}{% endblock %}
+
+{% block forejs %}
+   <script type="text/javascript">
+    $().ready(function(){
+        $("#nav_bounty").attr('className',"on");
+    });
+    </script>
+{% endblock %}
+
+{% block headQuestions %}{% trans "Bounty questions" %}{% endblock %}
