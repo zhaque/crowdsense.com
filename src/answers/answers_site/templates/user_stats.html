@@ -15,6 +15,9 @@
                 <td>
                     <h2>{% trans "User questions" %}</h2>
                 </td>
+                {% if request.muaccount.is_bounty %}
+                <td><h3>{{ bounty_questions }} bounty question{{ bounty_questions|pluralize }} | {{ bounty_questions_paid }} paid | {{ bounty_questions_not_paid }} not paid</h3></td>
+                {% endif %}
             </tr>
         </table>
 		{% include "users_questions.html" %}

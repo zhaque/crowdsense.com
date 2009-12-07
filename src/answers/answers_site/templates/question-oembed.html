@@ -1,6 +1,19 @@
 {% extends "question.html" %}
-{% load oembed_tags %}
-        
+{% load i18n oembed_tags %}
+
+{% block question_title %}
+  {{ block.super }}
+  {% if question.bounty_points %}
+  <p id="bounty_note">{% blocktrans with question.bounty_points as points %}
+    bounty question: {{ points }} points
+  {% endblocktrans %}</p>
+  {% endif %}
+{% endblock %}
+
+{% block answer_vote_buttons %}
+    
+{% endblock %}
+
 {% block question_body %}
 {% oembed %}
   {{ block.super }}
@@ -11,4 +24,34 @@
 {% oembed %}
   {{ block.super }}
 {% endoembed %}
+{% endblock %}
+
+{% block endjs %}
+<script type="text/javascript">
+  $().ready(function(){
+    $(".award-points").click(function(event){
+        object = $(this);
+        $.ajax({
+            type: "GET",
+            cache: false,
+            dataType: "json",
+            url: object.attr('href'),
+            error: function(xhr, msg){
+                       alert("Callback invoke error: " + msg);
+                   },
+            success: function(data){
+                       if (data.not_enough_credits=='1')
+                       {
+                         showMessage(object, $.i18n._('You do not have enough points.'))
+                       }
+                       else if (data.awarded=='1')
+                       {
+                         object.parent().replaceWith('<span class="answer-awarded">{% trans "awarded"%}</span>');
+                       }
+                     }
+        });
+        return false;
+    });
+  }); 
+</script>
 {% endblock %}

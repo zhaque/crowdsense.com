@@ -95,8 +95,6 @@ QUOTAS = {
 MUACCOUNTS_MAIN_URLCONF = 'answers.marketing_site.urls'
 MUACCOUNTS_USERSITE_URLCONF = 'answers.answers_site.urls'
 
-#SESSION_COOKIE_DOMAIN = ".example.com" # A string like ".lawrence.com", or None for standard domain cookie.
-
 #_default_css_files += ('answers/css/cnprog.css',)
 
 AUTH_PROFILE_MODULE = 'cnprog_profile.UserProfile'

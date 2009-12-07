@@ -14,11 +14,6 @@ class MuAskForm(AskForm):
     
     bounty_points = forms.IntegerField(_('Bounty points'), min_value=0, required=False)
     
-#===============================================================================
-#    def __init__(self, initial=None, *args, **kwargs):
-#        super(MuAskForm, self).__init__(*args, **kwargs)
-#===============================================================================
-    
     def prepare_data(self, request):
         data = super(MuAskForm, self).prepare_data(request)
         data['muaccount'] = request.muaccount
