@@ -1,7 +1,7 @@
 {% extends "main.html" %}
-
-{% block title %} Pricing and Plans {% endblock %}
-{% block fake-header %}
+{% load i18n %}
+{% block title %}{% trans "Pricing and Plans" %} {% endblock %}
+{% block teaser %}
 {% include "subscription/subscription_list_fragment.html" %}
 {% endblock %} 
 {% block body %}
@@ -13,14 +13,14 @@
                         
                         <h1>{% trans "Questions & Answers" %}</h1>
                         <br>
-<p class="questions">{% trans "DO I need to sign a contract? %}</p>
+<p class="questions">{% trans "DO I need to sign a contract?" %}</p>
 <p>{% trans "No. QA.com is a pay-as-you-use service and is not offered on contract terms or long term committments. All you do is pay the monthly charges. If you chose to cancel, you're only billed for the current month alone." %}</p>
 <p class="questions">{% trans "Can I upgrade plans at will?" %}</p>
-<p>{% trans "Yes. All you have to do is navigate to the "Account" tab and you'll find the upgrade option in the dashboard." %}</p>
+<p>{% trans "Yes. All you have to do is navigate to the 'Account' tab and you'll find the upgrade option in the dashboard." %}</p>
 <p class="questions">{% trans "Are there per-page view charges?" %}</p>
 <p>{% trans "We don't charge on per-page view basis as all the prices above are inclusive i.e. Plus plan is $900/Month for upto 10,000,000 page views. This means you only pay $900/month regardless of the page views you get as long as it's 10,000,000 or less." %}</p>
 <p class="questions">{% trans "Do you offer free trial?" %}</p>
-<p>{% trans "No. At the moment we don't have free trials. That maybe considered in the future. %}</p>
+<p>{% trans "No. At the moment we don't have free trials. That maybe considered in the future." %}</p>
 <p class="questions">{% trans "What type of payments do you accept?" %}</p>
 <p>{% trans "Payments are processed safely and securely by PayPal, major credit cards accepted. PayPal account not required for payment." %}</p>
 <p class="questions">{% trans "Your Data Safety Guaranteed" %}</p>
