@@ -1,14 +1,10 @@
 ### -*- coding: utf-8 -*- ##
 
 from django.db import models
-from django.db.models.signals import pre_save
+from django.utils.translation import ugettext_lazy as _
 
 from muaccounts.models import MUAccount
-from forum.models import Question, Tag, TagManager
+from forum.models import Question
 
 Question.add_to_class('muaccount', models.ForeignKey(MUAccount, related_name="questions"))
-#Tag.add_to_class('muaccount', models.ManyToManyField(MUAccount, related_name="forum_tags", null=True))
-
-def update_muaccount(instance, **kwargs):
-    instance.tags.filter(muaccount__exact=None).update(muaccount=instance.muaccount)
-#pre_save.connect(set_muaccount, sender=Question)
+Question.add_to_class('bounty_points', models.PositiveIntegerField(_('bounty points'), default=0))

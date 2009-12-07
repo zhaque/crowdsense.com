@@ -106,12 +106,13 @@
              
                
                <div id="primary-navigation">
-                    <a id="nav_questions" href="/questions/" >{% trans "questions" %}</a>
-                    <a id="nav_tags" href="/tags/">{% trans "tags" %}</a>
-                    <a id="nav_users" href="/users/">{% trans "users" %}</a>
+                    <a id="nav_questions" href="{% url questions %}" >{% trans "questions" %}</a>
+                    <a id="nav_tags" href="{% url tags %}">{% trans "tags" %}</a>
+                    <a id="nav_users" href="{% url users %}">{% trans "users" %}</a>
                     <!--<a id="nav_books" href="/books/">{% trans "books" %}</a>-->
-                    <a id="nav_badges" href="/badges/">{% trans "badges" %}</a>
-                    <a id="nav_unanswered" href="/questions/unanswered/">{% trans "unanswered questions" %}</a>
+                    <a id="nav_badges" href="{% url badges %}">{% trans "badges" %}</a>
+                    <a id="nav_unanswered" href="{% url unanswered %}">{% trans "unanswered questions" %}</a>
+                    <a id="nav_bounty" href="{% url bounty-questions %}" >{% trans "bounty questions" %}</a>
                     
           {% comment %}<!-- i think this needs to be removed -e.f. -->
                     {% if request.user.is_authenticated %}
