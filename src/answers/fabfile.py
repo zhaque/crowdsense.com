@@ -24,3 +24,5 @@ def production():
     ifnotsetted('POSTGRES_DB', 'answerlog', True, "PostgreSQL DATABASE")
     ifnotsetted('UBUNTU_VERSION', 'jaunty', True, "Ubuntu version name")
     ifnotsetted('PAYPAL_EMAIL', 'admin_1255085897_biz@crowdsense.com', True, "PAYPAL EMAIL")
+    ifnotsetted('PAYPAL_TEST', 'True', True, "PAYPAL TEST (True or False)?", r'^(True|False)$')
+    
