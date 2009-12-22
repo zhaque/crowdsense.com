@@ -24,7 +24,7 @@ extras_require = dict(
 install_requires.extend(extras_require['test'])
 
 setup(
-    name = "answerlog.net",
+    name = "answerlog",
     version = version,
     description = "Hosted Q&A Service using SaaS kit",
     long_description = read('README'),
