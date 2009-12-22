@@ -24,12 +24,12 @@ extras_require = dict(
 install_requires.extend(extras_require['test'])
 
 setup(
-    name = "answers",
+    name = "answerlog.net",
     version = version,
-    description = "http://stackoverflow.com/ like application.",
+    description = "Hosted Q&A Service using SaaS kit",
     long_description = read('README'),
-    author = 'Arvid Paeglit',
-    author_email = 'arvi3d@gmail.com',
+    author = 'saas-kit',
+    author_email = 'admin@saaskit.org',
     url = 'http://answerlog.net',
     packages = find_packages('src'),
     package_dir = {'': 'src'},
