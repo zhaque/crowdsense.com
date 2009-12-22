@@ -82,8 +82,8 @@ THUMBNAIL_EXTENSION = 'png'
 TEMPLATESADMIN_GROUP = 'Editors'
 
 
-TEMPLATESADMIN_TEMPLATE_DIRS = ( os.path.join(PROJECT_ROOT, 'user_site', 'templates').replace('\\','/'),
-                                 os.path.join(PROJECT_ROOT, 'main_site', 'templates').replace('\\','/'),
+TEMPLATESADMIN_TEMPLATE_DIRS = ( os.path.join(PROJECT_ROOT, 'customer_site', 'templates').replace('\\','/'),
+                                 os.path.join(PROJECT_ROOT, 'corp_site', 'templates').replace('\\','/'),
                                 ) + TEMPLATE_DIRS
 
 QUOTAS = {
@@ -92,8 +92,8 @@ QUOTAS = {
     'page_views': (1000000, 2000000, 10000000),
     }
 
-MUACCOUNTS_MAIN_URLCONF = 'answerlog.main_site.urls'
-MUACCOUNTS_USERSITE_URLCONF = 'answerlog.user_site.urls'
+MUACCOUNTS_MAIN_URLCONF = 'answerlog.corp_site.urls'
+MUACCOUNTS_USERSITE_URLCONF = 'answerlog.customer_site.urls'
 
 #_default_css_files += ('answerlog/css/cnprog.css',)
 
