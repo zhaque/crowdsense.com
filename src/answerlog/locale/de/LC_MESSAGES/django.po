@@ -2,7 +2,7 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#main_site
+#corp_site
 #, fuzzy
 msgid ""
 msgstr ""
@@ -16,333 +16,333 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: user_site/templates/base.html:63 user_site/templates/main.html:28
+#: customer_site/templates/base.html:63 customer_site/templates/main.html:28
 msgid "Manage"
 msgstr ""
 
-#: user_site/templates/base.html:65 user_site/templates/main.html:30
+#: customer_site/templates/base.html:65 customer_site/templates/main.html:30
 msgid "Account"
 msgstr ""
 
-#: user_site/templates/base.html:66
+#: customer_site/templates/base.html:66
 msgid "Log out"
 msgstr ""
 
-#: user_site/templates/base.html:68
+#: customer_site/templates/base.html:68
 msgid "log in or sign up"
 msgstr ""
 
-#: user_site/templates/base.html:71 user_site/templates/base.html:175
-#: user_site/templates/index.html:88
+#: customer_site/templates/base.html:71 customer_site/templates/base.html:175
+#: customer_site/templates/index.html:88
 msgid "about"
 msgstr ""
 
-#: user_site/templates/base.html:72 user_site/templates/base.html:177
-#: user_site/templates/index.html:89
+#: customer_site/templates/base.html:72 customer_site/templates/base.html:177
+#: customer_site/templates/index.html:89
 msgid "faq"
 msgstr ""
 
-#: user_site/templates/base.html:80
+#: customer_site/templates/base.html:80
 msgid "back to home page"
 msgstr ""
 
-#: user_site/templates/base.html:97
+#: customer_site/templates/base.html:97
 msgid "search"
 msgstr ""
 
-#: user_site/templates/base.html:99 user_site/templates/base.html:109
+#: customer_site/templates/base.html:99 customer_site/templates/base.html:109
 msgid "questions"
 msgstr ""
 
-#: user_site/templates/base.html:100 user_site/templates/base.html:110
+#: customer_site/templates/base.html:100 customer_site/templates/base.html:110
 msgid "tags"
 msgstr ""
 
-#: user_site/templates/base.html:101 user_site/templates/base.html:111
+#: customer_site/templates/base.html:101 customer_site/templates/base.html:111
 msgid "users"
 msgstr ""
 
-#: user_site/templates/base.html:112
+#: customer_site/templates/base.html:112
 msgid "books"
 msgstr ""
 
-#: user_site/templates/base.html:113
+#: customer_site/templates/base.html:113
 msgid "badges"
 msgstr ""
 
-#: user_site/templates/base.html:114
+#: customer_site/templates/base.html:114
 msgid "unanswered questions"
 msgstr ""
 
-#: user_site/templates/base.html:118
+#: customer_site/templates/base.html:118
 msgid "my profile"
 msgstr ""
 
-#: user_site/templates/base.html:122
+#: customer_site/templates/base.html:122
 msgid "ask a question"
 msgstr ""
 
-#: user_site/templates/base.html:176
+#: customer_site/templates/base.html:176
 msgid "privacy policy"
 msgstr ""
 
-#: user_site/templates/front_page.html:6
+#: customer_site/templates/front_page.html:6
 msgid "Hello World!"
 msgstr ""
 
-#: user_site/templates/index.html:7
-#: main_site/templates/admin/upload_qa.html:25
+#: customer_site/templates/index.html:7
+#: corp_site/templates/admin/upload_qa.html:25
 msgid "Home"
 msgstr ""
 
-#: user_site/templates/index.html:22
+#: customer_site/templates/index.html:22
 msgid "Questions"
 msgstr ""
 
-#: user_site/templates/index.html:24
+#: customer_site/templates/index.html:24
 msgid "last updated questions"
 msgstr ""
 
-#: user_site/templates/index.html:24
+#: customer_site/templates/index.html:24
 msgid "newest"
 msgstr ""
 
-#: user_site/templates/index.html:25
+#: customer_site/templates/index.html:25
 msgid "hottest questions"
 msgstr ""
 
-#: user_site/templates/index.html:25
+#: customer_site/templates/index.html:25
 msgid "hottest"
 msgstr ""
 
-#: user_site/templates/index.html:26
+#: customer_site/templates/index.html:26
 msgid "most voted questions"
 msgstr ""
 
-#: user_site/templates/index.html:26
+#: customer_site/templates/index.html:26
 msgid "most voted"
 msgstr ""
 
-#: user_site/templates/index.html:27
+#: customer_site/templates/index.html:27
 msgid "all questions"
 msgstr ""
 
-#: user_site/templates/index.html:47
-#: user_site/templates/users_questions.html:37
+#: customer_site/templates/index.html:47
+#: customer_site/templates/users_questions.html:37
 msgid "answers"
 msgstr ""
 
-#: user_site/templates/index.html:48
-#: user_site/templates/users_questions.html:32
+#: customer_site/templates/index.html:48
+#: customer_site/templates/users_questions.html:32
 msgid "votes"
 msgstr ""
 
-#: user_site/templates/index.html:49
-#: user_site/templates/users_questions.html:42
+#: customer_site/templates/index.html:49
+#: customer_site/templates/users_questions.html:42
 msgid "views"
 msgstr ""
 
-#: user_site/templates/index.html:57
+#: customer_site/templates/index.html:57
 msgid "community wiki"
 msgstr ""
 
-#: user_site/templates/index.html:58 user_site/templates/index.html:64
-#: user_site/templates/users_questions.html:59
+#: customer_site/templates/index.html:58 customer_site/templates/index.html:64
+#: customer_site/templates/users_questions.html:59
 msgid "ago"
 msgstr ""
 
-#: user_site/templates/index.html:71
-#: user_site/templates/users_questions.html:54
+#: customer_site/templates/index.html:71
+#: customer_site/templates/users_questions.html:54
 msgid "see questions tagged"
 msgstr ""
 
-#: user_site/templates/index.html:71
-#: user_site/templates/users_questions.html:54
+#: customer_site/templates/index.html:71
+#: customer_site/templates/users_questions.html:54
 msgid "using tags"
 msgstr ""
 
-#: user_site/templates/index.html:85
+#: customer_site/templates/index.html:85
 msgid "welcome to website"
 msgstr ""
 
-#: user_site/templates/index.html:101
+#: customer_site/templates/index.html:101
 msgid "Recent tags"
 msgstr ""
 
-#: user_site/templates/index.html:106
+#: customer_site/templates/index.html:106
 #, python-format
 msgid "see questions tagged '%(tagname)s'"
 msgstr ""
 
-#: user_site/templates/index.html:109 user_site/templates/index.html:134
+#: customer_site/templates/index.html:109 customer_site/templates/index.html:134
 msgid "popular tags"
 msgstr ""
 
-#: user_site/templates/index.html:114
+#: customer_site/templates/index.html:114
 msgid "Recent awards"
 msgstr ""
 
-#: user_site/templates/index.html:120
+#: customer_site/templates/index.html:120
 msgid "given to"
 msgstr ""
 
-#: user_site/templates/index.html:125
+#: customer_site/templates/index.html:125
 msgid "all awards"
 msgstr ""
 
-#: user_site/templates/index.html:129
+#: customer_site/templates/index.html:129
 msgid "subscribe to last 30 questions by RSS"
 msgstr ""
 
-#: user_site/templates/index.html:129
+#: customer_site/templates/index.html:129
 msgid "subscribe to the questions feed"
 msgstr ""
 
-#: user_site/templates/index.html:134
+#: customer_site/templates/index.html:134
 msgid "Still looking for more? See"
 msgstr ""
 
-#: user_site/templates/index.html:134
+#: customer_site/templates/index.html:134
 msgid "complete list of questions"
 msgstr ""
 
-#: user_site/templates/index.html:134
+#: customer_site/templates/index.html:134
 msgid "or"
 msgstr ""
 
-#: user_site/templates/index.html:134
+#: customer_site/templates/index.html:134
 msgid "."
 msgstr ""
 
-#: user_site/templates/index.html:134
+#: customer_site/templates/index.html:134
 msgid "Please help us answer"
 msgstr ""
 
-#: user_site/templates/index.html:134
+#: customer_site/templates/index.html:134
 msgid "list of unanswered questions"
 msgstr ""
 
-#: user_site/templates/main.html:5
+#: customer_site/templates/main.html:5
 msgid "Title"
 msgstr ""
 
-#: user_site/templates/main.html:31
+#: customer_site/templates/main.html:31
 msgid "Sign-out"
 msgstr ""
 
-#: user_site/templates/main.html:37
+#: customer_site/templates/main.html:37
 msgid "Log in or Sign up"
 msgstr ""
 
-#: user_site/templates/main.html:46
+#: customer_site/templates/main.html:46
 msgid "Main"
 msgstr ""
 
-#: user_site/templates/main.html:58
+#: customer_site/templates/main.html:58
 msgid "clear"
 msgstr ""
 
-#: user_site/templates/main.html:73
+#: customer_site/templates/main.html:73
 msgid "This account has no owner"
 msgstr ""
 
-#: user_site/templates/main.html:76
+#: customer_site/templates/main.html:76
 msgid "If you feel you should manage this account, please"
 msgstr ""
 
-#: user_site/templates/main.html:77
+#: customer_site/templates/main.html:77
 msgid "claim it"
 msgstr ""
 
-#: user_site/templates/main.html:90
+#: customer_site/templates/main.html:90
 msgid "About CrowdSense"
 msgstr ""
 
-#: user_site/templates/main.html:91
+#: customer_site/templates/main.html:91
 msgid "Support"
 msgstr ""
 
-#: user_site/templates/main.html:92
+#: customer_site/templates/main.html:92
 msgid "Contact us"
 msgstr ""
 
-#: user_site/templates/main.html:96
+#: customer_site/templates/main.html:96
 msgid "Privacy & Copyright"
 msgstr ""
 
-#: user_site/templates/suspended.html:3
+#: customer_site/templates/suspended.html:3
 msgid "Account Suspended"
 msgstr ""
 
-#: user_site/templates/suspended.html:6
+#: customer_site/templates/suspended.html:6
 msgid "Account was suspended. Try again later."
 msgstr ""
 
-#: user_site/templates/user_stats.html:16
+#: customer_site/templates/user_stats.html:16
 msgid "User questions"
 msgstr ""
 
-#: user_site/templates/user_stats.html:29
+#: customer_site/templates/user_stats.html:29
 msgid "Answers"
 msgstr ""
 
-#: user_site/templates/user_stats.html:38
+#: customer_site/templates/user_stats.html:38
 #, python-format
 msgid "the answer has been voted for %(vote_count)s times"
 msgstr ""
 
-#: user_site/templates/user_stats.html:38
+#: customer_site/templates/user_stats.html:38
 msgid "this answer has been selected as correct"
 msgstr ""
 
-#: user_site/templates/user_stats.html:44
+#: customer_site/templates/user_stats.html:44
 #, python-format
 msgid "the answer has been commented %(count)s times"
 msgstr ""
 
-#: user_site/templates/user_stats.html:57
+#: customer_site/templates/user_stats.html:57
 msgid "votes total"
 msgstr ""
 
-#: user_site/templates/user_stats.html:66
+#: customer_site/templates/user_stats.html:66
 msgid "user has voted up this many times"
 msgstr ""
 
-#: user_site/templates/user_stats.html:71
+#: customer_site/templates/user_stats.html:71
 msgid "user voted down this many times"
 msgstr ""
 
-#: user_site/templates/user_stats.html:85
+#: customer_site/templates/user_stats.html:85
 msgid "Tags"
 msgstr ""
 
-#: user_site/templates/user_stats.html:95
+#: customer_site/templates/user_stats.html:95
 #, python-format
 msgid "see other questions tagged '%(tag)s' "
 msgstr ""
 
-#: user_site/templates/user_stats.html:114
+#: customer_site/templates/user_stats.html:114
 msgid "Badges"
 msgstr ""
 
-#: user_site/templates/users_questions.html:12
+#: customer_site/templates/users_questions.html:12
 msgid "this questions was selected as favorite"
 msgstr ""
 
-#: user_site/templates/users_questions.html:12
-#: user_site/templates/users_questions.html:18
+#: customer_site/templates/users_questions.html:12
+#: customer_site/templates/users_questions.html:18
 msgid "number of times"
 msgstr ""
 
-#: user_site/templates/users_questions.html:18
+#: customer_site/templates/users_questions.html:18
 msgid "this question was selected as favorite"
 msgstr ""
 
-#: user_site/templates/users_questions.html:35
+#: customer_site/templates/users_questions.html:35
 msgid "this answer has been accepted to be correct"
 msgstr ""
 
-#: user_site/templates/flatpages/default.html:12
+#: customer_site/templates/flatpages/default.html:12
 msgid "edit"
 msgstr ""
 
@@ -373,84 +373,84 @@ msgstr ""
 msgid "%(total)s items found, %(imported)s items imported."
 msgstr ""
 
-#: main_site/templates/account/dashboard.html:4
-#: main_site/templates/account/dashboard.html:6
+#: corp_site/templates/account/dashboard.html:4
+#: corp_site/templates/account/dashboard.html:6
 msgid "Dashboard"
 msgstr ""
 
-#: main_site/templates/account/dashboard.html:9
+#: corp_site/templates/account/dashboard.html:9
 msgid "RSS"
 msgstr ""
 
-#: main_site/templates/account/dashboard.html:19
+#: corp_site/templates/account/dashboard.html:19
 msgid "Updates from website"
 msgstr ""
 
-#: main_site/templates/account/dashboard.html:33
+#: corp_site/templates/account/dashboard.html:33
 msgid "No updates at the moment."
 msgstr ""
 
-#: main_site/templates/account/dashboard.html:39
+#: corp_site/templates/account/dashboard.html:39
 msgid "Sites you own"
 msgstr ""
 
-#: main_site/templates/account/dashboard.html:49
+#: corp_site/templates/account/dashboard.html:49
 msgid "Sites you are member of"
 msgstr ""
 
-#: main_site/templates/account/dashboard.html:59
+#: corp_site/templates/account/dashboard.html:59
 msgid "Profile"
 msgstr ""
 
-#: main_site/templates/admin/extra_index.html:5
+#: corp_site/templates/admin/extra_index.html:5
 msgid "Rosetta"
 msgstr ""
 
-#: main_site/templates/admin/extra_index.html:6
+#: corp_site/templates/admin/extra_index.html:6
 msgid "Upload Q&A"
 msgstr ""
 
-#: main_site/templates/admin/extra_index.html:7
+#: corp_site/templates/admin/extra_index.html:7
 msgid "Templates admin"
 msgstr ""
 
-#: main_site/templates/admin/upload_qa.html:26
-#: main_site/templates/admin/upload_qa.html:31
+#: corp_site/templates/admin/upload_qa.html:26
+#: corp_site/templates/admin/upload_qa.html:31
 msgid "Upload Questions & Answers"
 msgstr ""
 
-#: main_site/templates/admin/upload_qa.html:36
+#: corp_site/templates/admin/upload_qa.html:36
 msgid "Edit Template:"
 msgstr ""
 
-#: main_site/templates/admin/upload_qa.html:51
+#: corp_site/templates/admin/upload_qa.html:51
 msgid "Upload"
 msgstr ""
 
-#: main_site/templates/subscription/subscription_list.html:14
+#: corp_site/templates/subscription/subscription_list.html:14
 msgid "Questions & Answers"
 msgstr ""
 
-#: main_site/templates/subscription/subscription_list.html:17
+#: corp_site/templates/subscription/subscription_list.html:17
 msgid ""
 "No. QA.com is a pay-as-you-use service and is not offered on contract terms "
 "or long term committments. All you do is pay the monthly charges. If you "
 "chose to cancel, you're only billed for the current month alone."
 msgstr ""
 
-#: main_site/templates/subscription/subscription_list.html:18
+#: corp_site/templates/subscription/subscription_list.html:18
 msgid "Can I upgrade plans at will?"
 msgstr ""
 
-#: main_site/templates/subscription/subscription_list.html:19
+#: corp_site/templates/subscription/subscription_list.html:19
 msgid "Yes. All you have to do is navigate to the "
 msgstr ""
 
-#: main_site/templates/subscription/subscription_list.html:20
+#: corp_site/templates/subscription/subscription_list.html:20
 msgid "Are there per-page view charges?"
 msgstr ""
 
-#: main_site/templates/subscription/subscription_list.html:21
+#: corp_site/templates/subscription/subscription_list.html:21
 msgid ""
 "We don't charge on per-page view basis as all the prices above are inclusive "
 "i.e. Plus plan is $900/Month for upto 10,000,000 page views. This means you "
@@ -458,25 +458,25 @@ msgid ""
 "10,000,000 or less."
 msgstr ""
 
-#: main_site/templates/subscription/subscription_list.html:22
+#: corp_site/templates/subscription/subscription_list.html:22
 msgid "Do you offer free trial?"
 msgstr ""
 
-#: main_site/templates/subscription/subscription_list.html:24
+#: corp_site/templates/subscription/subscription_list.html:24
 msgid "What type of payments do you accept?"
 msgstr ""
 
-#: main_site/templates/subscription/subscription_list.html:25
+#: corp_site/templates/subscription/subscription_list.html:25
 msgid ""
 "Payments are processed safely and securely by PayPal, major credit cards "
 "accepted. PayPal account not required for payment."
 msgstr ""
 
-#: main_site/templates/subscription/subscription_list.html:26
+#: corp_site/templates/subscription/subscription_list.html:26
 msgid "Your Data Safety Guaranteed"
 msgstr ""
 
-#: main_site/templates/subscription/subscription_list.html:27
+#: corp_site/templates/subscription/subscription_list.html:27
 msgid ""
 "Our state-of-the-art computer servers are protected by biometric locks and "
 "24-hour surveillance. Our product software and infrastructure is updated "
@@ -484,79 +484,79 @@ msgid ""
 "enterprise-class firewall to keep your data safe."
 msgstr ""
 
-#: main_site/templates/subscription/subscription_list.html:35
+#: corp_site/templates/subscription/subscription_list.html:35
 msgid "More Info"
 msgstr ""
 
-#: main_site/templates/subscription/subscription_list.html:37
+#: corp_site/templates/subscription/subscription_list.html:37
 msgid "Payments are processed"
 msgstr ""
 
-#: main_site/templates/subscription/subscription_list.html:37
+#: corp_site/templates/subscription/subscription_list.html:37
 msgid "safely and securely"
 msgstr ""
 
-#: main_site/templates/subscription/subscription_list.html:37
+#: corp_site/templates/subscription/subscription_list.html:37
 msgid "by"
 msgstr ""
 
-#: main_site/templates/subscription/subscription_list.html:38
+#: corp_site/templates/subscription/subscription_list.html:38
 msgid ""
 "PayPal major credit cards accepted. PayPal account not required for payment."
 msgstr ""
 
-#: main_site/templates/subscription/subscription_list.html:40
+#: corp_site/templates/subscription/subscription_list.html:40
 msgid "Project is proud to be hosted with"
 msgstr ""
 
-#: main_site/templates/subscription/subscription_list.html:41
+#: corp_site/templates/subscription/subscription_list.html:41
 msgid "Rackspace experts in enterprise-level web hosting"
 msgstr ""
 
-#: main_site/templates/subscription/subscription_list.html:42
+#: corp_site/templates/subscription/subscription_list.html:42
 msgid "Project data is backed-up daily and you can export data at any time."
 msgstr ""
 
-#: main_site/templates/subscription/subscription_list.html:43
+#: corp_site/templates/subscription/subscription_list.html:43
 msgid "Encrypted with"
 msgstr ""
 
-#: main_site/templates/subscription/subscription_list.html:43
+#: corp_site/templates/subscription/subscription_list.html:43
 msgid "128-bit SSL"
 msgstr ""
 
-#: main_site/templates/subscription/subscription_list.html:45
+#: corp_site/templates/subscription/subscription_list.html:45
 msgid "Project is optimised for IE7, Firefox and Safari web browsers."
 msgstr ""
 
-#: main_site/templates/subscription/subscription_list_fragment.html:5
+#: corp_site/templates/subscription/subscription_list_fragment.html:5
 msgid "Current Plan"
 msgstr ""
 
-#: main_site/templates/subscription/subscription_list_fragment.html:6
+#: corp_site/templates/subscription/subscription_list_fragment.html:6
 msgid "Expires"
 msgstr ""
 
-#: main_site/templates/subscription/subscription_list_fragment.html:6
+#: corp_site/templates/subscription/subscription_list_fragment.html:6
 msgid "DATE_FORMAT"
 msgstr ""
 
-#: main_site/templates/subscription/subscription_list_fragment.html:7
+#: corp_site/templates/subscription/subscription_list_fragment.html:7
 msgid ""
 "Paypal will get money from your account itself. Or you may do it manually in "
 "your paypal account."
 msgstr ""
 
-#: main_site/templates/subscription/subscription_list_fragment.html:9
+#: corp_site/templates/subscription/subscription_list_fragment.html:9
 msgid ""
 "Each month of service for less than the cost of a pizza :) Upgrade or "
 "downgrade whenever you like."
 msgstr ""
 
-#: main_site/templates/subscription/subscription_list_fragment.html:26
+#: corp_site/templates/subscription/subscription_list_fragment.html:26
 msgid "Choose"
 msgstr ""
 
-#: main_site/templates/subscription/subscription_list_fragment.html:35
+#: corp_site/templates/subscription/subscription_list_fragment.html:35
 msgid "View history"
 msgstr ""
