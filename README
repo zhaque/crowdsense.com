@@ -6,7 +6,8 @@
     but may work on earlier versions of Python)
   - git,
   - tar accepting "-j" option (any recent GNU tar),
- 
+  - Postgres is in your PATH i.e. "/usr/local/pgsql/bin/" pg_config gets detected by python postgres lib. 
+
 1.2 Starting the Project
 ~~~~~~~~~~~~~~~~~
   To start the project:
