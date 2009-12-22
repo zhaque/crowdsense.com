@@ -20,6 +20,7 @@ downloads/*
 
 #coverage report
 src/test_a_khavr/coverage_report/*
+src/answerlog/local_settings.py
 
 #sqlite3 db
 answerlog.db
