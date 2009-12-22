@@ -13,6 +13,6 @@
   To start the project:
   1. python ./bootstrap.py
   2. ./bin/buildout
-  3. ./bin/main_site runserver 8001 --settings="main_site.settings" # starts main site
-  4. ./bin/user_site runserver 8000 --settings="user_site.settings" # starts user's site
+  3. ./bin/main_site runserver 8001  # starts main site
+  4. ./bin/user_site runserver 8000  # starts user's site
   
