@@ -2,7 +2,7 @@
 
 import os.path
 
-from answers.settings import *
+from answerlog.settings import *
 import cnprog
 
 
@@ -41,7 +41,7 @@ INSTALLED_APPS = (
     'user_site',
 ) + INSTALLED_APPS
 
-ROOT_URLCONF = 'answers.answers_site.urls'
+ROOT_URLCONF = 'answerlog.user_site.urls'
 
 EMAIL_VALIDATION = 'off'
 MIN_USERNAME_LENGTH = 1

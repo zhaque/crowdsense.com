@@ -22,7 +22,7 @@ ADMINS = (
 MANAGERS = ADMINS
 
 DATABASE_ENGINE = 'sqlite3'  
-DATABASE_NAME = os.path.join(PROJECT_ROOT, 'answers.db') 
+DATABASE_NAME = os.path.join(PROJECT_ROOT, 'answerlog.db') 
 
 MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'site_media')
 APP_MEDIA_ROOT = MEDIA_ROOT
@@ -58,7 +58,7 @@ INSTALLED_APPS += (
     'muaccount_forum',
     'cnprog_profile',
     'cnprog',
-    'answers',
+    'answerlog',
     
     'django.contrib.admin',
     #'debug_toolbar',
@@ -82,7 +82,7 @@ THUMBNAIL_EXTENSION = 'png'
 TEMPLATESADMIN_GROUP = 'Editors'
 
 
-TEMPLATESADMIN_TEMPLATE_DIRS = ( os.path.join(PROJECT_ROOT, 'answers_site', 'templates').replace('\\','/'),
+TEMPLATESADMIN_TEMPLATE_DIRS = ( os.path.join(PROJECT_ROOT, 'user_site', 'templates').replace('\\','/'),
                                  os.path.join(PROJECT_ROOT, 'marketing_site', 'templates').replace('\\','/'),
                                 ) + TEMPLATE_DIRS
 
@@ -92,10 +92,10 @@ QUOTAS = {
     'page_views': (1000000, 2000000, 10000000),
     }
 
-MUACCOUNTS_MAIN_URLCONF = 'answers.marketing_site.urls'
-MUACCOUNTS_USERSITE_URLCONF = 'answers.answers_site.urls'
+MUACCOUNTS_MAIN_URLCONF = 'answerlog.main_site.urls'
+MUACCOUNTS_USERSITE_URLCONF = 'answerlog.user_site.urls'
 
-#_default_css_files += ('answers/css/cnprog.css',)
+#_default_css_files += ('answerlog/css/cnprog.css',)
 
 AUTH_PROFILE_MODULE = 'cnprog_profile.UserProfile'
 
