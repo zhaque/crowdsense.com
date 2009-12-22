@@ -13,6 +13,6 @@
   To start the project:
   1. python ./bootstrap.py
   2. ./bin/buildout
-  3. ./bin/django-admin runserver 8001 --settings="main_site.settings" # starts marketing site
-  4. ./bin/django-admin runserver 8000 --settings="user_site.settings" # user's site
+  3. ./bin/main_site runserver 8001 --settings="main_site.settings" # starts main site
+  4. ./bin/user_site runserver 8000 --settings="user_site.settings" # starts user's site
   
