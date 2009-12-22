@@ -83,7 +83,7 @@ TEMPLATESADMIN_GROUP = 'Editors'
 
 
 TEMPLATESADMIN_TEMPLATE_DIRS = ( os.path.join(PROJECT_ROOT, 'user_site', 'templates').replace('\\','/'),
-                                 os.path.join(PROJECT_ROOT, 'marketing_site', 'templates').replace('\\','/'),
+                                 os.path.join(PROJECT_ROOT, 'main_site', 'templates').replace('\\','/'),
                                 ) + TEMPLATE_DIRS
 
 QUOTAS = {
