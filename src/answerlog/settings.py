@@ -94,6 +94,7 @@ QUOTAS = {
 
 MUACCOUNTS_MAIN_URLCONF = 'answerlog.corp_site.urls'
 MUACCOUNTS_USERSITE_URLCONF = 'answerlog.customer_site.urls'
+APP_URL = MUACCOUNTS_DEFAULT_URL
 
 #_default_css_files += ('answerlog/css/cnprog.css',)
 
