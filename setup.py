@@ -6,17 +6,17 @@ from setuptools import setup, find_packages
 def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
-version = '0.1'
+version = '1.0'
 
 install_requires = [
-    'setuptools',
+    'setuptools==0.6c11',
     'saaskit-core',
     'cnprog',
 ]
 
 extras_require = dict(
-    test = ['coverage',
-            'windmill',
+    test = ['coverage==3.2',
+            'windmill==1.3',
             ]
 )
 
