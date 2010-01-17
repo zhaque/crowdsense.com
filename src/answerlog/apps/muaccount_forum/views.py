@@ -39,7 +39,7 @@ def mu_question(request, slug, queryset=Question.objects.all(), tag_queryset=Tag
     return question(request, slug, queryset=queryset, template_name=template_name, tag_queryset=tag_queryset)
 
 
-def dashboard(request, template="account/dashboard.html", extra_context=None):
+def dashboard(request, template="notification/dashboard.html", extra_context=None):
     my_feeds = EmailFeed.objects.filter(subscriber_id=request.user.id)
     
     def feed_generator(feeds):

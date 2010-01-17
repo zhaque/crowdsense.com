@@ -16,333 +16,333 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: customer_site/templates/base.html:63 customer_site/templates/main.html:28
+#: qna_site/templates/base.html:63 qna_site/templates/main.html:28
 msgid "Manage"
 msgstr ""
 
-#: customer_site/templates/base.html:65 customer_site/templates/main.html:30
+#: qna_site/templates/base.html:65 qna_site/templates/main.html:30
 msgid "Account"
 msgstr ""
 
-#: customer_site/templates/base.html:66
+#: qna_site/templates/base.html:66
 msgid "Log out"
 msgstr ""
 
-#: customer_site/templates/base.html:68
+#: qna_site/templates/base.html:68
 msgid "log in or sign up"
 msgstr ""
 
-#: customer_site/templates/base.html:71 customer_site/templates/base.html:175
-#: customer_site/templates/index.html:88
+#: qna_site/templates/base.html:71 qna_site/templates/base.html:175
+#: qna_site/templates/index.html:88
 msgid "about"
 msgstr ""
 
-#: customer_site/templates/base.html:72 customer_site/templates/base.html:177
-#: customer_site/templates/index.html:89
+#: qna_site/templates/base.html:72 qna_site/templates/base.html:177
+#: qna_site/templates/index.html:89
 msgid "faq"
 msgstr ""
 
-#: customer_site/templates/base.html:80
+#: qna_site/templates/base.html:80
 msgid "back to home page"
 msgstr ""
 
-#: customer_site/templates/base.html:97
+#: qna_site/templates/base.html:97
 msgid "search"
 msgstr ""
 
-#: customer_site/templates/base.html:99 customer_site/templates/base.html:109
+#: qna_site/templates/base.html:99 qna_site/templates/base.html:109
 msgid "questions"
 msgstr ""
 
-#: customer_site/templates/base.html:100 customer_site/templates/base.html:110
+#: qna_site/templates/base.html:100 qna_site/templates/base.html:110
 msgid "tags"
 msgstr ""
 
-#: customer_site/templates/base.html:101 customer_site/templates/base.html:111
+#: qna_site/templates/base.html:101 qna_site/templates/base.html:111
 msgid "users"
 msgstr ""
 
-#: customer_site/templates/base.html:112
+#: qna_site/templates/base.html:112
 msgid "books"
 msgstr ""
 
-#: customer_site/templates/base.html:113
+#: qna_site/templates/base.html:113
 msgid "badges"
 msgstr ""
 
-#: customer_site/templates/base.html:114
+#: qna_site/templates/base.html:114
 msgid "unanswered questions"
 msgstr ""
 
-#: customer_site/templates/base.html:118
+#: qna_site/templates/base.html:118
 msgid "my profile"
 msgstr ""
 
-#: customer_site/templates/base.html:122
+#: qna_site/templates/base.html:122
 msgid "ask a question"
 msgstr ""
 
-#: customer_site/templates/base.html:176
+#: qna_site/templates/base.html:176
 msgid "privacy policy"
 msgstr ""
 
-#: customer_site/templates/front_page.html:6
+#: qna_site/templates/front_page.html:6
 msgid "Hello World!"
 msgstr ""
 
-#: customer_site/templates/index.html:7
+#: qna_site/templates/index.html:7
 #: corp_site/templates/admin/upload_qa.html:25
 msgid "Home"
 msgstr ""
 
-#: customer_site/templates/index.html:22
+#: qna_site/templates/index.html:22
 msgid "Questions"
 msgstr ""
 
-#: customer_site/templates/index.html:24
+#: qna_site/templates/index.html:24
 msgid "last updated questions"
 msgstr ""
 
-#: customer_site/templates/index.html:24
+#: qna_site/templates/index.html:24
 msgid "newest"
 msgstr ""
 
-#: customer_site/templates/index.html:25
+#: qna_site/templates/index.html:25
 msgid "hottest questions"
 msgstr ""
 
-#: customer_site/templates/index.html:25
+#: qna_site/templates/index.html:25
 msgid "hottest"
 msgstr ""
 
-#: customer_site/templates/index.html:26
+#: qna_site/templates/index.html:26
 msgid "most voted questions"
 msgstr ""
 
-#: customer_site/templates/index.html:26
+#: qna_site/templates/index.html:26
 msgid "most voted"
 msgstr ""
 
-#: customer_site/templates/index.html:27
+#: qna_site/templates/index.html:27
 msgid "all questions"
 msgstr ""
 
-#: customer_site/templates/index.html:47
-#: customer_site/templates/users_questions.html:37
+#: qna_site/templates/index.html:47
+#: qna_site/templates/users_questions.html:37
 msgid "answers"
 msgstr ""
 
-#: customer_site/templates/index.html:48
-#: customer_site/templates/users_questions.html:32
+#: qna_site/templates/index.html:48
+#: qna_site/templates/users_questions.html:32
 msgid "votes"
 msgstr ""
 
-#: customer_site/templates/index.html:49
-#: customer_site/templates/users_questions.html:42
+#: qna_site/templates/index.html:49
+#: qna_site/templates/users_questions.html:42
 msgid "views"
 msgstr ""
 
-#: customer_site/templates/index.html:57
+#: qna_site/templates/index.html:57
 msgid "community wiki"
 msgstr ""
 
-#: customer_site/templates/index.html:58 customer_site/templates/index.html:64
-#: customer_site/templates/users_questions.html:59
+#: qna_site/templates/index.html:58 qna_site/templates/index.html:64
+#: qna_site/templates/users_questions.html:59
 msgid "ago"
 msgstr ""
 
-#: customer_site/templates/index.html:71
-#: customer_site/templates/users_questions.html:54
+#: qna_site/templates/index.html:71
+#: qna_site/templates/users_questions.html:54
 msgid "see questions tagged"
 msgstr ""
 
-#: customer_site/templates/index.html:71
-#: customer_site/templates/users_questions.html:54
+#: qna_site/templates/index.html:71
+#: qna_site/templates/users_questions.html:54
 msgid "using tags"
 msgstr ""
 
-#: customer_site/templates/index.html:85
+#: qna_site/templates/index.html:85
 msgid "welcome to website"
 msgstr ""
 
-#: customer_site/templates/index.html:101
+#: qna_site/templates/index.html:101
 msgid "Recent tags"
 msgstr ""
 
-#: customer_site/templates/index.html:106
+#: qna_site/templates/index.html:106
 #, python-format
 msgid "see questions tagged '%(tagname)s'"
 msgstr ""
 
-#: customer_site/templates/index.html:109 customer_site/templates/index.html:134
+#: qna_site/templates/index.html:109 qna_site/templates/index.html:134
 msgid "popular tags"
 msgstr ""
 
-#: customer_site/templates/index.html:114
+#: qna_site/templates/index.html:114
 msgid "Recent awards"
 msgstr ""
 
-#: customer_site/templates/index.html:120
+#: qna_site/templates/index.html:120
 msgid "given to"
 msgstr ""
 
-#: customer_site/templates/index.html:125
+#: qna_site/templates/index.html:125
 msgid "all awards"
 msgstr ""
 
-#: customer_site/templates/index.html:129
+#: qna_site/templates/index.html:129
 msgid "subscribe to last 30 questions by RSS"
 msgstr ""
 
-#: customer_site/templates/index.html:129
+#: qna_site/templates/index.html:129
 msgid "subscribe to the questions feed"
 msgstr ""
 
-#: customer_site/templates/index.html:134
+#: qna_site/templates/index.html:134
 msgid "Still looking for more? See"
 msgstr ""
 
-#: customer_site/templates/index.html:134
+#: qna_site/templates/index.html:134
 msgid "complete list of questions"
 msgstr ""
 
-#: customer_site/templates/index.html:134
+#: qna_site/templates/index.html:134
 msgid "or"
 msgstr ""
 
-#: customer_site/templates/index.html:134
+#: qna_site/templates/index.html:134
 msgid "."
 msgstr ""
 
-#: customer_site/templates/index.html:134
+#: qna_site/templates/index.html:134
 msgid "Please help us answer"
 msgstr ""
 
-#: customer_site/templates/index.html:134
+#: qna_site/templates/index.html:134
 msgid "list of unanswered questions"
 msgstr ""
 
-#: customer_site/templates/main.html:5
+#: qna_site/templates/main.html:5
 msgid "Title"
 msgstr ""
 
-#: customer_site/templates/main.html:31
+#: qna_site/templates/main.html:31
 msgid "Sign-out"
 msgstr ""
 
-#: customer_site/templates/main.html:37
+#: qna_site/templates/main.html:37
 msgid "Log in or Sign up"
 msgstr ""
 
-#: customer_site/templates/main.html:46
+#: qna_site/templates/main.html:46
 msgid "Main"
 msgstr ""
 
-#: customer_site/templates/main.html:58
+#: qna_site/templates/main.html:58
 msgid "clear"
 msgstr ""
 
-#: customer_site/templates/main.html:73
+#: qna_site/templates/main.html:73
 msgid "This account has no owner"
 msgstr ""
 
-#: customer_site/templates/main.html:76
+#: qna_site/templates/main.html:76
 msgid "If you feel you should manage this account, please"
 msgstr ""
 
-#: customer_site/templates/main.html:77
+#: qna_site/templates/main.html:77
 msgid "claim it"
 msgstr ""
 
-#: customer_site/templates/main.html:90
+#: qna_site/templates/main.html:90
 msgid "About CrowdSense"
 msgstr ""
 
-#: customer_site/templates/main.html:91
+#: qna_site/templates/main.html:91
 msgid "Support"
 msgstr ""
 
-#: customer_site/templates/main.html:92
+#: qna_site/templates/main.html:92
 msgid "Contact us"
 msgstr ""
 
-#: customer_site/templates/main.html:96
+#: qna_site/templates/main.html:96
 msgid "Privacy & Copyright"
 msgstr ""
 
-#: customer_site/templates/suspended.html:3
+#: qna_site/templates/suspended.html:3
 msgid "Account Suspended"
 msgstr ""
 
-#: customer_site/templates/suspended.html:6
+#: qna_site/templates/suspended.html:6
 msgid "Account was suspended. Try again later."
 msgstr ""
 
-#: customer_site/templates/user_stats.html:16
+#: qna_site/templates/user_stats.html:16
 msgid "User questions"
 msgstr ""
 
-#: customer_site/templates/user_stats.html:29
+#: qna_site/templates/user_stats.html:29
 msgid "Answers"
 msgstr ""
 
-#: customer_site/templates/user_stats.html:38
+#: qna_site/templates/user_stats.html:38
 #, python-format
 msgid "the answer has been voted for %(vote_count)s times"
 msgstr ""
 
-#: customer_site/templates/user_stats.html:38
+#: qna_site/templates/user_stats.html:38
 msgid "this answer has been selected as correct"
 msgstr ""
 
-#: customer_site/templates/user_stats.html:44
+#: qna_site/templates/user_stats.html:44
 #, python-format
 msgid "the answer has been commented %(count)s times"
 msgstr ""
 
-#: customer_site/templates/user_stats.html:57
+#: qna_site/templates/user_stats.html:57
 msgid "votes total"
 msgstr ""
 
-#: customer_site/templates/user_stats.html:66
+#: qna_site/templates/user_stats.html:66
 msgid "user has voted up this many times"
 msgstr ""
 
-#: customer_site/templates/user_stats.html:71
+#: qna_site/templates/user_stats.html:71
 msgid "user voted down this many times"
 msgstr ""
 
-#: customer_site/templates/user_stats.html:85
+#: qna_site/templates/user_stats.html:85
 msgid "Tags"
 msgstr ""
 
-#: customer_site/templates/user_stats.html:95
+#: qna_site/templates/user_stats.html:95
 #, python-format
 msgid "see other questions tagged '%(tag)s' "
 msgstr ""
 
-#: customer_site/templates/user_stats.html:114
+#: qna_site/templates/user_stats.html:114
 msgid "Badges"
 msgstr ""
 
-#: customer_site/templates/users_questions.html:12
+#: qna_site/templates/users_questions.html:12
 msgid "this questions was selected as favorite"
 msgstr ""
 
-#: customer_site/templates/users_questions.html:12
-#: customer_site/templates/users_questions.html:18
+#: qna_site/templates/users_questions.html:12
+#: qna_site/templates/users_questions.html:18
 msgid "number of times"
 msgstr ""
 
-#: customer_site/templates/users_questions.html:18
+#: qna_site/templates/users_questions.html:18
 msgid "this question was selected as favorite"
 msgstr ""
 
-#: customer_site/templates/users_questions.html:35
+#: qna_site/templates/users_questions.html:35
 msgid "this answer has been accepted to be correct"
 msgstr ""
 
-#: customer_site/templates/flatpages/default.html:12
+#: qna_site/templates/flatpages/default.html:12
 msgid "edit"
 msgstr ""
 

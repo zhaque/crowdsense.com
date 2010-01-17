@@ -41,7 +41,7 @@ INSTALLED_APPS = (
     'user_site',
 ) + INSTALLED_APPS
 
-ROOT_URLCONF = 'answerlog.customer_site.urls'
+ROOT_URLCONF = 'answerlog.qna_site.urls'
 
 EMAIL_VALIDATION = 'off'
 MIN_USERNAME_LENGTH = 1
