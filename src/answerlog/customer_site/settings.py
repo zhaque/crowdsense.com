@@ -3,14 +3,14 @@
 import os.path
 
 from answerlog.settings import *
-import cnprog
+import qna 
 
 
 SITE_ID = 2
 
 TEMPLATE_DIRS = (
     os.path.join(os.path.dirname(__file__), 'templates').replace('\\','/'),
-    os.path.join(os.path.dirname(cnprog.__file__), 'templates').replace('\\','/'),
+    os.path.join(os.path.dirname(qna.__file__), 'templates').replace('\\','/'),
 ) + TEMPLATE_DIRS
 
 MIDDLEWARE_CLASSES = (
@@ -28,13 +28,13 @@ MIDDLEWARE_CLASSES = (
     'muaccounts.middleware.MUAccountsMiddleware',
     'muaccounts.middleware.LocaleMiddleware',
     'page_view_quotas.middleware.PageViewQuotasMiddleware',
-    'cnprog.middleware.pagesize.QuestionsPageSizeMiddleware',
+    'qna.middleware.pagesize.QuestionsPageSizeMiddleware',
     'muaccount_content.middleware.FlatpageFallbackMiddleware',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS += (
-    'cnprog.context_processors.auth_processor',
-    #'cnprog.context_processors.application_settings',
+    'qna.context_processors.auth_processor',
+    #'qna.context_processors.application_settings',
 )
 
 INSTALLED_APPS = (

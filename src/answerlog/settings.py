@@ -7,7 +7,7 @@ from django.conf import global_settings
 
 #inherit settings from saaskit common settings
 from saaskit.settings import *
-from cnprog.settings import ALLOW_FILE_TYPES, ALLOW_MAX_FILE_SIZE, APP_TITLE, APP_DESCRIPTION, APP_COPYRIGHT
+from qna.settings import ALLOW_FILE_TYPES, ALLOW_MAX_FILE_SIZE, APP_TITLE, APP_DESCRIPTION, APP_COPYRIGHT
 
 PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 
@@ -56,8 +56,8 @@ INSTALLED_APPS += (
     
     'forum',
     'muaccount_forum',
-    'cnprog_profile',
-    'cnprog',
+    'qna_profile',
+    'qna',
     'answerlog',
     
     'django.contrib.admin',
@@ -96,9 +96,9 @@ MUACCOUNTS_MAIN_URLCONF = 'answerlog.corp_site.urls'
 MUACCOUNTS_USERSITE_URLCONF = 'answerlog.customer_site.urls'
 APP_URL = MUACCOUNTS_DEFAULT_URL
 
-#_default_css_files += ('answerlog/css/cnprog.css',)
+#_default_css_files += ('answerlog/css/qna.css',)
 
-AUTH_PROFILE_MODULE = 'cnprog_profile.UserProfile'
+AUTH_PROFILE_MODULE = 'qna_profile.UserProfile'
 
 # Local settings for development / production
 try:

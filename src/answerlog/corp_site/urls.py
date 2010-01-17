@@ -5,7 +5,7 @@ from django.conf import settings
 
 from main_site.urls import urlpatterns as saaskit_urls
 
-from cnprog_profile.forms import UserProfileForm
+from qna_profile.forms import UserProfileForm
 
 import muaccount_forum.views 
 

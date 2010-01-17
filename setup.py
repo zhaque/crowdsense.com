@@ -11,7 +11,7 @@ version = '1.0'
 install_requires = [
     'setuptools==0.6c11',
     'saaskit-core',
-    'cnprog',
+    'qna',
 ]
 
 extras_require = dict(

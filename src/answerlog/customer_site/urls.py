@@ -10,11 +10,11 @@ from saaskit.urls import wrapped_queryset
 
 import forum.views
 from forum.models import Question, Tag, User
-from cnprog.urls import unanswered_info
+from qna.urls import unanswered_info
 from muaccount_forum.forms import MuAskForm
 from muaccount_forum.feeds import MURssLastestQuestionsFeed
 import muaccount_forum.views
-from cnprog_profile.forms import UserProfileForm 
+from qna_profile.forms import UserProfileForm 
 
 feeds = {
     'rss': MURssLastestQuestionsFeed
