@@ -20,13 +20,13 @@ downloads/*
 
 #coverage report
 src/test_a_khavr/coverage_report/*
-src/answerlog/local_settings.py
+src/crowdsense/local_settings.py
 
 #sqlite3 db
-answerlog.db
+crowdsense.db
 
 #temp file
 tempfile
 
 #media
-src/answerlog/site_media/*
+src/crowdsense/site_media/*
