@@ -37,7 +37,7 @@
   {"pk": 4, "model": "flatpages.flatpage", 
    "fields": {
 	 "title": "Contact", 
-	 "url": "http://answerlog.net/contact/", 
+	 "url": "http://crowdsense.com/contact/", 
 	 "sites": [2], 
 	 "content": "external link"
   }},

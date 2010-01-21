@@ -15,13 +15,13 @@ env.git_path = 'git@github.com:CrowdSense/answers.git'
 def production():
     #env.hosts = []
     
-    ifnotsetted('host_string', 'answerlog.net', True, 
+    ifnotsetted('host_string', 'crowdsense.com', True, 
         "No hosts found. Please specify (single) host string for connection")
     ifnotsetted('user', 'root', True, "Server user name")
     ifnotsetted('VPS_IP', '97.107.138.174', True, "VPS IP")
-    ifnotsetted('POSTGRES_USER', 'answerlog', True, "PostgreSQL user name")
-    ifnotsetted('POSTGRES_PASSWORD', 'answerlogS3n89mkk', True, "PostgreSQL user's password")
-    ifnotsetted('POSTGRES_DB', 'answerlog', True, "PostgreSQL DATABASE")
+    ifnotsetted('POSTGRES_USER', 'crowdsense', True, "PostgreSQL user name")
+    ifnotsetted('POSTGRES_PASSWORD', 'crowdsenseS3n89mkk', True, "PostgreSQL user's password")
+    ifnotsetted('POSTGRES_DB', 'crowdsense', True, "PostgreSQL DATABASE")
     ifnotsetted('UBUNTU_VERSION', 'jaunty', True, "Ubuntu version name")
     ifnotsetted('PAYPAL_EMAIL', 'admin_1255085897_biz@crowdsense.com', True, "PAYPAL EMAIL")
     ifnotsetted('PAYPAL_TEST', 'True', True, "PAYPAL TEST (True or False)?", r'^(True|False)$')

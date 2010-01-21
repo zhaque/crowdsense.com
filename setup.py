@@ -24,13 +24,13 @@ extras_require = dict(
 install_requires.extend(extras_require['test'])
 
 setup(
-    name = "answerlog",
+    name = "crowdsense",
     version = version,
     description = "Hosted Q&A Service using SaaS kit",
     long_description = read('README'),
     author = 'saas-kit',
     author_email = 'admin@saaskit.org',
-    url = 'http://answerlog.net',
+    url = 'http://crowdsense.com',
     packages = find_packages('src'),
     package_dir = {'': 'src'},
     include_package_data = True,

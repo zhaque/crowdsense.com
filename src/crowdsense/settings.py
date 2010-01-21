@@ -22,7 +22,7 @@ ADMINS = (
 MANAGERS = ADMINS
 
 DATABASE_ENGINE = 'sqlite3'  
-DATABASE_NAME = os.path.join(PROJECT_ROOT, 'answerlog.db') 
+DATABASE_NAME = os.path.join(PROJECT_ROOT, 'crowdsense.db') 
 
 MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'site_media')
 APP_MEDIA_ROOT = MEDIA_ROOT
@@ -58,7 +58,7 @@ INSTALLED_APPS += (
     'muaccount_forum',
     'qna_profile',
     'qna',
-    'answerlog',
+    'crowdsense',
     
     'django.contrib.admin',
     #'debug_toolbar',
@@ -92,11 +92,11 @@ QUOTAS = {
     'page_views': (1000000, 2000000, 10000000),
     }
 
-MUACCOUNTS_MAIN_URLCONF = 'answerlog.corp_site.urls'
-MUACCOUNTS_USERSITE_URLCONF = 'answerlog.qna_site.urls'
+MUACCOUNTS_MAIN_URLCONF = 'crowdsense.corp_site.urls'
+MUACCOUNTS_USERSITE_URLCONF = 'crowdsense.qna_site.urls'
 APP_URL = MUACCOUNTS_DEFAULT_URL
 
-#_default_css_files += ('answerlog/css/qna.css',)
+#_default_css_files += ('crowdsense/css/qna.css',)
 
 AUTH_PROFILE_MODULE = 'qna_profile.UserProfile'
 
