@@ -1,0 +1,58 @@
+{% extends "admin/base_site.html" %}
+
+{% load i18n admin_modify adminmedia %}
+
+{% block extrahead %}
+    {{ block.super }}
+    {{ media }}
+{% endblock %}
+
+{% block extrastyle %}
+    {{ block.super }}
+    <link rel="stylesheet" type="text/css" href="{% admin_media_prefix %}css/forms.css" />
+    <style type="text/css">
+        textarea#id_content{
+            width: 99%;
+            height: 400px;
+            margin: 0 0 1em 0;
+            font-family: monospace;
+        }
+    </style>
+{% endblock %}
+
+{% block breadcrumbs %}
+<div class="breadcrumbs">
+    <a href="../">{% trans "Home" %}</a> &rsaquo;
+    {% trans "Upload Questions & Answers" %}
+</div>
+{% endblock %}
+
+{% block title %}
+    {% trans "Upload Questions & Answers" %}
+{% endblock %}
+
+{% comment %}
+{% block content_title %}
+    <h1>{% trans "Edit Template:" %} {{ template_path|shortenfilepath }}</h1>
+{% endblock %}
+{% endcomment %}
+
+{% block content %}
+<div id="content-main">
+    <form enctype="multipart/form-data" action="" method="post" id="site_form">
+        {{ form.errors }}
+        {{ form.content }}
+        <div class="submit-row">
+      
+        {% for field in form %}
+        <p class="float-left">
+            {{ field.label }} {{ field }}
+        </p>
+        {% if forloop.last %} <input type="submit" value="{% trans "Upload" %}" class="default" /> {% endif %}
+        <br clear="both"/>
+        {% endfor %}
+    
+        </div>
+    </form>
+</div>
+{% endblock %}

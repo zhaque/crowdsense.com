@@ -1,0 +1,13 @@
+{% extends "index.html" %}
+{% load i18n %}
+{% block sidebar %}
+{% if request.muaccount.about and not request.user.is_authenticated %}
+<div class="boxA">
+  <h3>{% trans "Hello World!" %}</h3>
+  <div class="body">
+      {{ request.muaccount.about|safe }}
+  </div>
+</div>
+{% endif %}
+{{ block.super }}
+{% endblock %}
