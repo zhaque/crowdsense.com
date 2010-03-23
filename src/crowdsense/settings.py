@@ -59,6 +59,7 @@ INSTALLED_APPS += (
     'qna_profile',
     'qna',
     'crowdsense',
+    'django_authopenid',
     
     'django.contrib.admin',
     #'debug_toolbar',

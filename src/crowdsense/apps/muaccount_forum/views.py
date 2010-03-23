@@ -55,7 +55,7 @@ def dashboard(request, template="notification/dashboard.html", extra_context=Non
 
 
 @login_required
-def ask(request, form_class=MuAskForm, template_name='ask-bounty.html'):
+def ask(request, form_class=MuAskForm, template_name='ask.html'):
     if request.method == "POST":
         form = form_class(request.POST)
         if request.muaccount.is_bounty:
