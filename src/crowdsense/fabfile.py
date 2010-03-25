@@ -4,10 +4,11 @@ import os
 from fabric.api import env
 
 from saaskit.fabfile import ifnotsetted
-from saaskit.fabfile import install_packages, install_mail_transfer_agent, log_setup
-from saaskit.fabfile import github_config, postgresql_setup, postgresql_user_db_flush
-from saaskit.fabfile import webapp_setup, install_project, update_project, build_source
-from saaskit.fabfile import nginx_config, apache2_config, restart_webserver
+from saaskit.fabfile import setup_production, update_production
+from saaskit.fabfile import install_packages, mail_server_setup, log_setup
+from saaskit.fabfile import github_setup, postgresql_setup, postgresql_user_db_flush
+from saaskit.fabfile import webapp_setup, project_setup, update_webapp, build_webapp
+from saaskit.fabfile import nginx_setup, apache2_setup, restart_webserver
 
 env.SOURCE_PATH = 'src/answers'
 env.git_path = 'git@github.com:CrowdSense/answers.git'
