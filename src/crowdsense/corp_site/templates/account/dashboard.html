@@ -1,0 +1,64 @@
+{% extends "account/base.html" %}
+{% load i18n uni_form_tags muaccounts_tags settings %}
+{% block title %}{% trans "Dashboard" %}{% endblock %}
+
+{% block content_title %}{% trans "Dashboard" %}{% endblock %}
+{% block content %}
+    <h3>{% trans "Messages" %}</h3>
+    <p>{# <a href="{% url notification_mark_all_seen %}">mark all seen</a> | #}
+    <a href="{% url notification_feed_for_user %}">{% trans "RSS" %}</a></p>
+
+    <ul>{% for notice in notices %}
+        <li{% if notice.is_unseen %} style="font-weight:bold;"{% endif %}>
+            <em title="{{notice.notice_type.description}}">{{notice.notice_type.display}}</em>
+            &mdash; {{ notice.message|safe }}
+            <a href="{{notice.get_absolute_url}}">#</a></li>
+        {% endfor %}
+    </ul>
+    
+    <h3>{% trans "Updates from website" %}</h3>
+    <ul>
+        {% for feed in updates %}
+          <li>
+            <a href="{% user_site_url question feed.question.muaccount feed.question.slug %}">
+              {{ feed.question }}
+            </a> : 
+            <ul>
+            {% for note in feed.summary %}
+              <li>{{ note|safe }}</li>
+            {% endfor %}
+            </ul>
+          </li>
+        {% empty %}
+          <li>{% trans "No updates at the moment." %}</li>
+        {% endfor %}
+    </ul>
+    
+    {% sites_owned request.user as sites_owned %}
+    {% if sites_owned|length %}
+        <h3>{% trans "Sites you own" %}</h3>
+        <ul>
+            {% for site in sites_owned %}
+                <li><a href="{% url sso %}?next={{ site.get_absolute_url }}">{{ site }}</a></li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    {% member_of request.user as member_of %}
+    {% if member_of|length %}
+        <h3>{% trans "Sites you are member of" %}</h3>
+        <ul>
+            {% for site in member_of  %}
+                <li><a href="{% url sso %}?next={{ site.get_absolute_url }}">{{ site }}</a></li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    
+    {% with request.user.get_profile as profile %}
+    {% if profile and profile.is_public %}
+      <h3>{% trans "Profile" %}</h3>
+      {% include "profiles/profile_detail.html" %}
+    {% endif %}
+    {% endwith %}
+    
+{% endblock %}

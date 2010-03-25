@@ -1,0 +1,138 @@
+{% extends "user.html" %}
+<!-- user_stats.html -->
+{% load i18n %}
+{% load extra_tags %}
+{% load humanize %}
+{% load muaccounts_tags %}
+		{% block usercontent %}
+	
+        <a name="questions"></a>
+        <table>
+            <tr>
+                <td>
+                    <div style="text-align: right;" class="count">{{questions|length}}</div>
+                </td>
+                <td>
+                    <h2>{% trans "User questions" %}</h2>
+                </td>
+                {% if request.muaccount.is_bounty %}
+                <td><h3>{{ bounty_questions }} bounty question{{ bounty_questions|pluralize }} | {{ bounty_questions_paid }} paid | {{ bounty_questions_not_paid }} not paid</h3></td>
+                {% endif %}
+            </tr>
+        </table>
+		{% include "users_questions.html" %}
+        <p>&nbsp;</p>
+        <a name="answers"></a>
+        <table>
+            <tr>
+                <td>
+                    <div style="text-align: right;" class="count">{{answered_questions|length}}</div>
+                </td>
+                <td >
+                    <h2>{% trans "Answers" %}</h2>
+                </td>
+            </tr>
+        </table>
+        <div class="user-stats-table">
+            {% for answered_question in answered_questions %}
+            <div class="answer-summary">
+                <a title="{{answered_question.summary}}" href="{% user_site_url question answered_question.muaccount answered_question.slug %}">
+                    <div class="answer-votes {% if answered_question.accepted %}answered-accepted{% endif %}" 
+						title="{% blocktrans with answered_question.score as vote_count %}the answer has been voted for {{ vote_count }} times{% endblocktrans %}&#13;{% if answered_question.accepted %}{% trans "this answer has been selected as correct" %}{%endif%}">
+                        {{ answered_question.score }}
+                    </div>
+                </a>
+                <div class="answer-link">
+                    <a href="{% user_site_url question answered_question.muaccount answered_question.slug %}">{{answered_question.title}}</a> {% if answered_question.comment_count %}<span 
+					title="{% blocktrans with answered_question.comment_count as count %}the answer has been commented {{count}} times{% endblocktrans %}">({{answered_question.comment_count}})</span>{% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <p>&nbsp;</p>
+        <a name="votes"></a>
+        <table>
+            <tr>
+                <td>
+                    <div style="text-align: right;" class="count">{{total_votes}}</div>
+                </td>
+                <td >
+                    <h2>{% trans "votes total" %}</h2>                    
+                </td>
+            </tr>
+        </table>
+        <div class="user-stats-table">
+            <table height="50px">
+                <tr>
+                    <td width="60">
+                        <img style="cursor: default;" align="absmiddle" src="{{ MEDIA_URL }}cnprog/images/vote-arrow-up-on.png"/>
+                            <span title="{% trans "user has voted up this many times" %}" class="vote-count">{{up_votes}}</span>
+
+                    </td>
+                    <td width="60">
+                        <img style="cursor: default;" align="absmiddle" src="{{ MEDIA_URL }}cnprog/images/vote-arrow-down-on.png"/>
+                            <span title="{% trans "user voted down this many times" %}" class="vote-count">{{down_votes}}</span>
+
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <p>&nbsp;</p>
+        <a name="tags"></a>
+        <table>
+            <tr>
+                <td>
+                    <div style="text-align: right;" class="count">{{tags|length}}</div>
+                </td>
+                <td >
+                    <h2>{% trans "Tags" %}</h2>
+                </td>
+            </tr>
+        </table>
+        <div class="user-stats-table">
+            <table class="tags">
+                <tr>
+                    <td width="180" valign="top">
+                        {% for tag in tags%}
+                        <a rel="tag" 
+							title="{% blocktrans %}see other questions tagged '{{ tag }}' {% endblocktrans %}" 
+							href="{% url tag_search tag|urlencode %}">{{tag.name}}</a><span class="tag-number"> × {{ tag.used_count|intcomma }}</span><br>
+                            {% if forloop.counter|divisibleby:"10" %}
+                                </td>
+                                <td width="180"  valign="top">
+                            {% endif %}
+                        {% endfor %}
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <p>&nbsp;</p>
+        <a name="badges"></a>
+        <table>
+            <tr>
+                <td>
+                    <div style="text-align: right;" class="count">{{total_awards}}</div>
+                </td>
+                <td >
+                    <h2>{% trans "Badges" %}</h2>
+                </td>
+            </tr>
+        </table>
+        <div class="user-stats-table">
+            <table>
+                <tr>
+                    <td width="180" style="line-height:35px">
+                        {% for award in awards %}
+                            <a href="/badges/{{award.id}}/{{award.name}}" title="{{ award.description }}" class="medal"><span class="badge{{ award.type }}">&#9679;</span>&nbsp;{{ award.name }}</a><span class="tag-number"> × {{ award.count|intcomma }}</span><br>
+                            {% if forloop.counter|divisibleby:"6" %}
+                                </td>
+                                <td width="180" style="line-height:35px">
+                            {% endif %}
+                        {% endfor %}
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+{% endblock %}
+<!-- end user_stats.html -->

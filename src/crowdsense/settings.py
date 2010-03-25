@@ -43,7 +43,6 @@ MIDDLEWARE_CLASSES = (
     'sso.middleware.SingleSignOnMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'subscription.middleware.SubscriptionMiddleware',
-    'django_authopenid.middleware.OpenIDMiddleware',
     'django.middleware.doc.XViewMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'pagination.middleware.PaginationMiddleware',
@@ -59,7 +58,7 @@ INSTALLED_APPS += (
     'qna_profile',
     'qna',
     'crowdsense',
-    'django_authopenid',
+    'registration',
     
     'django.contrib.admin',
     #'debug_toolbar',
@@ -67,7 +66,6 @@ INSTALLED_APPS += (
 
 TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
     'django.core.context_processors.request',
-    'django_authopenid.context_processors.authopenid',
     )
 
 TEMPLATE_DIRS = ( os.path.join(PROJECT_ROOT, 'templates').replace('\\','/'), )

@@ -23,7 +23,7 @@ feeds = {
 
 urlpatterns = patterns('',
     url(r'^$', 'muaccount_forum.views.mu_index', {'template_name': 'front_page.html'}, name="home"),
-    (r'^accounts/', include('django_authopenid.urls')),
+    (r'^accounts/', include('registration.urls')),
     
     (r'^favicon\.ico$', 'django.views.generic.simple.redirect_to', 
         {'url': '%simages/favicon.ico' % settings.MEDIA_URL}),
@@ -57,7 +57,7 @@ urlpatterns = patterns('',
     url(r'^questions/ask/$', 'muaccount_forum.views.ask', 
         {
           'form_class': MuAskForm,
-#          'template_name': 'ask-bounty.html',
+          'template_name': 'ask-bounty.html',
           }, 
         name='ask'),
     
@@ -73,7 +73,7 @@ urlpatterns = patterns('',
     url(r'^questions/(?P<question_id>\d+)/comments/(?P<comment_id>\d+)/delete/$', 
         'forum.views.delete_question_comment', name='delete_question_comment'),
     url(r'^questions/(?P<slug>[\w-]+)/$', 'muaccount_forum.views.mu_question', 
-#        {'template_name': 'question-oembed.html'},
+        {'template_name': 'question-oembed.html'},
         name='question'),
     url(r'^answers/(?P<answer_id>\d+)/comments/(?P<comment_id>\d+)/delete/$', 
         'forum.views.delete_answer_comment', name='delete_answer_comment'),
