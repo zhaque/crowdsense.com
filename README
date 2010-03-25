@@ -11,6 +11,23 @@
 1.2 Starting the Project
 ~~~~~~~~~~~~~~~~~
   To start the project:
+  0. echo "                              
+DATABASE_ENGINE = 'postgresql_psycopg2'
+DATABASE_NAME = 'crowdsense'
+DATABASE_USER = 'user'
+DATABASE_PASSWORD = 'password'
+DATABASE_HOST = ''
+DATABASE_PORT = '5432'
+CACHE_BACKEND = 'dummy:///'
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = '<gmail account>'
+EMAIL_HOST_PASSWORD = '<gmail password>'
+EMAIL_PORT = 587
+" > ./src/crowdsense/local_settings.py
+
+
   1. python ./bootstrap.py
   2. ./bin/buildout
   3. ./bin/main_site runserver 8001  # starts main site
