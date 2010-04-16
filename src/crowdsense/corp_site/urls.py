@@ -15,7 +15,7 @@ urlpatterns = patterns('',
     url(r'^profiles/edit/$', 'profiles.views.edit_profile', 
         {'success_url': 'profiles_edit_profile',
         'form_class': UserProfileForm}, 
-        name='profiles_edit_profile'),
+        name='edit_user'),
     
     url(r'^admin/upload_qa/$', 'muaccount_forum.views.upload_qa', name='upload_qa'),
 )
