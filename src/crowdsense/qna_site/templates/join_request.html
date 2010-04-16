@@ -1,0 +1,30 @@
+{% extends "app_base.html" %}
+{% load i18n uni_form_tags compressed %}
+
+{% block head_title %}{{request.muaccount}} : {% trans "Join request" %}{% endblock %} 
+
+{% block extra_style %}
+    {% compressed_css request.muaccount.theme.color_scheme %}
+    {{ request.muaccount.webmaster_tools_code|safe }}
+{% endblock %}
+
+{% block content %}
+{% if request.user.is_authenticated %}
+<p>{% trans "You are not a member of this site." %}</p>
+{% else %}
+<p>{% trans "This site is not public. Site owner might invite members." %}</p>
+<p>{% trans "If you have an account, please" %} <a href="{% url auth_login %}">{% trans "login" %}</a></p>
+{% endif %}
+<p>{% trans "You able to request an invitation with form below." %}</p>
+
+{% if join_request %}
+<h4>{% trans "You was requested an invitation" %}:</h4>
+<p>{% trans "Created" %}: {{ join_request.created|date:_("DATETIME_FORMAT") }}</p>
+<p>{% trans "State" %}: {{ join_request.get_state_display }}</p>
+{% endif %}
+
+{% if form %}
+  {% uni_form form form.helper %}
+{% endif %}
+
+{% endblock %}
