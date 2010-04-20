@@ -9,6 +9,7 @@ def read(fname):
 version = '1.0'
 
 install_requires = [
+    'Django==1.1.1',
     'setuptools==0.6c11',
     'saaskit-core',
     'qna',
