@@ -33,7 +33,7 @@ def mu_index(request, queryset=Question.objects.all(), template_name='index.html
     return index(request, queryset, template_name, tag_queryset)
 
 def mu_question(request, slug, queryset=Question.objects.all(), tag_queryset=Tag.objects.all(),
-             template_name='question.html'):
+             template_name='question-oembed.html'):
     queryset = queryset.filter(muaccount=request.muaccount)
     tag_queryset = tag_queryset.filter(questions__muaccount=request.muaccount)
     return question(request, slug, queryset=queryset, template_name=template_name, tag_queryset=tag_queryset)
