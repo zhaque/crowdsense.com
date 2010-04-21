@@ -10,8 +10,8 @@ from saaskit.fabfile import github_setup, postgresql_setup, postgresql_user_db_f
 from saaskit.fabfile import webapp_setup, project_setup, update_webapp, build_webapp
 from saaskit.fabfile import nginx_setup, apache2_setup, restart_webserver
 
-env.SOURCE_PATH = 'src/answers'
-env.git_path = 'git@github.com:CrowdSense/answers.git'
+env.SOURCE_PATH = 'src/crowdsense'
+env.git_path = 'git@github.com:CrowdSense/crowdsense.com.git'
 
 def production():
     #env.hosts = []
