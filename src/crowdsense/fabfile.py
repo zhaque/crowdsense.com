@@ -23,7 +23,7 @@ def production():
     ifnotsetted('POSTGRES_USER', 'crowdsense', True, "PostgreSQL user name")
     ifnotsetted('POSTGRES_PASSWORD', 'crowdsenseS3n89mkk', True, "PostgreSQL user's password")
     ifnotsetted('POSTGRES_DB', 'crowdsense', True, "PostgreSQL DATABASE")
-    ifnotsetted('UBUNTU_VERSION', 'jaunty', True, "Ubuntu version name")
+    ifnotsetted('UBUNTU_VERSION', 'karmic', True, "Ubuntu version name")
     ifnotsetted('PAYPAL_EMAIL', 'admin_1255085897_biz@crowdsense.com', True, "PAYPAL EMAIL")
     ifnotsetted('PAYPAL_TEST', 'True', True, "PAYPAL TEST (True or False)?", r'^(True|False)$')
     
