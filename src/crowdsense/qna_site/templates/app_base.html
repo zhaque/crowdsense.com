@@ -1,0 +1,110 @@
+{% load i18n muathemes compressed %}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="{% if LANGUAGE_BIDI %}rtl{% else %}ltr{% endif %}" xml:lang="{{ LANGUAGE_CODE }}" lang="{{ LANGUAGE_CODE }}">
+    <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+      <title>{% block head_title %}Q&A{% endblock %}</title>
+	    <link rel="stylesheet" href="http://yui.yahooapis.com/2.8.0r4/build/reset-fonts-grids/reset-fonts-grids.css" type="text/css">
+
+		{% block extra_style %}
+		  <link rel="shortcut icon" href="{{ MEDIA_URL }}qna/images/favicon.ico">
+      {% compressed_css request.muaccount.theme.color_scheme %}
+		{% endblock %}
+		
+    {% block extra_head %}{% endblock %}
+
+    </head>
+    
+    <body class="{% block skin %}yui-skin-saaskit{% endblock %}">
+	    <div id="{% block doctype %}doc3{% endblock %}" class="{% block class %}yui-t5{% endblock %}">
+            <div id="hd" class="saaskit-hd">
+				{% block logo %} 
+				  <div class="logo"><h1><a href="/">Q&A</a> | </h1></div>
+				{% endblock %}
+
+				{% block sitename %} 				
+				{% endblock %}
+
+                {% block tagline %}
+                  <div id="hd" class="tagline">Knowledge Sharing</div>
+                {% endblock %}
+
+                <div class="saaskit-nav-rhs">
+					  <ul>
+		                {% block nav-rhs-add %}
+						  <li>
+						    Something
+						  </li>
+						{% endblock %}						
+
+						{% if user.is_authenticated %}		 
+					      <li><a href="{% url edit_user %}">{{user}}</a></li>	
+					    {% ifequal user request.muaccount.owner %}
+					      <li><a href="{% url muaccounts_manage_general %}">{% trans "Manage site" %}</a></li>					
+					    {% endifequal %}
+					      <li><a href="{% url auth_logout %}?next=/">{% trans "Sign out" %}</a></li>
+					    {% else %}
+					      <li><a href="{% url auth_login %}">{% trans "Sign in" %}</a></li>					
+						  <li><a href="/contact">{% trans "Help" %}</a></li>		
+					    {% endif %}
+					  </ul>		
+		        </div>
+	     	    <div class="saaskit-nav">{% block nav %}{% endblock %}</div>
+                    <div class="saaskit-search">
+                            <form method="get" action="{% url search %}">
+                            <input type="text" id="searchInput" name='q'/>
+                            <input type="submit" value="Search Questions" id="searchButton" />
+                            </form>
+                    </div>
+            </div>
+	    <div id="bd" class="{% block type %}saaskit-bd{% endblock %}">
+	            <div id="{% block column %}yui-main{% endblock %}">
+	                <div class="{% block grid %}yui-b{% endblock %}">
+		              {% block landing_main %}{% endblock landing_main %}
+		              {% block content %}{% endblock content %}	
+		        </div>
+		            {% block extra_content %}{% endblock extra_content %}		
+                    </div>
+                 <div class="yui-b saaskit-sidebar">
+     	            {% block sidebar %}{% endblock sidebar %}		
+		    {% block extra_sidebar %}{% endblock extra_sidebar %}
+                 </div>
+            </div>          
+        
+            <div id="ft" class="saaskit-ft">
+				{% block footer %}  
+				  <p>
+					<strong>
+						{% trans "Copyright" %} &copy; 2010 <a href="http://saaskit.org">saaskit.org</a> | <a href="/pages/about-saas-kit-services/">{% trans "About us" %}</a> | <a href="/contact/">{% trans "Help & Support" %}</a> | <a href="/pages/saas-kit-service-copyright-privacy/">{% trans "Privacy & Copyright" %}</a> | <a href="/pages/saas-kit-service-terms-condition/">{% trans "Terms" %}</a>
+					</strong>
+				  </p>
+				{% endblock %}
+	        </div>
+	    </div>  
+
+    <script src="http://www.google.com/jsapi"></script>
+    <script>google.load("jquery", "1.2.6");</script>
+    <script type="text/javascript">
+      var i18nLang = '{{settings.LANGUAGE_CODE}}';
+    </script>
+    <script type='text/javascript' src='{{ MEDIA_URL }}qna/js/com.qna.utils.js'></script>
+    <script type='text/javascript' src='{{ MEDIA_URL }}qna/js/jquery.i18n.js'></script>
+    <script type='text/javascript' src='{{ MEDIA_URL }}qna/js/com.qna.i18n.js'></script>
+    {% block extra_js %}
+    {% endblock %}	
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
