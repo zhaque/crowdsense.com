@@ -106,3 +106,45 @@ except ImportError:
      pass
 
 TINYMCE_JS_URL = '%s/saaskit/js/tiny_mce/tiny_mce.js' % MEDIA_URL
+
+MUACCOUNTS_THEMES = (
+    # color css
+    ('color_scheme', 'Color scheme', (
+        ('aqua', 'Aqua', 'themes/aqua.css'),
+        ('green', 'Green', 'themes/green.css'),
+        ('purple', 'Purple', 'themes/purple.css'),
+        ('red', 'Red', 'themes/red.css'),
+        ('tan-blue', 'Tan Blue', 'themes/tan_blue.css'),
+        )),
+    # <body> id
+    ('page_width', 'Page widgh', (
+        ('doc3', '100% fluid'),
+        ('doc', '750px centered'),
+        ('doc2', '950px centered'),
+        ('doc4', '974px fluid'),
+        )),
+    # Outermost <div> class
+    ('layout', 'Layout', (
+        ('yui-t6', 'Right sidebar, 300px'),
+        ('yui-t1', 'Left sidebar, 160px'),
+        ('yui-t2', 'Left sidebar, 180px'),
+        ('yui-t3', 'Left sidebar, 300px'),
+        ('yui-t4', 'Right sidebar, 180px'),
+        ('yui-t5', 'Right sidebar, 240px'),
+        ('yui-t0', 'Single Column'),
+        )),
+    # <body> class
+    ('rounded_corners', 'Rounded corners', (
+        ('on', 'On', 'rounded'),
+        ('off', 'Off', ''),
+        )),
+    )
+
+from saaskit.settings import _default_css_files
+for codename, _, css_file in MUACCOUNTS_THEMES[0][2]:
+     COMPRESS_CSS[codename] = {
+         'source_filenames' : ( _default_css_files + (css_file,)
+                                ),
+         'output_filename' : 'style.%s.css' % codename,
+         }
+
