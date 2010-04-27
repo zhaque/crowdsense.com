@@ -29,6 +29,7 @@ MIDDLEWARE_CLASSES = (
     'page_view_quotas.middleware.PageViewQuotasMiddleware',
     'qna.middleware.pagesize.QuestionsPageSizeMiddleware',
     'muaccount_content.middleware.FlatpageFallbackMiddleware',
+    'wurfl.middleware.DeviceMiddleware',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS += (
@@ -38,6 +39,7 @@ TEMPLATE_CONTEXT_PROCESSORS += (
 
 INSTALLED_APPS = (
     'user_site',
+    'wurfl',
 ) + INSTALLED_APPS
 
 ROOT_URLCONF = 'crowdsense.qna_site.urls'

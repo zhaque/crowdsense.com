@@ -28,6 +28,7 @@ EMAIL_PORT = 587
 " > ./src/crowdsense/local_settings.py
 
 
+  0.1 unzip parts/saaskit-core/wurfl-latest.zip -d .
   1. python ./bootstrap.py
   2. ./bin/buildout
   3. ./bin/main_site runserver 8001  # starts main site

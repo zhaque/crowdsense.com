@@ -10,6 +10,10 @@
 		{% block extra_style %}
 		  <link rel="shortcut icon" href="{{ MEDIA_URL }}qna/images/favicon.ico">
       {% compressed_css request.muaccount.theme.color_scheme %}
+      {% if request.device %}
+      <style type="text/css" media="screen">@import "{{ MEDIA_URL }}saaskit/jqtouch/jqtouch/jqtouch.css";</style>
+      <style type="text/css" media="screen">@import "{{ MEDIA_URL }}saaskit/jqtouch/themes/jqt/theme.css";</style>
+      {% endif %}
 		{% endblock %}
 		
     {% block extra_head %}{% endblock %}
@@ -92,6 +96,25 @@
     <script type='text/javascript' src='{{ MEDIA_URL }}qna/js/jquery.i18n.js'></script>
     <script type='text/javascript' src='{{ MEDIA_URL }}qna/js/com.qna.i18n.js'></script>
     {% block extra_js %}
+      {% if request.device %}
+      <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+      <script type="text/javascript"> google.load("jquery", "1.4.2"); </script>
+      <script src="{{ MEDIA_URL }}saaskit/jqtouch/jqtouch/jqtouch.js" type="application/x-javascript" charset="utf-8"></script>
+      <script language="javascript">
+          $.jQTouch({
+              icon: 'jqtouch.png',
+              statusBar: 'black-translucent',
+              preloadImages: [
+                  '{{ MEDIA_URL }}saaskit/jqtouch/themes/jqt/img/back_button.png',
+                  '{{ MEDIA_URL }}saaskit/jqtouch/themes/jqt/img/back_button_clicked.png',
+                  '{{ MEDIA_URL }}saaskit/jqtouch/themes/jqt/img/button_clicked.png',
+                  '{{ MEDIA_URL }}saaskit/jqtouch/themes/jqt/img/grayButton.png',
+                  '{{ MEDIA_URL }}saaskit/jqtouch/themes/jqt/img/whiteButton.png',
+                  '{{ MEDIA_URL }}saaskit/jqtouch/themes/jqt/img/loading.gif'
+                  ]
+          });
+      </script>
+      {% endif %}
     {% endblock %}	
     </body>
 </html>
