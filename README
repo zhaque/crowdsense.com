@@ -10,8 +10,31 @@
 
 1.2 Starting the Project
 ~~~~~~~~~~~~~~~~~
-  To start the project:
-  0. echo "                              
+To start the project follow the steps below:
+
+0. Prepare the development server so example.com gets resolved to localhost below you can find an example /etc/hosts file. Also note if you plan to create a new account "foo" then foo.example.com needs to be in your /etc/hosts file.
+
+127.0.0.1       assets.example.com
+127.0.0.1       zed.example.com
+127.0.0.1       example.com
+127.0.0.1       www.example.com
+127.0.0.1       basic.example.com
+127.0.0.1       plus.example.com
+127.0.0.1       max.example.com
+127.0.0.1       corporate.example.com
+127.0.0.1       premium.example.com
+127.0.0.1       local.domain.com
+127.0.0.1       localhost slate.local.host 
+255.255.255.255 broadcasthost
+::1             localhost 
+fe80::1%lo0     localhost
+
+
+1. First create the postgres database have user/pass available. Currently it is tested with postgres not with sqlite or mySQL so user postgres please.
+
+2. Create the settings file as below or manualy it must be under src/crowdsense or copy paste from below
+ 
+echo "                              
 DATABASE_ENGINE = 'postgresql_psycopg2'
 DATABASE_NAME = 'crowdsense'
 DATABASE_USER = 'user'
@@ -27,10 +50,10 @@ EMAIL_HOST_PASSWORD = '<gmail password>'
 EMAIL_PORT = 587
 " > ./src/crowdsense/local_settings.py
 
+4. python ./bootstrap.py
+5. ./bin/buildout
+6. ./bin/main_site runserver 8001  # starts main site
+7. point one of your browser tab at http://example.com:8001
+8. ./bin/user_site runserver 8000  # starts user's site, need to run it in a separte shell.
+9. point another of your browser tab at http://basic.example.com:8000
 
-  0.1 unzip parts/saaskit-core/wurfl-latest.zip -d .
-  1. python ./bootstrap.py
-  2. ./bin/buildout
-  3. ./bin/main_site runserver 8001  # starts main site
-  4. ./bin/user_site runserver 8000  # starts user's site
-  
