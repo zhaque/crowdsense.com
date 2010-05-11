@@ -3,6 +3,9 @@
 .pydevproject
 .pydevproject.bak
 
+# Wurfl exclude
+wurfl.xml
+
 #buildout's specific
 .installed.cfg
 eggs/*
