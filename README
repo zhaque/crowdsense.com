@@ -52,8 +52,9 @@ EMAIL_PORT = 587
 
 4. python ./bootstrap.py
 5. ./bin/buildout
-6. ./bin/main_site runserver 8001  # starts main site
-7. point one of your browser tab at http://example.com:8001
-8. ./bin/user_site runserver 8000  # starts user's site, need to run it in a separte shell.
-9. point another of your browser tab at http://basic.example.com:8000
+6. Grab a coffee as this process will take 15 min :)
+7. ./bin/main_site runserver 8001  # starts main site
+8. point one of your browser tab at http://example.com:8001
+9. ./bin/user_site runserver 8000  # starts user's site, need to run it in a separte shell.
+10. point another of your browser tab at http://basic.example.com:8000
 
