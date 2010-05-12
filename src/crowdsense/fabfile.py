@@ -7,7 +7,7 @@ from fabric.api import env, settings, run, sudo, require, local, prompt, put
 
 def source_settings():
     env.SOURCE_PATH = 'src/crowdsense'
-    env.git_path = 'git@github.com:CrowdSense/crowdsense.com.git'
+    env.git_path = 'git@github.com:saas-kit/crowdsense.com.git'
 
 def render_put(template_name, dest, params, mode=None, tempfile='tempfile'):
     """ render template and write result into temporary file, then send the file to server with put command """
