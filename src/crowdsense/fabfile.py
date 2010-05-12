@@ -39,9 +39,9 @@ def prompts():
 def common_settings():
     source_settings()
     env.user = 'root'
-    env.POSTGRES_USER = 'saaskit' 
-    env.POSTGRES_PASSWORD = 'saaskitS3n89mkk'
-    env.POSTGRES_DB = 'saaskit'
+    env.POSTGRES_USER = 'crowdsense' 
+    env.POSTGRES_PASSWORD = 'crowdsenseS3n89mkk'
+    env.POSTGRES_DB = 'crowdsense'
     env.UBUNTU_VERSION = 'karmic'
 
 def stage_settings():
