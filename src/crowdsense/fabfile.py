@@ -91,6 +91,10 @@ def update_production():
     production_settings()
     update_webapp()
 
+def clean_database():
+    production_settings()
+    postgresql_user_db_flush()
+
 def rollback_stage():
     stage_settings()
 
