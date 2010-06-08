@@ -24,7 +24,8 @@
     	 <a id="latest" href="?sort=latest" title="{% trans "last updated questions" %}" >{% trans "newest" %}</a>
         <a id="hottest" href="?sort=hottest" title="{% trans "hottest questions" %}" >{% trans "hottest" %}</a>
         <a id="mostvoted" href="?sort=mostvoted" title="{% trans "most voted questions" %}" >{% trans "most voted" %}</a>
-        <a id="all" href="/questions/" title="{% trans "all questions" %}" >{% trans "all questions" %}</a>
+        <a id="all" href="{% url questions %}" title="{% trans "all questions" %}" >{% trans "all questions" %}</a>
+        <a id="ask" href="{% url ask %}" title="{% trans 'ask question'%}">{% trans 'ask question'%}</a>
     </div>
 </div>
 <!-- 问题列表 -->
