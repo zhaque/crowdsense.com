@@ -88,9 +88,11 @@
 </div>
 {% endif %}
 <div class="boxB">
-  <h3>About sitename</h3>
+  <h3>{% trans 'About sitename' %}</h3>
   <div class="body">
+  {% blocktrans %}
   <p>Dummy text... lorem ipsum whatever</p>
+  {% endblocktrans %}
   </div>
 </div>
 <p class="text-center"><img src="{{ MEDIA_URL }}qna/images/180x150.png" /></p>
