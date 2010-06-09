@@ -1,0 +1,34 @@
+{% extends "app_base.html" %}
+{% load i18n uni_form_tags thumbnail muaccounts_tags %}
+
+{% block head_title %}{% trans "Sign in" %}{% endblock %}
+
+{% block content %}
+<div class="saaskit-block">
+	<h3>{% filter capfirst %}{% trans 'login' %}{% endfilter %}</h3>
+<div class="saaskit-block-content">
+<form class="uniForm" method="post" action="?next={{ next|default:"/" }}">
+  {{ form|as_uni_form }}
+  <div class="buttonHolder">
+    <input type="submit" value="{% trans 'Sign in' %}" />
+  </div>
+</form>
+</div>
+</div>
+{% endblock %}
+
+{% block sidebar %}
+<div class="saaskit-block">
+	<h3>{% trans "ss" %}</h3>
+<div class="saaskit-block-content">
+  text
+</div>
+</div>
+<div class="saaskit-block">
+	<h3>{% trans "scvdfgdfg" %}</h3>
+    <div class="saaskit-block-content">
+    sdcsdfsdf
+    </div>
+</div>
+
+{% endblock %}

@@ -50,7 +50,9 @@
 {% endblock %}
 
 {% block sidebar %}
+<div class="saaskit-block">
 <div class="boxC">
+	<h3 class="subtitle">{% trans "Total" %}</h3>
     <p>
 		{% blocktrans with questions_count|intcomma as num_q %}have {{num_q}} unanswered questions{% endblocktrans %}
 		{% comment %}
@@ -71,6 +73,7 @@
         <br>
     </div>
     </div>
+</div>
 </div>
 
 {% endblock %}

@@ -65,6 +65,7 @@
 {% endblock %}
 
 {% block sidebar %}
+<div class="saaskit-block">
 {% if settings.APP_INTRO and not request.user.is_authenticated %}
 <div class="boxA">
 	<h3>{% trans "welcome to website" %}</h3>
@@ -114,6 +115,7 @@
 </div>
 <div id="feeds">
 <a href="/feeds/rss" title="{% trans "subscribe to last 30 questions by RSS" %}">{% trans "subscribe to the questions feed" %}</a>
+</div>
 </div>
 {% endblock %}
 {% block tail %}
