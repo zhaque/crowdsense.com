@@ -1,0 +1,103 @@
+{% extends "user.html" %}
+<!-- user_stats.html -->
+{% load i18n %}
+{% load extra_tags %}
+{% load humanize %}
+		{% block usercontent %}
+<div class="saaskit-block-content">
+        <a name="questions"></a>
+        <div class="user-stats">
+           <div class="count">{{questions|length}}</div>
+           <div class="description">{% trans "User questions" %}</div>             
+        </div>
+       {% include "users_questions.html" %}
+        <p>&nbsp;</p>
+        <a name="answers"></a>
+        <div class="user-stats">
+           <div class="count">{{answered_questions|length}}</div>
+           <div class="description">{% trans "Answers" %}</div>               
+        </div>
+        <div class="user-stats-table">
+            {% for answered_question in answered_questions %}
+            <div class="answer-summary">
+                <a title="{{answered_question.summary}}" href="{% url question answered_question.slug %}">
+                    <div class="answer-votes {% if answered_question.accepted %}answered-accepted{% endif %}" 
+						title="{% blocktrans with answered_question.score as vote_count %}the answer has been voted for {{ vote_count }} times{% endblocktrans %}&#13;{% if answered_question.accepted %}{% trans "this answer has been selected as correct" %}{%endif%}">
+                        {{ answered_question.score }}</a>
+            </div>
+                
+            <div class="answer-link">
+                    <a href="{% url question answered_question.slug %}">{{answered_question.title}}</a> {% if answered_question.comment_count %}<span 
+					title="{% blocktrans with answered_question.comment_count as count %}the answer has been commented {{count}} times{% endblocktrans %}">({{answered_question.comment_count}})</span>{% endif %}
+                </div>
+            <div class="clear"></div>
+            </div>
+            {% endfor %}
+        </div>
+        <p>&nbsp;</p>
+        <a name="votes"></a>
+        <div class="user-stats">
+                <div class="count">{{total_votes}}</div>
+                <div class="description">{% trans "votes total" %}</div>                                
+        </div>
+        <div class="user-stats">
+          
+                    <div class="count">
+                        <img style="cursor: default;" align="absmiddle" src="{{ MEDIA_URL }}qna/images/vote-arrow-up-on.png"/>
+                            <span title="{% trans "user has voted up this many times" %}" class="vote-count">{{up_votes}}</span>
+
+                    </div>
+                    <div class="count">
+                        <img style="cursor: default;" align="absmiddle" src="{{ MEDIA_URL }}qna/images/vote-arrow-down-on.png"/>
+                            <span title="{% trans "user voted down this many times" %}" class="vote-count">{{down_votes}}</span>
+                    </div>
+                       
+        </div>
+        <p>&nbsp;</p>
+        <a name="tags"></a>
+        <div class="user-stats">   
+            <div class="count">{{tags|length}}</div>                
+            <div class="description">{% trans "Tags" %}</div>                
+        </div>
+        
+            <div class="tags" style="margin:0 25px;">                
+                        {% for tag in tags%}
+                        <a rel="tag" title="{% blocktrans %}see other questions tagged '{{ tag }}' {% endblocktrans %}" href="{% url tag_search tag|urlencode %}">{{tag.name}}<span class="tag-number"> × {{ tag.used_count|intcomma }}</span></a>                          
+                        {% endfor %}  
+            <div class="clear"></div>                  
+            </div>
+       
+        <p>&nbsp;</p>
+        <a name="badges"></a>
+        <div class="user-stats">
+            <div class="count">{{total_awards}}</div>
+            <div class="description">{% trans "Badges" %}</div>               
+        </div>
+        <div class="user-stats-table">
+            <table>
+                <tr>
+                    <td width="180" style="line-height:35px">
+                        {% for award in awards %}
+                            <a href="/badges/{{award.id}}/{{award.name}}" title="{{ award.description }}" class="medal"><span class="badge{{ award.type }}">&#9679;</span>&nbsp;{{ award.name }}</a><span class="tag-number"> × {{ award.count|intcomma }}</span><br>
+                            {% if forloop.counter|divisibleby:"6" %}
+                                </td>
+                                <td width="180" style="line-height:35px">
+                            {% endif %}
+                        {% endfor %}
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="clear"></div>
+</div>
+{% endblock %}
+<!-- end user_stats.html -->
+
+
+
+
+
+
+
+
+
