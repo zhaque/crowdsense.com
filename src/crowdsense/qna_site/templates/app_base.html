@@ -42,7 +42,7 @@
 						{% endblock %}						
 
 						{% if user.is_authenticated %}		 
-					      <li><a href="{% url edit_user %}">{{user}}</a></li>	
+					      <li>{% url edit_user as edit_user_url %}{% blocktrans %}Welcome, <a href="{{ edit_user_url }}">{{ user }}</a>{% endblocktrans %}</li>	
 					    {% ifequal user request.muaccount.owner %}
 					      <li><a href="{% url muaccounts_manage_general %}">{% trans "Manage site" %}</a></li>					
 					    {% endifequal %}
@@ -58,6 +58,8 @@
                             <form method="get" action="{% url search %}">
                             <input type="text" id="searchInput" name='q'/>
                             <input type="submit" value="{% trans 'Search Questions' %}" id="searchButton" />
+                            {% trans 'or' %}
+                            <a href="{% url ask %}">{% trans 'Ask' %}</a>
                             </form>
                     </div>
             </div>

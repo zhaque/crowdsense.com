@@ -1,0 +1,440 @@
+{% extends "app_base.html" %}
+<!-- question.html -->
+{% load extra_tags %}
+{% load extra_filters %}
+{% load humanize %}
+{% load i18n %}
+{% block title %}{% spaceless %}{{ question.get_question_title }}{% endspaceless %}{% endblock %}
+{% block extra_js %}
+        {% if not question.closed and request.user.is_authenticated %}
+        <script type='text/javascript' src='{{ MEDIA_URL }}qna/js/com.qna.editor.js'></script>
+        <script type='text/javascript' src='{{ MEDIA_URL }}qna/js/wmd/showdown.js'></script>
+        <script type='text/javascript' src='{{ MEDIA_URL }}qna/js/wmd/wmd.js'></script>
+        <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}qna/js/wmd/wmd.css" />
+        {% endif %}
+        <script type='text/javascript' src='{{ MEDIA_URL }}qna/js/com.qna.post.js'></script>
+        <script type='text/javascript' src='{{ MEDIA_URL }}qna/js/jquery.validate.pack.js'></script>
+        <script type="text/javascript">
+        // define reputation needs for comments
+        var repNeededForComments = 50;
+        $().ready(function(){
+            $("#nav_questions").attr('className',"on");
+            var answer_sort_tab = "{{ tab_id }}";
+            $("#" + answer_sort_tab).attr('className',"on");
+            
+            Vote.init({{ question.id }}, '{{ question.slug }}', '{{ question.author.id }}','{{ request.user.id }}');
+            
+            {% if not question.closed and request.user.is_authenticated %}initEditor();{% endif %}
+            
+            lanai.highlightSyntax();
+            $('#btLogin').bind('click', function(){window.location.href='{% url auth_login %}'; } )
+        });
+        
+        function initEditor(){
+            $('#editor').TextAreaResizer();
+            //highlight code synctax when editor has new text
+            $("#editor").typeWatch({highlight: false, wait: 3000,
+                             captureLength: 5, callback: lanai.highlightSyntax});
+                             
+            var display = true;
+            var txt = "[{% trans "hide preview" %}]";
+            $('#pre-collapse').text(txt);
+            $('#pre-collapse').bind('click', function(){
+                txt = display ? "[{% trans "show preview" %}]" : "[{% trans "hide preview" %}]";
+                display = !display;
+                $('#previewer').toggle();
+                $('#pre-collapse').text(txt);
+            });
+            
+            setupFormValidation("#fmanswer", CPValidator.getQuestionFormRules(), CPValidator.getQuestionFormMessages());
+        }
+         
+        </script>
+{% endblock %}
+        
+{% block content %}
+<div class="saaskit-block">
+  {% block question_title %}
+    <h3><a href="{{ question.get_absolute_url }}">{{ question.get_question_title }}</a></h3>
+  {% endblock %}
+<div class="saaskit-block-content">
+    <div id="askform">
+        <form id="fmanswer" action="{% url answer question.id %}" method="post">
+            <div class="question-page" {% if question.deleted %}class="deleted"{%endif%}>                
+                 <div class="buttons">
+                          {% block question_vote_buttons %}
+                            {% if question_vote %}
+                            <img id="question-img-upvote-{{ question.id }}"
+								src="{{ MEDIA_URL }}qna/images/vote-arrow-up{% if question_vote.is_upvote %}-on{% endif %}.png" 
+								title="{% trans "i like this post (click again to cancel)" %}" >
+                            <div id="question-vote-number-{{ question.id }}" class="vote-number" 
+								title="{% trans "current number of votes" %}">
+                                {{ question.score }}
+                            </div>
+                            <img id="question-img-downvote-{{ question.id }}"
+								src="{{ MEDIA_URL }}qna/images/vote-arrow-down{% if question_vote.is_downvote %}-on{% endif %}.png" 
+								title="{% trans "i dont like this post (click again to cancel)" %}" >
+                           
+                            {% else %}
+                            <img id="question-img-upvote-{{ question.id }}"
+								src="{{ MEDIA_URL }}qna/images/vote-arrow-up.png" 
+								title="{% trans "i like this post (click again to cancel)" %}" >
+                            <div id="question-vote-number-{{ question.id }}" class="vote-number" 
+								title="{% trans "current number of votes" %}">
+                                {{ question.score }}
+                            </div>
+                            <img id="question-img-downvote-{{ question.id }}"
+								src="{{ MEDIA_URL }}qna/images/vote-arrow-down.png" title="{% trans "i dont like this post (click again to cancel)" %}" >    
+          
+                            {% endif %}                           
+                            {% if favorited %}
+                            <img class="question-img-favorite" src="{{ MEDIA_URL }}qna/images/vote-favorite-on.png" 
+								title="{% trans "mark this question as favorite (click again to cancel)" %}" >
+                            <div id="favorite-number" class="favorite-number my-favorite-number">
+                                {{ question.favourite_count }}
+                            </div>
+                            {% else %}
+                            <img class="question-img-favorite" src="{{ MEDIA_URL }}qna/images/vote-favorite-off.png" 
+								title="{% trans "remove favorite mark from this question (click again to restore mark)" %}" >   
+                            <div id="favorite-number" class="favorite-number">{% ifnotequal question.favourite_count 0 %}{{ question.favourite_count }}{% endifnotequal %}
+                            </div>
+                        
+                            {% endif %}
+                          {% endblock %}  
+                  </div>                    
+                  <div class="question-body">
+                            <div class="content">
+                            {% block question_body %}
+                                {{ question.html|safe }}
+                            {% endblock %}
+                            </div>
+                            <div id="question-tags" class="tags" >
+                                {% for tag in question.tagname_list %}
+                                {% if tag %}
+                                    <a href="{% url tag_search tag|urlencode %}" class="post-tag" 
+										                    title="{% trans "see questions tagged" %}'{{ tag }}'{% trans "using tags" %}" 
+                                        rel="tag">{{ tag }}</a>                                    
+                                {% endif %}
+                                {% endfor %}
+                                <div class="clear"></div>
+                                </div>
+                                    <div class="details">                                           
+                                              
+                                            {% if question.last_edited_by %}
+                                                                
+                                                      
+                                                    {% if question.wiki %}
+                                                    
+                                                        <div class="user">{% gravatar question.last_edited_by 32 %}
+                                                       
+                                                            <a href="/users/{{ question.last_edited_by.id }}/{{ question.last_edited_by.username }}">{{ question.last_edited_by.username }}</a></div>
+                                                    
+                                                    
+                                                    {% else %}
+                                                    {% ifequal question.last_edited_by question.author %}
+                                                    
+                                                    {% else %}
+                                                   
+                                                        <div class="user">{% gravatar question.last_edited_by 32 %}
+                                                        
+                                                            <a href="/users/{{ question.last_edited_by.id }}/{{ question.last_edited_by.username }}">{{ question.last_edited_by.username }}</a>  {% get_score_badge question.last_edited_by %}</div>                                                                                                                                                                                                                                                                            
+                                                      
+                                                    {% endifequal %}
+                                                    {% endif %}
+                                            <div class="date" >                                                                                                    
+                                                         {% trans "updated" %} <a href="{% url question_revisions question.id %}"><strong title="{{question.last_edited_at }}">{{ question.last_edited_at|timesince }} {% trans 'ago' %}</strong></a>
+                                            </div>  
+                                            
+                                            {% endif %}
+                                                                                    
+                                            {% if question.wiki %}
+                                            <span class="wiki-category">{% trans "community wiki" %}</span>
+                                            
+                                            {% else %}
+                                                                                       
+                                                        <div class="user">
+                                                        {% gravatar question.author 32 %}
+                                                        <a href="/users/{{ question.author.id }}/{{ question.author }}">{{ question.author }}</a>  {% get_score_badge question.author %}                                                            
+                                                        </div>
+                                             <div  class="date">                                                
+                                                        {% trans "asked" %} <strong title="{{ question.added_at }}">{{ question.added_at|timesince }} {% trans 'ago' %}</strong>
+                                            </div>
+                                            
+                                            {% endif %}
+                                        
+                                     <div class="actions">                               
+                                            {% if request.user|can_edit_post:question %}
+                                            <span class="action-link"><a href="{% url edit_question question.id %}">{% trans 'edit' %}</a></span>
+                                            <span class="action-link-separator">|</span>
+                                            {% endif %}
+                                            {% if request.user|can_delete_post:question %}
+                                            <span class="action-link"><a id="question-delete-link-{{question.id}}">{% trans "delete" %}</a></span>
+                                            <span class="action-link-separator">|</span>
+                                            {% endif %}
+                                            {% if question.closed %}
+                                            {% if request.user|can_reopen_question:question %}
+                                            <span class="action-link"><a href="{% url reopen question.id %}">{% trans "reopen" %}</a></span>
+                                            <span class="action-link-separator">|</span>
+                                            {% endif %}
+                                            {% else %}
+                                            {% if request.user|can_close_question:question %}
+                                            <span class="action-link"><a href="{% url close question.id %}">{% trans "close" %}</a></span>
+                                            <span class="action-link-separator">|</span>
+                                            {% endif %}
+                                            {% endif %}
+                                            
+                                            <span id="question-offensive-flag-{{ question.id }}" class="offensive-flag" 
+												 title="{% trans "report as offensive (i.e containing spam, advertising, malicious text, etc.)" %}">
+												<a>{% trans "flag offensive" %}</a>
+												<span class="darkred">{% if request.user|can_view_offensive_flags %}
+												{% if question.offensive_flag_count %}({{ question.offensive_flag_count }}){% endif %}{% endif %}</span>
+                                            </span>
+                          </div>
+                          <div class="clear"></div>
+                            
+                            </div>                            
+                            </div>
+                            <div class="clear"></div>
+                            </div>
+                            
+                            <div class="post-comments">
+                                <input id="can-post-comments-question-{{question.id}}" type="hidden" value="{{ request.user|can_add_comments }}"/>
+                                <a id="comments-link-question-{{question.id}}" class="comments-link">
+								{% if question.comment_count %}{% trans "comments" %} <strong>({{question.comment_count}})</strong>
+								{% else %}{% trans "add comment" %}
+								{% endif %}</a>
+                                <div id="comments-question-{{question.id}}" class="comments-container">
+                                <div class="comments"/></div>
+                                </div>
+                            
+                           </div>
+                                          
+            {% if question.closed %}
+            <div class="question-status">
+            <h3>{% blocktrans %}The question has been closed for the following reason "{{ question.get_close_reason_display }}" by{% endblocktrans %} 
+			<a href="{{ question.closed_by.get_profile_url }}">{{ question.closed_by.username }}</a> 
+			{% blocktrans %}close date {{question.closed_at}}{% endblocktrans %}</h3>
+            </div>
+            {% endif %}
+            {% block answers %}
+            {% ifnotequal answers.length 0 %}
+                <div class="saaskit-block">                    
+                    <h4>{{ answers|length }} {% trans "Answers" %}:</h4>
+                    <div class="saaskit-menu">
+                       <ul>  
+                        <li><a id="oldest" href="?sort=oldest#sort-top" title="{% trans "oldest answers will be shown first" %}">{% trans "oldest answers" %}</a></li>
+                        <li><a id="latest" href="?sort=latest#sort-top" title="{% trans "newest answers will be shown first" %}">{% trans "newest answers" %}</a></li>
+                        <li><a id="votes" href="?sort=votes#sort-top" title="{% trans "most voted answers will be shown first" %}">{% trans "popular answers" %}</a></li>
+                       </ul>
+                       <div class="clear"></div>
+                    </div>
+                </div>
+                {% qna_paginator context %}
+                
+                
+                {% for answer in answers %}
+                    <a name="{{ answer.id }}"></a>
+                    <div id="answer-container-{{ answer.id }}" class="answer {% if answer.accepted %}accepted-answer{% endif %} {% ifequal answer.author_id question.author_id %} answered-by-owner{% endifequal %} {% if answer.deleted %}deleted{% endif %}">                        
+                                    <div class="buttons">
+                                    {% block answer_vote_buttons %}
+                                        <img id="answer-img-upvote-{{ answer.id }}" class="answer-img-upvote" src="{{ MEDIA_URL }}qna/images/vote-arrow-up{% get_user_vote_image user_answer_votes answer.id 1 %}.png" title="{% trans "i like this answer (click again to cancel)" %}">
+                                        <div id="answer-vote-number-{{ answer.id }}" class="vote-number" title="{% trans "current number of votes" %}">
+                                            {{ answer.score }}
+                                        </div>
+                                        <img id="answer-img-downvote-{{ answer.id }}" class="answer-img-downvote" 
+											src="{{ MEDIA_URL }}qna/images/vote-arrow-down{% get_user_vote_image user_answer_votes answer.id -1 %}.png" 
+											title="{% trans "i dont like this answer (click again to cancel)" %}" >
+                                     
+                                       
+                                        {% ifequal request.user question.author  %}
+                                        <img id="answer-img-accept-{{ answer.id }}" class="answer-img-accept" 
+											src="{{ MEDIA_URL }}qna/images/vote-accepted{% if answer.accepted %}-on{% endif %}.png" 
+											title="{% trans "mark this answer as favorite (click again to undo)" %}" >
+                                        {% else %}
+                                            {% if answer.accepted %}
+                                            <img id="answer-img-accept-{{ answer.id }}" class="answer-img-accept" 
+												src="{{ MEDIA_URL }}qna/images/vote-accepted{% if answer.accepted %}-on{% endif %}.png" 
+												title="{% trans "the author of the question has selected this answer as correct" %}" >
+                                            {% endif %}
+                                        {% endifequal %}
+                                      {% endblock %}
+                                    </div>                                
+                                    <div class="answer-body">
+                                        <div class="answer-content">
+                                            {% block answer_body %}
+                                            {{ answer.html|safe }}
+                                            {% endblock %}
+                                        </div>
+                                             <div class="details" >
+                                                      <div class="actions">
+                                            
+                                                      {% include "answer_actions.html"%}
+                                                     </div> 
+                                                                                           
+                                                    {% if answer.last_edited_by %}                                                                                                             
+                                                                
+                                                            {% if answer.wiki %}
+                                                            <div class="user">
+                                                                {% gravatar answer.last_edited_by 32 %}
+                                                               <a href="/users/{{ answer.last_edited_by.id }}/{{ answer.last_edited_by.username }}">{{ answer.last_edited_by.username }}</a></div>
+                                                            </div>                                                                 
+                                                            {% else %}
+                                                            {% ifequal answer.last_edited_by answer.author %}
+                                                            
+                                                            {% else %}
+                                                            <div class="user">
+                                                                {% gravatar answer.last_edited_by 32 %}
+                                                                <a href="/users/{{ answer.last_edited_by.id }}/{{ answer.last_edited_by.username }}">{{ answer.last_edited_by.username }}</a> {% get_score_badge answer.last_edited_by %}
+                                                            </div>
+                                                                
+                                                            {% endifequal %}
+                                                            {% endif %}
+
+                                                          <div class="date">{% trans "updated" %}<a href="{% url answer_revisions answer.id %}"><strong title="{{answer.last_edited_at }}">{{ answer.last_edited_at|timesince }} {% trans 'ago' %}</strong></a></div>
+                                                    {% endif %}
+                                                                                                   
+                                                    {% if answer.wiki %}
+                                                    <span class="wiki-category">{% trans "community wiki" %}</span>
+                                                   
+                                                    {% else %}
+                                                   
+                                                        
+                            	                         <div class="user">   
+                                                                {% gravatar answer.author 32 %}
+                                                              
+                                                                    <a href="/users/{{ answer.author.id }}/{{ answer.author.username }}">{{ answer.author }}</a>{% get_score_badge answer.author %}
+                                                         </div>
+                                                         <div class="date">
+                                                                {% trans "answered" %} <strong title="{{answer.added_at}}">{{ answer.added_at|timesince }} {% trans 'ago' %}</strong>
+                                                         </div>
+                                                        
+                                                    {% endif %}
+                                          <div class="clear"></div>     
+                                         </div>           
+                                                
+                                        </div>
+                                        <div class="clear"></div>
+                                        </div>
+
+                                        <div id="comment-{{ answer.id }}" class="post-comments" >
+                                            <input id="can-post-comments-answer-{{answer.id}}" type="hidden" value="{{ request.user|can_add_comments }}"/>
+                                            <a id="comments-link-answer-{{answer.id}}" class="comments-link">
+												{% if answer.comment_count %}{% trans "comments" %} 
+												<strong>({{answer.comment_count}})</strong>{% else %}{% trans "add comment" %}{% endif %}</a>
+                                            <div id="comments-answer-{{answer.id}}" class="comments-container">
+                                            <div class="comments"/></div>
+                                        </div>
+                                        </div>
+                                        
+                                   
+                {% endfor %}
+                
+                <div class="paginator-container-left">
+                    {% qna_paginator context %}
+                </div>
+            {% else %}
+                <div class="line"></div>
+            {% endifnotequal %}
+            {% endblock %}
+            <div style="clear:both">
+            </div>
+            
+            {% if not question.closed %}
+           
+                <p class="p_answer">{% trans "Your answer" %}:</p>
+            
+            {% if not request.user.is_authenticated %}
+                <p class="message">{% trans "you can answer anonymously and then login" %}</p>
+            {% endif %}
+
+            <div id="description">
+                <div id="wmd-button-bar" class="wmd-panel"></div>                
+                {{ answer.text }}
+                <div class="preview-toggle">                    
+                        <span id="pre-collapse" 
+				      title="{% trans "Toggle the real time Markdown editor preview" %}">{% trans "toggle preview" %}</span>
+                            
+                                <span id="wiki" title="{{answer.wiki.help_text}}">{{ answer.wiki }} {{ answer.wiki.label_tag }} </span>
+                            
+               </div>
+                
+                {{ answer.text.errors }}
+           </div>
+            
+            <input type="submit" value="{% trans "Answer the question" %}" class="submit"><span class="form-error"></span>
+                {% if request.user.is_authenticated %}
+                    {{ answer.email_notify }} <label for="question-subscribe-updates">{% trans "Notify me daily if there are any new answers." %}</label>
+                {% else %}
+                    <input type="checkbox" disabled><label>{% trans "once you sign in you will be able to subscribe for any updates here" %}</label>
+                {% endif %}
+            {% endif %}
+            <br><br>
+        </form>
+    </div>
+</div>
+</div>
+{% endblock %}
+
+{% block sidebar %}
+<div class="saaskit-block">
+    <h3>
+		{% trans "Question tags" %}:
+    </h3>
+    <div class="saaskit-block-content">
+    <div class="tags" >
+        {% for tag in tags %}
+        	<a href="{% url tag_search tag.name|urlencode %}" 
+			title="{% trans "see questions tagged"%}'{{tag.name}}'{% trans "using tags" %}" 
+			rel="tag">{{ tag.name }}</a> <span class="tag-number">× {{ tag.used_count|intcomma }}</span>
+        {% endfor %}
+        <div class="clear"></div>
+    </div>
+    <p>
+        {% trans "question asked" %}: <strong title="{{ question.added_at }}">{{ question.added_at|timesince }} {% trans "ago" %}</strong>
+    </p>
+    <p> 
+     	{% trans "question was seen" %}: <strong>{{ question.view_count|intcomma }} {% trans "times" %}</strong>
+    </p>
+    <p> 
+        {% trans "last updated" %}: <strong title="{{ question.last_activity_at }}">{{ question.last_activity_at|timesince }} {% trans "ago" %}</strong>
+    </p>
+</div>
+</div>
+
+<div class="saaskit-block">
+    <h3 class="subtitle">{% trans "Related questions" %}</h3>
+ <div class="saaskit-block-content">
+    <div class="questions-related">
+        {% for question in similar_questions %}
+        <p>
+            <a href="{{ question.get_absolute_url }}">{{ question.get_question_title }}</a>
+        </p>
+        {% endfor %}
+    </div>
+ </div>
+</div>
+
+{% endblock %}
+<!-- end question.html -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

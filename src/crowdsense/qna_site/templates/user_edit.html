@@ -1,0 +1,63 @@
+{% extends "app_base.html" %}
+<!-- user_edit.html -->
+{% load extra_tags %}
+{% load humanize %}
+{% load i18n %}
+{% block title %}{% spaceless %}{% trans "Edit user profile" %}{% endspaceless %}{% endblock %}
+{% block forejs %}
+        <script type="text/javascript">
+            $().ready(function(){
+                $("#nav_profile").attr('className',"on");
+                $("#cancel").bind('click', function(){history.go(-1);})
+            });     
+        </script>
+        {% block userjs %}
+        {% endblock %}
+{% endblock %}
+{% block content %}
+<div class="app-block">
+	<h3>{% filter capfirst %}{{ request.user.username }} - {% trans "edit profile" %}{% endfilter %}</h3>
+<div class="app-block-content">
+    <form name="" action="" method="post">
+        <div id="askform">
+            <table class="user-details">
+              <tr><td colspan="2">
+            {% if request.user.email %}
+            {% gravatar request.user 128 %}
+            {% else %}
+            <img src="{{ MEDIA_URL }}qna/images/nophoto.png">
+            {% endif %}
+            <div style="padding:20px 0 0 20px;font-weight:bold;font-size:150%">
+                <a href="http://www.gravatar.com/" target="_blank" 
+					title="gravatar {% trans "image associated with your email address" %}">{% trans "avatar" %}</a>
+            </div>
+              </td></tr>
+              {{ form.as_table }}
+            </table>
+            <div>
+                <input type="submit" value="{% trans "Update" %}" class="submit" />
+                <input id="cancel" type="button" value="{% trans "Cancel" %}" class="submit" />
+            </div>
+        </div>
+    </form>
+    
+</div>
+</div>
+{% endblock %}
+<!-- end user_edit.html -->
+
+{% block sidebar %}
+<div class="app-block">
+	<h3>{% trans "ss" %}</h3>
+<div class="app-block-content">
+  text
+</div>
+</div>
+<div class="app-block">
+	<h3>{% trans "scvdfgdfg" %}</h3>
+    <div class="app-block-content">
+    sdcsdfsdf
+    </div>
+</div>
+
+{% endblock %}

@@ -18,61 +18,49 @@
         </script>
 {% endblock %}
 {% block content %}
-<div class="tabBar">
+<div class="saaskit-block">
     <h3>{% trans "Questions" %}</h3>
-    <div class="tabsA">
+    <div class="saaskit-menu">
     {% include 'mainmenu_block.html' %}
-    </div>
-</div>
+    <div class="clear"></div>   
+    </div> 
 <!-- 问题列表 -->
-<div id="listA">
+<div  class="saaskit-block-content">
     {% for question in questions %}
-    <div class="qstA">
-        <h2>
+    <div class="question">
+	<div class="summary">
+        <p class="title">
             <a href="{{ question.get_absolute_url }}" title="{{ question.summary }}...">
             {{ question.get_question_title }}
             </a>
-        </h2>
-        <div class="stat">
-            <table>
-	            <tr>
-                    <td><span class="num">{{ question.answer_count|intcomma }}</span> </td>
-                    <td><span class="num">{{ question.score|intcomma }}</span> </td>
-                    <td><span class="num">{{ question.view_count|safe }}</span> </td>
-	            </tr>  
-                <tr>
-                    <td><span class="unit">{% trans "answers" %}</span></td>
-                    <td><span class="unit">{% trans "votes" %}</span></td>
-                    <td><span class="unit">{% trans "views" %}</span></td>
-	            </tr> 
-            </table>
-        </div>
-        <div class="summary">
-            {{ question.summary }}...
-        </div>
-        {% if question.wiki %}
-        <span class="from wiki">{% trans "community wiki" %}</span>
-        <span class="date" title="{{ question.last_activity_at }}">{{ question.last_activity_at|timesince }} {% trans 'ago' %}</span>
-        {% else %}
-        <div class="from">
+        </p>
+	<p class="content">
+            {{ question.summary }}...        
+        </p>
+	{% if question.wiki %}
+        <span class="info">{% trans "community wiki" %} | {{ question.last_activity_at|timesince }} {% trans 'ago' %}</span>
+        {% else %}        
             {% comment %}{% gravatar question.last_activity_by 24 %}{% endcomment %}
-            <span class="author"><a href="{{ question.last_activity_by.get_profile_url }}">{{ question.last_activity_by }}</a></span>
-            <span class="score">{% get_score_badge question.last_activity_by %} </span>
-            <span class="date" title="{{ question.last_activity_at }}">{{ question.last_activity_at|timesince }} {% trans 'ago' %}</span>
+            <span class="info"><a href="{{ question.last_activity_by.get_profile_url }}">{{ question.last_activity_by }}</a> | {% get_score_badge question.last_activity_by %} {{ question.last_activity_at }}</span>       
+        {% endif %}        
         </div>
-        {% endif %}
+	  <div class="box-answers"><h2>{{ question.answer_count|intcomma }}</h2><p>{% trans "answers" %}</p></div>
+          <div class="box-votes"><h2>{{ question.score|intcomma }}</h2><p>{% trans "votes" %}</p></div>
+          <div class="box-views"><h2>{{ question.view_count|qna_intword|safe }}</h2><p>{% trans "views" %}</p></div>            
+        <div class="clear">     
+        </div>               
         <div class="tags">
         {% for tag in question.tagname_list %}
         {% if tag %}
-          <a href="{% url tag_search tag|urlencode %}" 
-              title="{% trans "see questions tagged" %}'{{ tag }}'{% trans "using tags" %}" 
-              rel="tag"
-          >{{ tag }}</a>
+        <a href="{% url tag_search tag|urlencode %}" title="{% trans "see questions tagged" %}'{{ tag }}'{% trans "using tags" %}" rel="tag">{{ tag }}</a>
         {% endif %}
         {% endfor %}
+	<div class="clear"></div>
         </div>
     </div>
+    </hr>
     {% endfor %}
+</div>
 </div>
 {% endblock %}
 

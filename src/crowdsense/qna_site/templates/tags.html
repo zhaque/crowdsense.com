@@ -1,0 +1,71 @@
+{% extends "app_base.html" %}
+<!-- tags.html -->
+{% load i18n %}
+{% load extra_tags %}
+{% load humanize %}
+{% block title %}{% spaceless %}{% trans "Tag list" %}{% endspaceless %}{% endblock %}
+{% block forejs %}
+       <script type="text/javascript">
+        $().ready(function(){
+            $("#nav_tags").attr('className',"on");
+            $("#ipSearchTag").focus();
+
+            var orderby = "{{ tab_id }}";
+            if(orderby != "used" && orderby != "name")
+                orderby = "used";
+            $("#sort_" + orderby).attr('className',"on");
+            $("#type-tag").attr('checked',true);
+
+            Hilite.exact = false;
+            Hilite.elementid = "searchtags";
+            Hilite.debug_referrer = location.href;
+        });
+
+        </script>
+{% endblock %}
+{% block content %}
+<!-- Tabs -->
+<div class="saaskit-block">
+    <h3>{% trans "Tag list" %}</h3>
+    <div class="saaskit-menu">
+       <ul>
+        <li><a id="sort_name" href="/tags/?sort=name" class="off" title="{% trans "sorted alphabetically" %}">{% trans "by name" %}</a></li>
+        <li><a id="sort_used" href="/tags/?sort=used" class="off" title="{% trans "sorted by frequency of tag use" %}">{% trans "by popularity" %}</a></li>
+      </ul>
+    <div class="clear"></div>
+    </div>
+<div class="saaskit-block-content">
+<div class="tags">
+<p>
+{% if stag %}
+    {% trans "All tags matching query" %} '<span class="darkred"><strong>{{ stag }}</strong></span>' {% trans "all tags - make this empty in english" %}:
+{% endif %}
+{% if not tags %}
+    <span>{% trans "Nothing found" %}</span>
+{% endif %}
+</p>
+{% for tag in tags %}
+   
+    <a href="{% url tag_search tag|urlencode %}" title="{% trans "see questions tagged" %}'{{ tag }}'{% trans "using tags" %}" rel="tag">
+        {{ tag }}
+    <span class="tag-number">× {{ tag.used_count|intcomma }}</span> 
+    </a>&nbsp;
+      
+{% endfor %}
+    <div class="clear"></div>               
+</div>
+</div>
+</div>
+{% endblock %}
+{% block tail %}
+<div class="pager">
+    {% qna_paginator context %}
+</div>              
+{% endblock %}
+<!-- end tags.html -->
+
+
+
+
+
+

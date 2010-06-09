@@ -1,0 +1,174 @@
+{% extends "app_base.html" %}
+<!-- questions.html -->
+{% load extra_tags %}
+{% load i18n %}
+{% load humanize %}
+{% load extra_filters %}
+{% block title %}{% spaceless %}{% trans "Questions" %}{% endspaceless %}{% endblock %}
+{% block forejs %}
+       <script type="text/javascript">
+        $().ready(function(){
+            var tab_id = "{{ tab_id }}";
+            $("#"+tab_id).attr('className',"on");
+            $("#nav_questions").attr('className',"on");
+            Hilite.exact = false;
+            Hilite.elementid = "listA";
+            Hilite.debug_referrer = location.href;
+        });
+         
+        </script>
+{% endblock %}
+{% block content %}
+<div class="saaskit-block">
+    
+      {% block headQuestions %} 
+        {% if searchtag %}
+          <h3>{% trans "Found by tags" %}</h3>
+        {% else %}
+          {% if searchtitle %}
+            <h3>{% trans "Found by title" %}</h3>
+          {% else %}
+            <h3>{% trans "All questions" %}</h3>
+          {% endif %}
+        {% endif %}
+      {% endblock %}
+    
+    <div class="saaskit-menu">
+    {% include 'mainmenu_block.html' %}
+    <div class="clear"></div>
+    </div>
+
+<div class="saaskit-block-content">
+ {% for question in questions.object_list %}
+   <div class="question">
+	<div class="summary">
+        <p class="title">
+            <a href="{{ question.get_absolute_url }}" title="{{ question.summary }}...">
+            {{ question.get_question_title }}
+            </a>
+        </p>
+	<p class="content">
+            {{ question.summary }}...        
+        </p>
+	{% if question.wiki %}
+        <span class="info">{% trans "community wiki" %} | {{ question.last_activity_at|timesince }} {% trans 'ago' %}</span>
+        {% else %}        
+            {% comment %}{% gravatar question.last_activity_by 24 %}{% endcomment %}
+            <span class="info"><a href="{{ question.last_activity_by.get_profile_url }}">{{ question.last_activity_by }}</a> | {% get_score_badge question.last_activity_by %} {{ question.last_activity_at }}</span>       
+        {% endif %}        
+        </div>
+	  <div class="box-answers"><h2>{{ question.answer_count|intcomma }}</h2><p>{% trans "answers" %}</p></div>
+          <div class="box-votes"><h2>{{ question.score|intcomma }}</h2><p>{% trans "votes" %}</p></div>
+          <div class="box-views"><h2>{{ question.view_count|qna_intword|safe }}</h2><p>{% trans "views" %}</p></div>            
+        <div class="clear">     
+        </div>               
+        <div class="tags">
+        {% for tag in question.tagname_list %}
+        {% if tag %}
+        <a href="{% url tag_search tag|urlencode %}" title="{% trans "see questions tagged" %}'{{ tag }}'{% trans "using tags" %}" rel="tag">{{ tag }}</a>
+        {% endif %}
+        {% endfor %}
+	<div class="clear"></div>
+        </div>
+    </div>
+    </hr>
+{% endfor %}
+    
+</div>
+</div>
+
+{% endblock %}
+
+{% block tail %}
+                            
+                        <div class="pager">
+                            {% qna_paginator context %}
+                            
+                        </div>
+                        <div class="pagesize">
+                            {% qna_pagesize context %}
+                        </div>
+                        
+{% endblock %}
+
+{% block sidebar %}
+<div class="saaskit-block">
+<div class="saaskit-block-content">
+    <p>
+		{% if searchtag %}
+			{% blocktrans count questions_count as cnt with questions_count|intcomma as q_num and searchtag as tag.name %}
+			have total {{q_num}} questions tagged {{ tag.name }}
+			{% plural %}
+			have total {{q_num}} questions tagged {{ tag.name }}
+			{% endblocktrans %}
+		{% else %}
+			{% if searchtitle %}
+				{% blocktrans count questions_count as cnt with questions_count|intcomma as q_num %}
+				have total {{q_num}} questions containing {{searchtitle}}
+				{% plural %}
+				have total {{q_num}} questions containing {{searchtitle}}
+				{% endblocktrans %}
+			{% else %}
+				{% blocktrans count questions_count as cnt with questions_count|intcomma as q_num %}
+				have total {{q_num}} questions
+				{% plural %}
+				have total {{q_num}} questions
+				{% endblocktrans %}
+			{% endif %}
+		{% endif %}
+
+        {% ifequal tab_id "latest" %}
+			<p>{% trans "latest questions info" %}</p>
+        {% endifequal %}
+        
+        {% ifequal tab_id "active" %}
+            <p>{% trans "Questions are sorted by the <strong>time of last update</strong>." %} 
+			{% trans "Most recently answered ones are shown first." %}</p>
+        {% endifequal %}
+        
+        {% ifequal tab_id "hottest" %}
+			<p>{% trans "Questions sorted by <strong>number of responses</strong>." %}
+            {% trans "Most answered questions are shown first." %}</p>
+        {% endifequal %}
+        
+        {% ifequal tab_id "mostvoted" %}
+			<p>{% trans "Questions are sorted by the <strong>number of votes</strong>." %}
+            {% trans "Most voted questions are shown first." %}</p>
+        {% endifequal %}
+        
+        
+    </p>
+</div>
+</div>
+<div class="saaskit-block">
+	<h3>{% trans "Related tags" %}</h3>
+    <div class="saaskit-block-content">
+    <div class="tags">
+        {% for tag in tags %}
+            <a rel="tag" title="{% trans "see questions tagged" %}'{{ tag.name }}'{% trans "using tags" %}"  href="{% url tag_search tag.name|urlencode %}">{{ tag.name }}
+            <span class="tag-number">× {{ tag.used_count|intcomma }}</span></a>            
+        {% endfor %}        
+        
+    <div class="clear"></div>               
+    </div>
+    </div>
+</div>
+
+{% endblock %}
+<!-- end questions.html -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
