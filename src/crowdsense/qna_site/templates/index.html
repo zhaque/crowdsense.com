@@ -67,8 +67,8 @@
 {% block sidebar %}
 <div class="saaskit-block">
 {% if settings.APP_INTRO and not request.user.is_authenticated %}
-<div class="boxA">
-	<h3>{% trans "welcome to website" %}</h3>
+<h3>{% trans "welcome to website" %}</h3>
+<div class="saaskit-block-content">
 	<div class="body">
       {{ settings.APP_INTRO|safe }}
 	  <div class="more"><a href="/about">{% trans "about" %} »</a></div>
@@ -76,17 +76,16 @@
 	</div>
 </div>
 {% endif %}
-<div class="boxB">
-  <h3>{% trans 'About sitename' %}</h3>
+<h3>{% trans 'About sitename' %}</h3>
+<div class="saaskit-block-content">
   <div class="body">
   {% blocktrans %}
   <p>Dummy text... lorem ipsum whatever</p>
   {% endblocktrans %}
   </div>
 </div>
-<p class="text-center"><img src="{{ MEDIA_URL }}qna/images/180x150.png" /></p>
-<div class="boxB">
-	<h3>{% trans "Recent tags" %}</h3>
+<h3>{% trans "Recent tags" %}</h3>
+<div class="saaskit-block-content">
 	<div class="body">
          <p class="tagsbox">
         {% for tag in tags %}
@@ -97,9 +96,8 @@
         <div class="more"><a href="/tags">{% trans "popular tags" %} »</a> </div>
     </div>
 </div>
-<p class="text-center"><img src="{{ MEDIA_URL }}qna/images/120x240.png" /></p>
-<div class="boxB">
-    <h3>{% trans "Recent awards" %}</h3>
+<h3>{% trans "Recent awards" %}</h3>
+<div class="saaskit-block-content">
         <div class="body">
              <ul class="badge-list">
              {% for award in awards %}
@@ -113,7 +111,8 @@
         	<div class="more"><a href="/badges/">{% trans "all awards" %} »</a> </div>
          </div>
 </div>
-<div id="feeds">
+<h3>{% trans "Feeds" %}</h3>
+<div class="saaskit-block-content">
 <a href="/feeds/rss" title="{% trans "subscribe to last 30 questions by RSS" %}">{% trans "subscribe to the questions feed" %}</a>
 </div>
 </div>
