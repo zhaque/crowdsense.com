@@ -1,0 +1,67 @@
+{% extends "app_base.html" %}
+<!-- users.html -->
+{% load extra_tags %}
+{% load humanize %}
+{% load i18n %}
+{% block title %}{% spaceless %}{% trans "Users" %}{% endspaceless %}{% endblock %}
+{% block forejs %}
+       <script type="text/javascript">
+	   //todo move javascript out
+        $().ready(function(){
+            $("#nav_users").attr('className',"on");
+            $("#type-user").attr('checked',true);
+            var orderby = "{{ tab_id }}";
+            $("#sort_" + orderby).attr('className',"on");
+            
+            Hilite.exact = false;
+            Hilite.elementid = "main-body";
+            Hilite.debug_referrer = location.href;
+        });
+        </script>
+{% endblock %}
+{% block content %}
+<div class="saaskit-block">
+    <h3>{% trans "Users" %}</h3>
+    <div class="saaskit-menu">
+      <ul>
+        <li><a id="sort_reputation" href="?sort=reputation" class="off" title="{% trans "reputation" %}">{% trans "reputation" %}</a></li>
+        <li><a id="sort_newest" href="?sort=newest" class="off" title="{% trans "recent" %}">{% trans "recent" %}</a></li>
+        <li><a id="sort_last" href="?sort=last" class="off" title="{% trans "oldest" %}">{% trans "oldest" %}</a></li>
+        <li><a id="sort_user" href="?sort=user" class="off" title="{% trans "by username" %}">{% trans "by username" %}</a></li>
+      </ul>
+     <div class="clear"></div>
+    </div>
+<div class="saaskit-block-content">
+    <p>        
+        {% if suser %}
+			{% blocktrans %}users matching query {{suser}}:{% endblocktrans %}
+        {% endif %}
+    
+        {% if not users.object_list %}
+            <span>{% trans "Nothing found." %}</span>
+        {% endif %}
+    </p>
+    <div class="users">
+                    {% for user in users.object_list %}
+                    <div class="user">
+                        <ul>
+                                <li class="thumb"><a href="{{ user.get_profile_url }}">{% gravatar user 32 %}</a></li>
+                                <li style="display:inline"><strong><a href="{{ user.get_profile_url }}">{{user.username}}</a></strong></li>
+                                <li class="score">{% get_score_badge user %}</li>
+                            </ul>
+                    </div>
+                    {% endfor %}
+    </div>
+</div>
+</div>
+{% endblock %}
+{% block tail %}
+<div class="pager">
+    {% qna_paginator context %}
+</div>              
+{% endblock %}
+<!-- end users.html -->
+
+
+
+
