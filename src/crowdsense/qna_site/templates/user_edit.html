@@ -2,7 +2,7 @@
 <!-- user_edit.html -->
 {% load extra_tags %}
 {% load humanize %}
-{% load i18n %}
+{% load i18n uni_form_tags %}
 {% block title %}{% spaceless %}{% trans "Edit user profile" %}{% endspaceless %}{% endblock %}
 {% block forejs %}
         <script type="text/javascript">
@@ -15,29 +15,21 @@
         {% endblock %}
 {% endblock %}
 {% block content %}
-<div class="app-block">
+<div class="saaskit-block">
 	<h3>{% filter capfirst %}{{ request.user.username }} - {% trans "edit profile" %}{% endfilter %}</h3>
-<div class="app-block-content">
-    <form name="" action="" method="post">
-        <div id="askform">
-            <table class="user-details">
-              <tr><td colspan="2">
-            {% if request.user.email %}
-            {% gravatar request.user 128 %}
-            {% else %}
-            <img src="{{ MEDIA_URL }}qna/images/nophoto.png">
-            {% endif %}
-            <div style="padding:20px 0 0 20px;font-weight:bold;font-size:150%">
-                <a href="http://www.gravatar.com/" target="_blank" 
-					title="gravatar {% trans "image associated with your email address" %}">{% trans "avatar" %}</a>
-            </div>
-              </td></tr>
-              {{ form.as_table }}
-            </table>
-            <div>
-                <input type="submit" value="{% trans "Update" %}" class="submit" />
-                <input id="cancel" type="button" value="{% trans "Cancel" %}" class="submit" />
-            </div>
+<div class="saaskit-block-content">
+    <form class="uniForm" name="" action="" method="post">
+        {% if request.user.email %}
+        {% gravatar request.user 128 %}
+        {% else %}
+        <img src="{{ MEDIA_URL }}qna/images/nophoto.png">
+        {% endif %}
+        <div style="padding:20px 0 0 20px;font-weight:bold;font-size:150%">
+            <a href="http://www.gravatar.com/" target="_blank" title="gravatar {% trans "image associated with your email address" %}">{% trans "avatar" %}</a>
+        </div>
+          {{ form|as_uni_form }}
+        <div class="buttonHolder">
+            <input type="submit" value="{% trans "Update" %}" />
         </div>
     </form>
     
@@ -47,15 +39,15 @@
 <!-- end user_edit.html -->
 
 {% block sidebar %}
-<div class="app-block">
+<div class="saaskit-block">
 	<h3>{% trans "ss" %}</h3>
-<div class="app-block-content">
+<div class="saaskit-block-content">
   text
 </div>
 </div>
-<div class="app-block">
+<div class="saaskit-block">
 	<h3>{% trans "scvdfgdfg" %}</h3>
-    <div class="app-block-content">
+    <div class="saaskit-block-content">
     sdcsdfsdf
     </div>
 </div>
